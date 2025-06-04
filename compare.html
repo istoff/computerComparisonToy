@@ -1499,15 +1499,15 @@
             return `${kb.toLocaleString()} KB`;
         }
 
-        function getComparisonLanguage(category, isBetter) {
+        function getComparisonLanguage(category, isComputer1Better) {
             const languages = {
-                'Computational Power': isBetter ? 'more powerful' : 'less powerful',
-                'Memory': isBetter ? 'has more memory' : 'has less memory',
-                'Storage': isBetter ? 'has more storage' : 'has less storage',
-                'Power Consumption': !isBetter ? 'more power efficient' : 'less power efficient', // Lower power is better
-                'Weight': !isBetter ? 'lighter' : 'heavier' // Lower weight is better
+                'Computational Power': isComputer1Better ? 'more powerful' : 'less powerful',
+                'Memory': isComputer1Better ? 'has more memory' : 'has less memory',
+                'Storage': isComputer1Better ? 'has more storage' : 'has less storage',
+                'Power Consumption': isComputer1Better ? 'more power efficient' : 'less power efficient',
+                'Weight': isComputer1Better ? 'lighter' : 'heavier'
             };
-            return languages[category] || (isBetter ? 'better' : 'worse');
+            return languages[category] || (isComputer1Better ? 'better' : 'worse');
         }
 
         function createVisualization(ratio, name1, name2, category) {
@@ -1604,14 +1604,26 @@
                 
                 if (val1 > 0 && val2 > 0) {
                     const ratio = Math.max(val1, val2) / Math.min(val1, val2);
-                    const faster = val1 > val2 ? computer1.name.split('(')[0].trim() : computer2.name.split('(')[0].trim();
+                    
+                    // Determine if computer1 is better than computer2
+                    let isComputer1Better;
+                    if (comp.key === 'power' || comp.key === 'weight') {
+                        // For power and weight, lower is better
+                        isComputer1Better = val1 < val2;
+                    } else {
+                        // For compute, memory, storage, higher is better
+                        isComputer1Better = val1 > val2;
+                    }
+                    
+                    const computer1Name = computer1.name.split('(')[0].trim();
+                    const comparison = getComparisonLanguage(comp.label, isComputer1Better);
                     
                     const summaryItem = document.createElement('div');
                     summaryItem.className = 'summary-item';
                     summaryItem.innerHTML = `
                         <div class="summary-label">${comp.label}</div>
                         <div class="summary-value">${ratio.toFixed(1)}×</div>
-                        <div style="font-size: 0.8em; color: #7f8c8d; margin-top: 5px;">${faster} is faster</div>
+                        <div style="font-size: 0.8em; color: #7f8c8d; margin-top: 5px;">${computer1Name} ${comparison}</div>
                     `;
                     summaryGrid.appendChild(summaryItem);
                 }
@@ -1659,8 +1671,8 @@
                     <div class="spec-row"><span class="spec-label">CPU:</span><span class="spec-value">${computer1.cores} × ${computer1.cpu} MHz (${computer1.bits}-bit)</span></div>
                     <div class="spec-row"><span class="spec-label">IPC:</span><span class="spec-value">${computer1.ipc} instructions/cycle</span></div>
                     <div class="spec-row"><span class="spec-label">Compute Power:</span><span class="spec-value">${formatNumber(computer1.compute_power)} MIPS</span></div>
-                    <div class="spec-row"><span class="spec-label">Memory:</span><span class="spec-value">${formatNumber(computer1.memory)} KB</span></div>
-                    <div class="spec-row"><span class="spec-label">Storage:</span><span class="spec-value">${formatNumber(computer1.storage)} KB</span></div>
+                    <div class="spec-row"><span class="spec-label">Memory:</span><span class="spec-value">${formatMemoryStorage(computer1.memory)}</span></div>
+                    <div class="spec-row"><span class="spec-label">Storage:</span><span class="spec-value">${formatMemoryStorage(computer1.storage)}</span></div>
                     <div class="spec-row"><span class="spec-label">Weight:</span><span class="spec-value">${computer1.weight} kg</span></div>
                     <div class="spec-row"><span class="spec-label">Power:</span><span class="spec-value">${computer1.power} W</span></div>
                     <div class="spec-row"><span class="spec-label">Efficiency:</span><span class="spec-value">${(computer1.compute_power/computer1.power).toFixed(1)} MIPS/W</span></div>
@@ -1671,8 +1683,8 @@
                     <div class="spec-row"><span class="spec-label">CPU:</span><span class="spec-value">${computer2.cores} × ${computer2.cpu} MHz (${computer2.bits}-bit)</span></div>
                     <div class="spec-row"><span class="spec-label">IPC:</span><span class="spec-value">${computer2.ipc} instructions/cycle</span></div>
                     <div class="spec-row"><span class="spec-label">Compute Power:</span><span class="spec-value">${formatNumber(computer2.compute_power)} MIPS</span></div>
-                    <div class="spec-row"><span class="spec-label">Memory:</span><span class="spec-value">${formatNumber(computer2.memory)} KB</span></div>
-                    <div class="spec-row"><span class="spec-label">Storage:</span><span class="spec-value">${formatNumber(computer2.storage)} KB</span></div>
+                    <div class="spec-row"><span class="spec-label">Memory:</span><span class="spec-value">${formatMemoryStorage(computer2.memory)}</span></div>
+                    <div class="spec-row"><span class="spec-label">Storage:</span><span class="spec-value">${formatMemoryStorage(computer2.storage)}</span></div>
                     <div class="spec-row"><span class="spec-label">Weight:</span><span class="spec-value">${computer2.weight} kg</span></div>
                     <div class="spec-row"><span class="spec-label">Power:</span><span class="spec-value">${computer2.power} W</span></div>
                     <div class="spec-row"><span class="spec-label">Efficiency:</span><span class="spec-value">${(computer2.compute_power/computer2.power).toFixed(1)} MIPS/W</span></div>
