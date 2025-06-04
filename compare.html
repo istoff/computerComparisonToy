@@ -20,7 +20,7 @@
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
@@ -41,8 +41,17 @@
         .subtitle {
             text-align: center;
             color: #7f8c8d;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-size: 1.1em;
+        }
+
+        .explainer {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 10px;
+            color: #2c3e50;
         }
         
         .selectors {
@@ -80,184 +89,258 @@
             outline: none;
             border-color: #3498db;
         }
-        
-        .comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .computer-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 25px;
-            border-radius: 15px;
-            border: 2px solid #bdc3c7;
-        }
-        
-        .computer-card h2 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-        }
-        
-        .spec-item {
-            margin-bottom: 12px;
-            padding: 8px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 8px;
-        }
-        
-        .spec-label {
-            font-weight: bold;
-            color: #34495e;
-        }
-        
-        .spec-value {
-            color: #2c3e50;
-            margin-left: 10px;
-        }
-        
-        .visual-comparisons {
+
+        .summary-section {
             background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
             padding: 25px;
             border-radius: 15px;
-            margin-top: 20px;
+            margin-bottom: 30px;
             border: 2px solid #f39c12;
         }
-        
-        .visual-comparisons h3 {
+
+        .summary-title {
             color: #d35400;
-            margin-bottom: 20px;
             font-size: 1.4em;
             text-align: center;
-        }
-        
-        .comparison-item {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
             margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .summary-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
             border-radius: 10px;
+            text-align: center;
             border-left: 4px solid #e67e22;
         }
-        
-        .comparison-title {
+
+        .summary-label {
             font-weight: bold;
             color: #d35400;
-            margin-bottom: 10px;
-            font-size: 1.1em;
+            font-size: 0.9em;
+            margin-bottom: 5px;
         }
-        
-        .ratio-display {
-            font-size: 1.2em;
+
+        .summary-value {
             color: #8e44ad;
-            margin-bottom: 15px;
-            text-align: center;
-            padding: 10px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .compute-breakdown {
             background: rgba(142, 68, 173, 0.1);
+            padding: 15px;
             border-radius: 8px;
+            margin-top: 15px;
         }
-        
-        .visual-scale {
-            margin: 15px 0;
+
+        .compute-breakdown-title {
+            font-weight: bold;
+            color: #8e44ad;
+            margin-bottom: 10px;
+            text-align: center;
         }
-        
-        .bar-comparison {
-            display: flex;
-            align-items: flex-end;
-            height: 100px;
-            margin: 10px 0;
-            gap: 10px;
+
+        .compute-formula {
+            font-family: monospace;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 5px 0;
+            border: 1px solid #ddd;
         }
-        
-        .bar {
-            background: linear-gradient(45deg, #3498db, #2980b9);
-            border-radius: 4px 4px 0 0;
-            min-width: 40px;
+
+        .visualizations {
+            background: linear-gradient(135deg, #e8f8f5 0%, #d5e8f4 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #3498db;
+        }
+
+        .vis-title {
+            color: #2980b9;
+            font-size: 1.4em;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .comparison-row {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        .comparison-header {
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .ratio-badge {
+            display: inline-block;
+            background: #8e44ad;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Simple bar chart for small differences (2-20x) */
+        .simple-bars {
             display: flex;
             align-items: flex-end;
             justify-content: center;
+            gap: 20px;
+            height: 100px;
+            margin: 20px 0;
+        }
+
+        .simple-bar {
+            background: linear-gradient(45deg, #3498db, #2980b9);
             color: white;
             font-weight: bold;
             font-size: 12px;
-            padding: 5px;
-        }
-        
-        .square-comparison {
+            min-width: 60px;
             display: flex;
             align-items: flex-end;
-            gap: 20px;
-            margin: 15px 0;
+            justify-content: center;
+            padding: 8px;
+            border-radius: 4px 4px 0 0;
+            text-align: center;
+        }
+
+        /* Circle comparison for medium differences (20-1000x) */
+        .circle-comparison {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
             flex-wrap: wrap;
         }
-        
-        .square {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            border-radius: 4px;
+
+        .circle-item {
+            text-align: center;
+        }
+
+        .circle {
+            background: radial-gradient(circle, #e74c3c, #c0392b);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
-            font-size: 10px;
-            min-width: 20px;
-            min-height: 20px;
+            margin: 0 auto 10px;
+            font-size: 11px;
         }
-        
-        .pixel-comparison {
-            margin: 15px 0;
+
+        .circle-label {
+            font-size: 12px;
+            color: #2c3e50;
+            font-weight: bold;
         }
-        
-        .pixel-grid {
-            display: inline-block;
-            margin: 5px 10px;
-            vertical-align: top;
-        }
-        
-        .pixel {
-            width: 2px;
-            height: 2px;
-            background: #2c3e50;
-            display: inline-block;
-        }
-        
-        .metaphor-text {
-            color: #27ae60;
-            font-style: italic;
-            font-size: 1.05em;
-            margin-top: 10px;
-            padding: 10px;
-            background: rgba(39, 174, 96, 0.1);
-            border-radius: 6px;
-        }
-        
-        .timeline {
+
+        /* Scale representation for huge differences (1000x+) */
+        .scale-representation {
             text-align: center;
-            margin-top: 20px;
-            padding: 15px;
-            background: linear-gradient(45deg, #74b9ff, #0984e3);
-            color: white;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(231, 76, 60, 0.1);
             border-radius: 10px;
-            font-size: 1.1em;
         }
-        
+
+        .scale-large {
+            font-size: 1.5em;
+            color: #e74c3c;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .scale-small {
+            font-size: 0.8em;
+            color: #95a5a6;
+            margin: 10px 0;
+        }
+
+        .metaphor {
+            background: rgba(39, 174, 96, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            font-style: italic;
+            color: #27ae60;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .spec-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .spec-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #bdc3c7;
+        }
+
+        .spec-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 4px 0;
+        }
+
+        .spec-label {
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        .spec-value {
+            color: #2c3e50;
+        }
+
         @media (max-width: 768px) {
-            .selectors, .comparison {
+            .selectors, .spec-cards {
                 grid-template-columns: 1fr;
             }
             
             h1 {
                 font-size: 2em;
             }
-            
-            .bar-comparison {
-                height: 60px;
+
+            .summary-grid {
+                grid-template-columns: 1fr;
             }
-            
-            .square-comparison {
-                justify-content: center;
+
+            .circle-comparison {
+                flex-direction: column;
+                gap: 20px;
             }
         }
     </style>
@@ -266,8 +349,9 @@
     <div class="container">
         <h1>🖥️ Computer Evolution Comparison</h1>
         <p class="subtitle">Mathematically accurate scale comparisons of computing evolution</p>
-        <div style="text-align: center; margin-bottom: 20px; padding: 15px; background: rgba(52, 152, 219, 0.1); border-radius: 10px; color: #2c3e50;">
-            <strong>💡 Why MHz doesn't tell the whole story:</strong> A modern 2GHz dual-core processor vastly outperforms a 4GHz single-core from 2000 due to multiple cores, higher instructions-per-cycle (IPC), and 64-bit architecture. We show both raw MHz and actual computational power (MIPS).
+        
+        <div class="explainer">
+            <strong>💡 Real computational power:</strong> Modern processors use multiple cores, higher instructions-per-cycle (IPC), and advanced architectures. A 2GHz dual-core vastly outperforms a 4GHz single-core from 2000!
         </div>
         
         <div class="selectors">
@@ -284,18 +368,21 @@
                 </select>
             </div>
         </div>
-        
-        <div class="comparison" id="comparison" style="display: none;">
-            <div class="computer-card" id="card1"></div>
-            <div class="computer-card" id="card2"></div>
+
+        <div id="results" style="display: none;">
+            <div class="summary-section">
+                <div class="summary-title">📊 Performance Summary</div>
+                <div class="summary-grid" id="summary-grid"></div>
+                <div class="compute-breakdown" id="compute-breakdown"></div>
+            </div>
+
+            <div class="visualizations">
+                <div class="vis-title">📈 Visual Scale Comparisons</div>
+                <div id="visual-content"></div>
+            </div>
+
+            <div class="spec-cards" id="spec-cards"></div>
         </div>
-        
-        <div class="visual-comparisons" id="visual-comparisons" style="display: none;">
-            <h3>📊 Precise Scale Visualizations</h3>
-            <div id="comparison-content"></div>
-        </div>
-        
-        <div class="timeline" id="timeline" style="display: none;"></div>
     </div>
 
     <script>
@@ -304,15 +391,15 @@
             'eniac': {
                 name: 'ENIAC (1946)',
                 year: 1946,
-                cpu: 0.0001, // MHz
-                compute_power: 0.005, // MIPS equivalent
+                cpu: 0.0001,
                 cores: 1,
-                bits: 10, // decimal digits
-                memory: 0.0195, // KB (20 numbers)
+                bits: 10,
+                ipc: 0.05,
+                compute_power: 0.005,
+                memory: 0.0195,
                 storage: 0,
-                size: 167, // m²
-                weight: 27000, // kg
-                power: 150000, // W
+                weight: 27000,
+                power: 150000,
                 cost: 6000000,
                 category: 'Early Computer'
             },
@@ -320,12 +407,12 @@
                 name: 'UNIVAC I (1951)',
                 year: 1951,
                 cpu: 0.002,
-                compute_power: 0.02, // MIPS equivalent
                 cores: 1,
                 bits: 12,
+                ipc: 0.1,
+                compute_power: 0.0002,
                 memory: 1,
                 storage: 0,
-                size: 35,
                 weight: 7300,
                 power: 125000,
                 cost: 15000000,
@@ -337,12 +424,12 @@
                 name: 'Apollo Guidance Computer (1966)',
                 year: 1966,
                 cpu: 2.048,
-                compute_power: 0.085, // MIPS equivalent  
                 cores: 1,
                 bits: 16,
+                ipc: 0.5,
+                compute_power: 1.024,
                 memory: 4,
                 storage: 36,
-                size: 0.028,
                 weight: 32,
                 power: 55,
                 cost: 3500000,
@@ -352,12 +439,12 @@
                 name: 'Voyager Computer (1977)',
                 year: 1977,
                 cpu: 4,
-                compute_power: 0.25, // MIPS equivalent
                 cores: 1,
                 bits: 18,
+                ipc: 0.6,
+                compute_power: 2.4,
                 memory: 68,
                 storage: 8,
-                size: 0.03,
                 weight: 4.2,
                 power: 28,
                 cost: 900000,
@@ -367,30 +454,107 @@
                 name: 'Space Shuttle Computer (1981)',
                 year: 1981,
                 cpu: 1.4,
-                compute_power: 0.4, // MIPS equivalent
                 cores: 1,
                 bits: 32,
+                ipc: 0.7,
+                compute_power: 0.98,
                 memory: 104,
                 storage: 106,
-                size: 0.05,
                 weight: 29,
                 power: 550,
                 cost: 2000000,
                 category: 'Space Computer'
             },
+
+            // Fictional Computers
             'hal9000': {
-                name: 'HAL 9000 (Movie - 1968)',
+                name: 'HAL 9000 (2001: Space Odyssey)',
                 year: 1968,
-                cpu: 1000, // fictional
-                compute_power: 100000, // fictional high performance
-                cores: 1000, // fictional massively parallel
+                cpu: 1000,
+                cores: 1000,
                 bits: 64,
-                memory: 1048576, // 1GB fictional
-                storage: 1073741824, // 1TB fictional
-                size: 50,
+                ipc: 10.0,
+                compute_power: 10000000,
+                memory: 1048576000,
+                storage: 1073741824000,
                 weight: 5000,
                 power: 100000,
                 cost: 50000000,
+                category: 'Fictional Computer'
+            },
+            'jurassic_sgi': {
+                name: 'Jurassic Park SGI (1993 Movie)',
+                year: 1993,
+                cpu: 150,
+                cores: 1,
+                bits: 64,
+                ipc: 2.5,
+                compute_power: 375,
+                memory: 131072,
+                storage: 4194304,
+                weight: 45,
+                power: 400,
+                cost: 100000,
+                category: 'Fictional Computer'
+            },
+            'wopr': {
+                name: 'WOPR (WarGames 1983)',
+                year: 1983,
+                cpu: 50,
+                cores: 100,
+                bits: 32,
+                ipc: 2.0,
+                compute_power: 10000,
+                memory: 1048576,
+                storage: 10485760,
+                weight: 10000,
+                power: 500000,
+                cost: 75000000,
+                category: 'Fictional Computer'
+            },
+            'skynet': {
+                name: 'Skynet (Terminator 1984)',
+                year: 1984,
+                cpu: 1000,
+                cores: 10000,
+                bits: 64,
+                ipc: 8.0,
+                compute_power: 80000000,
+                memory: 1073741824,
+                storage: 1099511627776,
+                weight: 50000,
+                power: 10000000,
+                cost: 1000000000,
+                category: 'Fictional Computer'
+            },
+            'mother': {
+                name: 'Mother (Alien 1979)',
+                year: 1979,
+                cpu: 100,
+                cores: 50,
+                bits: 32,
+                ipc: 3.0,
+                compute_power: 15000,
+                memory: 524288,
+                storage: 52428800,
+                weight: 2000,
+                power: 250000,
+                cost: 25000000,
+                category: 'Fictional Computer'
+            },
+            'enterprise': {
+                name: 'Enterprise Computer (Star Trek)',
+                year: 1966,
+                cpu: 10000,
+                cores: 100000,
+                bits: 128,
+                ipc: 50.0,
+                compute_power: 50000000000,
+                memory: 1099511627776000,
+                storage: 1125899906842624000,
+                weight: 100000,
+                power: 1000000000,
+                cost: 10000000000,
                 category: 'Fictional Computer'
             },
 
@@ -399,12 +563,12 @@
                 name: 'HP-35 Calculator (1972)',
                 year: 1972,
                 cpu: 0.2,
-                compute_power: 0.01, // Very limited
                 cores: 1,
-                bits: 56, // Unique architecture
+                bits: 56,
+                ipc: 0.05,
+                compute_power: 0.01,
                 memory: 0.768,
                 storage: 0,
-                size: 0.013,
                 weight: 0.255,
                 power: 0.8,
                 cost: 2000,
@@ -414,15 +578,30 @@
                 name: 'TI-81 Calculator (1990)',
                 year: 1990,
                 cpu: 2,
-                compute_power: 0.1, // Limited calculator performance
                 cores: 1,
                 bits: 8,
+                ipc: 0.5,
+                compute_power: 1.0,
                 memory: 2.4,
                 storage: 0,
-                size: 0.016,
                 weight: 0.275,
                 power: 0.05,
                 cost: 110,
+                category: 'Calculator'
+            },
+            'ti89': {
+                name: 'TI-89 Calculator (1998)',
+                year: 1998,
+                cpu: 10,
+                cores: 1,
+                bits: 32,
+                ipc: 0.8,
+                compute_power: 8.0,
+                memory: 188,
+                storage: 2048,
+                weight: 0.31,
+                power: 0.2,
+                cost: 180,
                 category: 'Calculator'
             },
 
@@ -431,12 +610,12 @@
                 name: 'Altair 8800 (1975)',
                 year: 1975,
                 cpu: 2,
-                compute_power: 0.5, // MIPS (8080)
                 cores: 1,
                 bits: 8,
+                ipc: 0.25,
+                compute_power: 0.5,
                 memory: 1,
                 storage: 0,
-                size: 0.1,
                 weight: 18,
                 power: 60,
                 cost: 5000,
@@ -446,12 +625,12 @@
                 name: 'Apple II (1977)',
                 year: 1977,
                 cpu: 1,
-                compute_power: 0.43, // MIPS (6502)
                 cores: 1,
                 bits: 8,
+                ipc: 0.43,
+                compute_power: 0.43,
                 memory: 48,
                 storage: 140,
-                size: 0.086,
                 weight: 5.5,
                 power: 45,
                 cost: 7500,
@@ -461,15 +640,30 @@
                 name: 'Commodore 64 (1982)',
                 year: 1982,
                 cpu: 1,
-                compute_power: 0.43, // MIPS (6510)
                 cores: 1,
                 bits: 8,
+                ipc: 0.4,
+                compute_power: 0.4,
                 memory: 64,
                 storage: 170,
-                size: 0.08,
                 weight: 1.8,
                 power: 10,
                 cost: 1500,
+                category: 'Personal Computer'
+            },
+            'amiga500': {
+                name: 'Commodore Amiga 500 (1987)',
+                year: 1987,
+                cpu: 7.16,
+                cores: 1,
+                bits: 32,
+                ipc: 0.6,
+                compute_power: 4.3,
+                memory: 512,
+                storage: 880,
+                weight: 4.3,
+                power: 40,
+                cost: 3000,
                 category: 'Personal Computer'
             },
 
@@ -478,12 +672,12 @@
                 name: 'IBM PC (1981)',
                 year: 1981,
                 cpu: 4.77,
-                compute_power: 0.64, // MIPS (8088)
                 cores: 1,
                 bits: 16,
+                ipc: 0.33,
+                compute_power: 1.57,
                 memory: 256,
                 storage: 360,
-                size: 0.1,
                 weight: 11.3,
                 power: 130,
                 cost: 8000,
@@ -493,12 +687,12 @@
                 name: 'IBM PC XT (1983)',
                 year: 1983,
                 cpu: 4.77,
-                compute_power: 0.64, // MIPS (8088)
                 cores: 1,
                 bits: 16,
+                ipc: 0.33,
+                compute_power: 1.57,
                 memory: 640,
-                storage: 10240, // 10MB hard drive
-                size: 0.12,
+                storage: 10240,
                 weight: 15,
                 power: 135,
                 cost: 6000,
@@ -508,12 +702,12 @@
                 name: 'IBM PC AT (1984)',
                 year: 1984,
                 cpu: 6,
-                compute_power: 1.5, // MIPS (80286)
                 cores: 1,
                 bits: 16,
+                ipc: 0.5,
+                compute_power: 3.0,
                 memory: 512,
-                storage: 20480, // 20MB
-                size: 0.15,
+                storage: 20480,
                 weight: 21,
                 power: 200,
                 cost: 8000,
@@ -525,12 +719,12 @@
                 name: '386 PC (1985)',
                 year: 1985,
                 cpu: 16,
-                compute_power: 5, // MIPS (80386)
                 cores: 1,
                 bits: 32,
-                memory: 4096, // 4MB
-                storage: 40960, // 40MB
-                size: 0.2,
+                ipc: 0.6,
+                compute_power: 9.6,
+                memory: 4096,
+                storage: 40960,
                 weight: 18,
                 power: 150,
                 cost: 7000,
@@ -540,12 +734,12 @@
                 name: '486 PC (1989)',
                 year: 1989,
                 cpu: 25,
-                compute_power: 20, // MIPS (80486)
                 cores: 1,
                 bits: 32,
-                memory: 8192, // 8MB
-                storage: 102400, // 100MB
-                size: 0.18,
+                ipc: 0.8,
+                compute_power: 20,
+                memory: 8192,
+                storage: 102400,
                 weight: 16,
                 power: 180,
                 cost: 4000,
@@ -557,12 +751,12 @@
                 name: 'Pentium PC (1993)',
                 year: 1993,
                 cpu: 60,
-                compute_power: 100, // MIPS
                 cores: 1,
                 bits: 32,
-                memory: 16384, // 16MB
-                storage: 524288, // 512MB
-                size: 0.15,
+                ipc: 1.67,
+                compute_power: 100,
+                memory: 16384,
+                storage: 524288,
                 weight: 12,
                 power: 200,
                 cost: 3000,
@@ -572,9 +766,12 @@
                 name: 'Pentium II PC (1997)',
                 year: 1997,
                 cpu: 233,
-                memory: 65536, // 64MB
-                storage: 4194304, // 4GB
-                size: 0.12,
+                cores: 1,
+                bits: 32,
+                ipc: 2.0,
+                compute_power: 466,
+                memory: 65536,
+                storage: 4194304,
                 weight: 10,
                 power: 250,
                 cost: 2500,
@@ -584,9 +781,12 @@
                 name: 'Pentium III PC (1999)',
                 year: 1999,
                 cpu: 500,
-                memory: 131072, // 128MB
-                storage: 10485760, // 10GB
-                size: 0.1,
+                cores: 1,
+                bits: 32,
+                ipc: 2.2,
+                compute_power: 1100,
+                memory: 131072,
+                storage: 10485760,
                 weight: 8,
                 power: 300,
                 cost: 2000,
@@ -596,9 +796,12 @@
                 name: 'Pentium 4 PC (2000)',
                 year: 2000,
                 cpu: 1500,
-                memory: 524288, // 512MB
-                storage: 41943040, // 40GB
-                size: 0.08,
+                cores: 1,
+                bits: 32,
+                ipc: 1.0,
+                compute_power: 1500,
+                memory: 524288,
+                storage: 41943040,
                 weight: 7,
                 power: 350,
                 cost: 1800,
@@ -610,9 +813,12 @@
                 name: 'Core Duo PC (2006)',
                 year: 2006,
                 cpu: 1830,
-                memory: 2097152, // 2GB
-                storage: 167772160, // 160GB
-                size: 0.06,
+                cores: 2,
+                bits: 32,
+                ipc: 2.8,
+                compute_power: 10248,
+                memory: 2097152,
+                storage: 167772160,
                 weight: 5,
                 power: 280,
                 cost: 1500,
@@ -622,9 +828,12 @@
                 name: 'Core 2 Duo PC (2007)',
                 year: 2007,
                 cpu: 2400,
-                memory: 4194304, // 4GB
-                storage: 524288000, // 500GB
-                size: 0.05,
+                cores: 2,
+                bits: 64,
+                ipc: 3.2,
+                compute_power: 15360,
+                memory: 4194304,
+                storage: 524288000,
                 weight: 4.5,
                 power: 250,
                 cost: 1200,
@@ -634,9 +843,12 @@
                 name: 'Core i3 PC (2010)',
                 year: 2010,
                 cpu: 2930,
-                memory: 8388608, // 8GB
-                storage: 1048576000, // 1TB
-                size: 0.04,
+                cores: 2,
+                bits: 64,
+                ipc: 3.5,
+                compute_power: 20510,
+                memory: 8388608,
+                storage: 1048576000,
                 weight: 4,
                 power: 220,
                 cost: 800,
@@ -646,9 +858,12 @@
                 name: 'Core i5 PC (2012)',
                 year: 2012,
                 cpu: 3300,
-                memory: 16777216, // 16GB
-                storage: 1048576000, // 1TB
-                size: 0.04,
+                cores: 4,
+                bits: 64,
+                ipc: 3.8,
+                compute_power: 50160,
+                memory: 16777216,
+                storage: 1048576000,
                 weight: 4,
                 power: 200,
                 cost: 1000,
@@ -658,12 +873,12 @@
                 name: 'Core i7 PC (2015)',
                 year: 2015,
                 cpu: 4000,
-                compute_power: 280000, // MIPS (4 cores, high IPC)
                 cores: 4,
                 bits: 64,
-                memory: 33554432, // 32GB
-                storage: 2097152000, // 2TB
-                size: 0.035,
+                ipc: 4.0,
+                compute_power: 64000,
+                memory: 33554432,
+                storage: 2097152000,
                 weight: 3.5,
                 power: 180,
                 cost: 1500,
@@ -673,29 +888,74 @@
                 name: 'Core i9 PC (2018)',
                 year: 2018,
                 cpu: 5000,
-                compute_power: 800000, // MIPS (8+ cores, very high IPC)
                 cores: 8,
                 bits: 64,
-                memory: 67108864, // 64GB
-                storage: 4194304000, // 4TB
-                size: 0.03,
+                ipc: 4.5,
+                compute_power: 180000,
+                memory: 67108864,
+                storage: 4194304000,
                 weight: 3,
                 power: 250,
                 cost: 2500,
                 category: 'Personal Computer'
             },
 
-            // AMD
+            // AMD Processors
+            'athlon': {
+                name: 'AMD Athlon PC (1999)',
+                year: 1999,
+                cpu: 500,
+                cores: 1,
+                bits: 32,
+                ipc: 2.3,
+                compute_power: 1150,
+                memory: 131072,
+                storage: 10485760,
+                weight: 8,
+                power: 280,
+                cost: 1800,
+                category: 'Personal Computer'
+            },
+            'athlon64': {
+                name: 'AMD Athlon 64 PC (2003)',
+                year: 2003,
+                cpu: 2000,
+                cores: 1,
+                bits: 64,
+                ipc: 2.5,
+                compute_power: 5000,
+                memory: 1048576,
+                storage: 83886080,
+                weight: 6,
+                power: 180,
+                cost: 1500,
+                category: 'Personal Computer'
+            },
+            'ryzen3': {
+                name: 'Ryzen 3 PC (2017)',
+                year: 2017,
+                cpu: 3200,
+                cores: 4,
+                bits: 64,
+                ipc: 4.2,
+                compute_power: 53760,
+                memory: 16777216,
+                storage: 1073741824,
+                weight: 3.2,
+                power: 120,
+                cost: 800,
+                category: 'Personal Computer'
+            },
             'ryzen5': {
                 name: 'Ryzen 5 PC (2017)',
                 year: 2017,
                 cpu: 3600,
-                compute_power: 432000, // MIPS (6 cores, high IPC)
                 cores: 6,
                 bits: 64,
-                memory: 33554432, // 32GB
-                storage: 2097152000, // 2TB
-                size: 0.035,
+                ipc: 4.5,
+                compute_power: 97200,
+                memory: 33554432,
+                storage: 2097152000,
                 weight: 3.2,
                 power: 160,
                 cost: 1200,
@@ -705,12 +965,12 @@
                 name: 'Ryzen 7 PC (2019)',
                 year: 2019,
                 cpu: 4300,
-                compute_power: 688000, // MIPS (8 cores, high IPC)
                 cores: 8,
                 bits: 64,
-                memory: 67108864, // 64GB
-                storage: 4194304000, // 4TB
-                size: 0.03,
+                ipc: 4.7,
+                compute_power: 161480,
+                memory: 67108864,
+                storage: 4194304000,
                 weight: 3,
                 power: 180,
                 cost: 1800,
@@ -720,26 +980,123 @@
                 name: 'Ryzen 9 PC (2021)',
                 year: 2021,
                 cpu: 5200,
-                compute_power: 1248000, // MIPS (12 cores, very high IPC)
                 cores: 12,
                 bits: 64,
-                memory: 134217728, // 128GB
-                storage: 8388608000, // 8TB
-                size: 0.03,
+                ipc: 4.8,
+                compute_power: 299520,
+                memory: 134217728,
+                storage: 8388608000,
                 weight: 3,
                 power: 200,
                 cost: 3000,
                 category: 'Personal Computer'
             },
 
-            // Laptops Through the Eras
+            // Apple Silicon
+            'm1': {
+                name: 'Apple M1 Mac (2020)',
+                year: 2020,
+                cpu: 3200,
+                cores: 8,
+                bits: 64,
+                ipc: 7.0,
+                compute_power: 179200,
+                memory: 16777216,
+                storage: 1073741824,
+                weight: 1.3,
+                power: 25,
+                cost: 1300,
+                category: 'Apple Silicon'
+            },
+            'm2': {
+                name: 'Apple M2 Mac (2022)',
+                year: 2022,
+                cpu: 3500,
+                cores: 8,
+                bits: 64,
+                ipc: 7.5,
+                compute_power: 210000,
+                memory: 25165824,
+                storage: 1073741824,
+                weight: 1.24,
+                power: 30,
+                cost: 1500,
+                category: 'Apple Silicon'
+            },
+            'm3': {
+                name: 'Apple M3 Mac (2023)',
+                year: 2023,
+                cpu: 4100,
+                cores: 8,
+                bits: 64,
+                ipc: 8.0,
+                compute_power: 262400,
+                memory: 25165824,
+                storage: 1073741824,
+                weight: 1.22,
+                power: 28,
+                cost: 1700,
+                category: 'Apple Silicon'
+            },
+            'm4': {
+                name: 'Apple M4 Mac (2024)',
+                year: 2024,
+                cpu: 4400,
+                cores: 10,
+                bits: 64,
+                ipc: 8.5,
+                compute_power: 374000,
+                memory: 33554432,
+                storage: 1073741824,
+                weight: 1.18,
+                power: 25,
+                cost: 1800,
+                category: 'Apple Silicon'
+            },
+
+            // ARM/Mobile Processors
+            'snapdragon855': {
+                name: 'Snapdragon 855 Phone (2019)',
+                year: 2019,
+                cpu: 2840,
+                cores: 8,
+                bits: 64,
+                ipc: 4.0,
+                compute_power: 90880,
+                memory: 12582912,
+                storage: 268435456,
+                weight: 0.18,
+                power: 4.5,
+                cost: 700,
+                category: 'ARM/Mobile'
+            },
+            'snapdragon8gen2': {
+                name: 'Snapdragon 8 Gen 2 Phone (2023)',
+                year: 2023,
+                cpu: 3360,
+                cores: 8,
+                bits: 64,
+                ipc: 6.5,
+                compute_power: 174720,
+                memory: 16777216,
+                storage: 1073741824,
+                weight: 0.19,
+                power: 6.0,
+                cost: 900,
+                category: 'ARM/Mobile'
+            },
+
+            // Laptops Through Eras
             'osborne1': {
                 name: 'Osborne 1 (1981)',
                 year: 1981,
                 cpu: 4,
+                cores: 1,
+                bits: 8,
+                ipc: 0.3,
+                compute_power: 1.2,
                 memory: 64,
                 storage: 180,
-                size: 0.035,
                 weight: 10.7,
                 power: 60,
                 cost: 4000,
@@ -749,9 +1106,12 @@
                 name: '486 Laptop (1992)',
                 year: 1992,
                 cpu: 33,
-                memory: 4096, // 4MB
-                storage: 102400, // 100MB
-                size: 0.028,
+                cores: 1,
+                bits: 32,
+                ipc: 0.8,
+                compute_power: 26.4,
+                memory: 4096,
+                storage: 102400,
                 weight: 3.2,
                 power: 25,
                 cost: 4500,
@@ -761,9 +1121,12 @@
                 name: 'ThinkPad 701 (1995)',
                 year: 1995,
                 cpu: 75,
-                memory: 8192, // 8MB
-                storage: 524288, // 512MB
-                size: 0.025,
+                cores: 1,
+                bits: 32,
+                ipc: 1.2,
+                compute_power: 90,
+                memory: 8192,
+                storage: 524288,
                 weight: 2.1,
                 power: 30,
                 cost: 3500,
@@ -773,9 +1136,12 @@
                 name: 'PowerBook G3 (1997)',
                 year: 1997,
                 cpu: 233,
-                memory: 32768, // 32MB
-                storage: 2097152, // 2GB
-                size: 0.023,
+                cores: 1,
+                bits: 32,
+                ipc: 1.8,
+                compute_power: 419.4,
+                memory: 32768,
+                storage: 2097152,
                 weight: 2.7,
                 power: 35,
                 cost: 3000,
@@ -785,9 +1151,12 @@
                 name: 'Centrino Laptop (2003)',
                 year: 2003,
                 cpu: 1600,
-                memory: 1048576, // 1GB
-                storage: 83886080, // 80GB
-                size: 0.02,
+                cores: 1,
+                bits: 32,
+                ipc: 2.0,
+                compute_power: 3200,
+                memory: 1048576,
+                storage: 83886080,
                 weight: 2.2,
                 power: 45,
                 cost: 2000,
@@ -797,9 +1166,12 @@
                 name: 'MacBook Pro (2006)',
                 year: 2006,
                 cpu: 2160,
-                memory: 2097152, // 2GB
-                storage: 125829120, // 120GB
-                size: 0.018,
+                cores: 1,
+                bits: 32,
+                ipc: 2.8,
+                compute_power: 6048,
+                memory: 2097152,
+                storage: 125829120,
                 weight: 2.54,
                 power: 85,
                 cost: 2500,
@@ -809,9 +1181,12 @@
                 name: 'Ultrabook (2012)',
                 year: 2012,
                 cpu: 2600,
-                memory: 8388608, // 8GB
-                storage: 268435456, // 256GB SSD
-                size: 0.015,
+                cores: 2,
+                bits: 64,
+                ipc: 3.8,
+                compute_power: 19760,
+                memory: 8388608,
+                storage: 268435456,
                 weight: 1.3,
                 power: 45,
                 cost: 1200,
@@ -821,73 +1196,29 @@
                 name: 'Modern Laptop (2024)',
                 year: 2024,
                 cpu: 4800,
-                memory: 33554432, // 32GB
-                storage: 1073741824, // 1TB
-                size: 0.025,
+                cores: 8,
+                bits: 64,
+                ipc: 5.5,
+                compute_power: 211200,
+                memory: 33554432,
+                storage: 1073741824,
                 weight: 1.5,
                 power: 65,
                 cost: 1500,
                 category: 'Laptop'
             },
 
-            // Raspberry Pi
-            'rpi1': {
-                name: 'Raspberry Pi 1 (2012)',
-                year: 2012,
-                cpu: 700,
-                memory: 524288, // 512MB
-                storage: 8388608, // 8GB SD
-                size: 0.0085,
-                weight: 0.045,
-                power: 3.5,
-                cost: 35,
-                category: 'Single Board Computer'
-            },
-            'rpi2': {
-                name: 'Raspberry Pi 2 (2015)',
-                year: 2015,
-                cpu: 900,
-                memory: 1048576, // 1GB
-                storage: 16777216, // 16GB SD
-                size: 0.0085,
-                weight: 0.045,
-                power: 4,
-                cost: 35,
-                category: 'Single Board Computer'
-            },
-            'rpi3': {
-                name: 'Raspberry Pi 3 (2016)',
-                year: 2016,
-                cpu: 1200,
-                memory: 1048576, // 1GB
-                storage: 33554432, // 32GB SD
-                size: 0.0085,
-                weight: 0.045,
-                power: 5.1,
-                cost: 35,
-                category: 'Single Board Computer'
-            },
-            'rpi4': {
-                name: 'Raspberry Pi 4 (2019)',
-                year: 2019,
-                cpu: 1500,
-                memory: 8388608, // 8GB
-                storage: 67108864, // 64GB SD
-                size: 0.0085,
-                weight: 0.046,
-                power: 6.4,
-                cost: 75,
-                category: 'Single Board Computer'
-            },
-
-            // Mobile Devices
+            // Mobile Devices Evolution
             'iphone': {
                 name: 'iPhone (2007)',
                 year: 2007,
                 cpu: 412,
-                memory: 131072, // 128MB
-                storage: 8388608, // 8GB
-                size: 0.0061,
+                cores: 1,
+                bits: 32,
+                ipc: 1.0,
+                compute_power: 412,
+                memory: 131072,
+                storage: 8388608,
                 weight: 0.135,
                 power: 2,
                 cost: 600,
@@ -897,9 +1228,12 @@
                 name: 'iPhone 4 (2010)',
                 year: 2010,
                 cpu: 1000,
-                memory: 524288, // 512MB
-                storage: 33554432, // 32GB
-                size: 0.0058,
+                cores: 1,
+                bits: 32,
+                ipc: 2.0,
+                compute_power: 2000,
+                memory: 524288,
+                storage: 33554432,
                 weight: 0.137,
                 power: 2.5,
                 cost: 600,
@@ -909,9 +1243,12 @@
                 name: 'iPhone 6 (2014)',
                 year: 2014,
                 cpu: 1400,
-                memory: 1048576, // 1GB
-                storage: 134217728, // 128GB
-                size: 0.0067,
+                cores: 2,
+                bits: 64,
+                ipc: 3.5,
+                compute_power: 9800,
+                memory: 1048576,
+                storage: 134217728,
                 weight: 0.129,
                 power: 3,
                 cost: 650,
@@ -921,9 +1258,12 @@
                 name: 'iPhone X (2017)',
                 year: 2017,
                 cpu: 2390,
-                memory: 3145728, // 3GB
-                storage: 268435456, // 256GB
-                size: 0.0071,
+                cores: 6,
+                bits: 64,
+                ipc: 5.0,
+                compute_power: 71700,
+                memory: 3145728,
+                storage: 268435456,
                 weight: 0.174,
                 power: 3.5,
                 cost: 1000,
@@ -933,29 +1273,138 @@
                 name: 'iPhone 14 (2022)',
                 year: 2022,
                 cpu: 3230,
-                compute_power: 200000, // MIPS (6 cores, very high IPC, ARM)
                 cores: 6,
                 bits: 64,
-                memory: 6291456, // 6GB
-                storage: 1073741824, // 1TB
-                size: 0.0075,
+                ipc: 6.0,
+                compute_power: 116280,
+                memory: 6291456,
+                storage: 1073741824,
                 weight: 0.172,
                 power: 3.5,
                 cost: 800,
                 category: 'Mobile Device'
             },
 
+            // Raspberry Pi
+            'rpi1': {
+                name: 'Raspberry Pi 1 (2012)',
+                year: 2012,
+                cpu: 700,
+                cores: 1,
+                bits: 32,
+                ipc: 1.5,
+                compute_power: 1050,
+                memory: 524288,
+                storage: 8388608,
+                weight: 0.045,
+                power: 3.5,
+                cost: 35,
+                category: 'Single Board Computer'
+            },
+            'rpi2': {
+                name: 'Raspberry Pi 2 (2015)',
+                year: 2015,
+                cpu: 900,
+                cores: 4,
+                bits: 32,
+                ipc: 1.8,
+                compute_power: 6480,
+                memory: 1048576,
+                storage: 16777216,
+                weight: 0.045,
+                power: 4,
+                cost: 35,
+                category: 'Single Board Computer'
+            },
+            'rpi3': {
+                name: 'Raspberry Pi 3 (2016)',
+                year: 2016,
+                cpu: 1200,
+                cores: 4,
+                bits: 64,
+                ipc: 2.0,
+                compute_power: 9600,
+                memory: 1048576,
+                storage: 33554432,
+                weight: 0.045,
+                power: 5.1,
+                cost: 35,
+                category: 'Single Board Computer'
+            },
+            'rpi4': {
+                name: 'Raspberry Pi 4 (2019)',
+                year: 2019,
+                cpu: 1500,
+                cores: 4,
+                bits: 64,
+                ipc: 2.5,
+                compute_power: 15000,
+                memory: 8388608,
+                storage: 67108864,
+                weight: 0.046,
+                power: 6.4,
+                cost: 75,
+                category: 'Single Board Computer'
+            },
+
+            // Gaming Consoles
+            'nintendo_nes': {
+                name: 'Nintendo NES (1985)',
+                year: 1985,
+                cpu: 1.79,
+                cores: 1,
+                bits: 8,
+                ipc: 0.3,
+                compute_power: 0.537,
+                memory: 2,
+                storage: 32,
+                weight: 0.68,
+                power: 9,
+                cost: 400,
+                category: 'Gaming Console'
+            },
+            'ps1': {
+                name: 'PlayStation 1 (1994)',
+                year: 1994,
+                cpu: 33,
+                cores: 1,
+                bits: 32,
+                ipc: 0.8,
+                compute_power: 26.4,
+                memory: 2048,
+                storage: 650000,
+                weight: 1.5,
+                power: 25,
+                cost: 600,
+                category: 'Gaming Console'
+            },
+            'ps5': {
+                name: 'PlayStation 5 (2020)',
+                year: 2020,
+                cpu: 3800,
+                cores: 8,
+                bits: 64,
+                ipc: 4.2,
+                compute_power: 127680,
+                memory: 16777216,
+                storage: 875000000,
+                weight: 4.5,
+                power: 200,
+                cost: 500,
+                category: 'Gaming Console'
+            },
+
             // Supercomputers
             'cray1': {
-                name: 'Cray-1 (1975)',
+                name: 'Cray-1 Supercomputer (1975)',
                 year: 1975,
                 cpu: 80,
-                compute_power: 160, // MIPS (vector processing)
                 cores: 1,
                 bits: 64,
-                memory: 8388608, // 8MB
-                storage: 39321600, // ~38GB
-                size: 5.5,
+                ipc: 2.0,
+                compute_power: 160,
+                memory: 8388608,
+                storage: 39321600,
                 weight: 5500,
                 power: 115000,
                 cost: 35000000,
@@ -965,9 +1414,12 @@
                 name: 'Cray-2 (1985)',
                 year: 1985,
                 cpu: 244,
-                memory: 268435456, // 256MB
-                storage: 134217728000, // ~128GB
-                size: 1.26,
+                cores: 4,
+                bits: 64,
+                ipc: 2.5,
+                compute_power: 2440,
+                memory: 268435456,
+                storage: 134217728000,
                 weight: 2500,
                 power: 200000,
                 cost: 30000000,
@@ -976,22 +1428,28 @@
             'deepblue': {
                 name: 'Deep Blue (1997)',
                 year: 1997,
-                cpu: 200000, // 200 MHz × 1000 processors
-                memory: 1073741824, // 1GB
-                storage: 1073741824000, // ~1TB
-                size: 10,
+                cpu: 200,
+                cores: 480,
+                bits: 32,
+                ipc: 2.0,
+                compute_power: 192000,
+                memory: 1073741824,
+                storage: 1073741824000,
                 weight: 1270,
                 power: 30000,
                 cost: 100000000,
                 category: 'Supercomputer'
             },
             'frontier': {
-                name: 'Frontier (2022)',
+                name: 'Frontier Supercomputer (2022)',
                 year: 2022,
-                cpu: 2250000, // 2.25 GHz across many cores
-                memory: 9663676416, // 9.4TB
-                storage: 734003200000000, // 700PB
-                size: 680,
+                cpu: 2250,
+                cores: 9400000,
+                bits: 64,
+                ipc: 4.0,
+                compute_power: 84600000000,
+                memory: 9663676416000,
+                storage: 734003200000000000,
                 weight: 8000000,
                 power: 21000000,
                 cost: 600000000,
@@ -999,96 +1457,10 @@
             }
         };
 
-        // Accurate physical scale references for metaphors
-        const scaleReferences = {
-            // Length/Distance (meters)
-            length: [
-                { name: 'width of human hair', value: 0.00007 },
-                { name: 'grain of rice', value: 0.005 },
-                { name: 'paperclip', value: 0.032 },
-                { name: 'smartphone', value: 0.15 },
-                { name: 'football field', value: 100 },
-                { name: 'distance to moon', value: 384400000 },
-                { name: 'distance to sun', value: 149597870700 }
-            ],
-            // Weight (kg)
-            weight: [
-                { name: 'grain of sand', value: 0.0000014 },
-                { name: 'paperclip', value: 0.001 },
-                { name: 'smartphone', value: 0.17 },
-                { name: 'brick', value: 2 },
-                { name: 'car', value: 1400 },
-                { name: 'blue whale', value: 150000 },
-                { name: 'aircraft carrier', value: 100000000 }
-            ],
-            // Power (watts)
-            power: [
-                { name: 'LED light', value: 1 },
-                { name: 'laptop charger', value: 65 },
-                { name: 'microwave', value: 1000 },
-                { name: 'hair dryer', value: 1500 },
-                { name: 'electric car', value: 150000 },
-                { name: 'locomotive', value: 6000000 },
-                { name: 'power plant', value: 1000000000 }
-            ],
-            // Frequency (MHz)
-            frequency: [
-                { name: 'human heartbeat', value: 0.000017 }, // ~1 bpm
-                { name: 'hummingbird wings', value: 0.05 },
-                { name: 'old TV refresh', value: 0.06 },
-                { name: 'radio AM frequency', value: 1 },
-                { name: 'WiFi frequency', value: 2400 },
-                { name: 'microwave frequency', value: 2450 },
-                { name: 'radar frequency', value: 10000 }
-            ],
-            // Storage (KB)
-            storage: [
-                { name: 'single character', value: 0.001 },
-                { name: 'text message', value: 0.16 },
-                { name: 'page of text', value: 2 },
-                { name: 'high-res photo', value: 5000 },
-                { name: 'song (MP3)', value: 4000 },
-                { name: 'movie (HD)', value: 4000000 },
-                { name: 'entire Wikipedia', value: 20000000 }
-            ]
-        };
-
-        function findBestScaleMatch(value, category, ratio) {
-            const references = scaleReferences[category] || scaleReferences.storage;
-            
-            // Find the best starting reference (close to the smaller value)
-            let bestSmall = references[0];
-            for (let ref of references) {
-                if (ref.value <= value) {
-                    bestSmall = ref;
-                } else {
-                    break;
-                }
-            }
-            
-            // Calculate what the large value would be
-            const largeValue = bestSmall.value * ratio;
-            
-            // Find the closest large reference
-            let bestLarge = references[references.length - 1];
-            let minDiff = Math.abs(Math.log10(largeValue) - Math.log10(bestLarge.value));
-            
-            for (let ref of references) {
-                const diff = Math.abs(Math.log10(largeValue) - Math.log10(ref.value));
-                if (diff < minDiff) {
-                    minDiff = diff;
-                    bestLarge = ref;
-                }
-            }
-            
-            return { small: bestSmall, large: bestLarge, actualRatio: largeValue / bestSmall.value };
-        }
-
         function populateDropdowns() {
             const select1 = document.getElementById('computer1');
             const select2 = document.getElementById('computer2');
             
-            // Group computers by category for better organization
             const categories = {};
             Object.keys(computers).forEach(key => {
                 const cat = computers[key].category;
@@ -1096,7 +1468,6 @@
                 categories[cat].push({ key, name: computers[key].name });
             });
             
-            // Add options grouped by category
             Object.keys(categories).sort().forEach(category => {
                 const optgroup1 = document.createElement('optgroup');
                 const optgroup2 = document.createElement('optgroup');
@@ -1114,81 +1485,93 @@
             });
         }
 
-        function createVisualBar(value1, value2, name1, name2) {
-            const maxVal = Math.max(value1, value2);
-            const minVal = Math.min(value1, value2);
-            const ratio = maxVal / minVal;
-            
-            // Scale bars so the larger one is 80px max, smaller one proportional
-            const maxHeight = 80;
-            const height1 = value1 === maxVal ? maxHeight : (value1 / maxVal * maxHeight);
-            const height2 = value2 === maxVal ? maxHeight : (value2 / maxVal * maxHeight);
-            
-            return `
-                <div class="bar-comparison">
-                    <div class="bar" style="height: ${height1}px;">
-                        ${name1}
-                    </div>
-                    <div class="bar" style="height: ${height2}px;">
-                        ${name2}
-                    </div>
-                </div>
-            `;
+        function formatNumber(num) {
+            if (num >= 1000000000) return (num/1000000000).toFixed(1) + 'B';
+            if (num >= 1000000) return (num/1000000).toFixed(1) + 'M';
+            if (num >= 1000) return (num/1000).toFixed(1) + 'K';
+            return num.toLocaleString();
         }
 
-        function createVisualSquares(value1, value2, name1, name2) {
-            const maxVal = Math.max(value1, value2);
-            const minVal = Math.min(value1, value2);
-            const ratio = maxVal / minVal;
-            
-            // Calculate square sizes (area represents value)
-            const maxSize = 100; // pixels
-            const size1 = value1 === maxVal ? maxSize : Math.sqrt(value1 / maxVal) * maxSize;
-            const size2 = value2 === maxVal ? maxSize : Math.sqrt(value2 / maxVal) * maxSize;
-            
-            return `
-                <div class="square-comparison">
-                    <div style="text-align: center;">
-                        <div class="square" style="width: ${size1}px; height: ${size1}px;">${name1}</div>
-                        <div style="margin-top: 5px; font-size: 12px;">${size1.toFixed(0)}×${size1.toFixed(0)}px</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div class="square" style="width: ${size2}px; height: ${size2}px;">${name2}</div>
-                        <div style="margin-top: 5px; font-size: 12px;">${size2.toFixed(0)}×${size2.toFixed(0)}px</div>
-                    </div>
-                </div>
-            `;
+        function formatMemoryStorage(kb) {
+            if (kb >= 1073741824) return `${(kb/1073741824).toFixed(1)} TB (${formatNumber(kb)} KB)`;
+            if (kb >= 1048576) return `${(kb/1048576).toFixed(1)} GB (${formatNumber(kb)} KB)`;
+            if (kb >= 1024) return `${(kb/1024).toFixed(1)} MB (${formatNumber(kb)} KB)`;
+            return `${kb.toLocaleString()} KB`;
         }
 
-        function createPixelVisualization(ratio) {
+        function getComparisonLanguage(category, isBetter) {
+            const languages = {
+                'Computational Power': isBetter ? 'more powerful' : 'less powerful',
+                'Memory': isBetter ? 'has more memory' : 'has less memory',
+                'Storage': isBetter ? 'has more storage' : 'has less storage',
+                'Power Consumption': !isBetter ? 'more power efficient' : 'less power efficient', // Lower power is better
+                'Weight': !isBetter ? 'lighter' : 'heavier' // Lower weight is better
+            };
+            return languages[category] || (isBetter ? 'better' : 'worse');
+        }
+
+        function createVisualization(ratio, name1, name2, category) {
             if (ratio < 2) return '';
             
-            const maxPixels = 400; // Maximum pixels to show
-            const pixels1 = Math.min(10, Math.max(1, Math.floor(maxPixels / ratio)));
-            const pixels2 = Math.min(maxPixels, pixels1 * ratio);
+            const container = document.createElement('div');
+            container.className = 'comparison-row';
             
-            let grid1 = '<div class="pixel-grid">';
-            for (let i = 0; i < pixels1; i++) {
-                grid1 += '<div class="pixel"></div>';
+            let visualization = '';
+            let ratioText = `${ratio.toFixed(1)}× difference`;
+            
+            if (ratio <= 20) {
+                // Simple bar chart for small differences
+                const height1 = 30;
+                const height2 = height1 * ratio;
+                const maxHeight = Math.min(height2, 80);
+                const scaledHeight1 = (height1 / height2) * maxHeight;
+                const scaledHeight2 = maxHeight;
+                
+                visualization = `
+                    <div class="simple-bars">
+                        <div class="simple-bar" style="height: ${scaledHeight1}px;">${name1}</div>
+                        <div class="simple-bar" style="height: ${scaledHeight2}px;">${name2}</div>
+                    </div>
+                `;
+            } else if (ratio <= 1000) {
+                // Circle comparison for medium differences
+                const radius1 = 20;
+                const radius2 = Math.min(radius1 * Math.sqrt(ratio), 80);
+                
+                visualization = `
+                    <div class="circle-comparison">
+                        <div class="circle-item">
+                            <div class="circle" style="width: ${radius1*2}px; height: ${radius1*2}px;">${name1}</div>
+                            <div class="circle-label">${name1}</div>
+                        </div>
+                        <div class="circle-item">
+                            <div class="circle" style="width: ${radius2*2}px; height: ${radius2*2}px;">${name2}</div>
+                            <div class="circle-label">${name2}</div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Scale representation for huge differences
+                visualization = `
+                    <div class="scale-representation">
+                        <div class="scale-small">● ${name1}</div>
+                        <div style="margin: 10px 0; color: #95a5a6;">vs</div>
+                        <div class="scale-large">● ${name2}</div>
+                        <div style="margin-top: 10px; color: #e74c3c; font-weight: bold;">
+                            Difference too large to visualize proportionally!
+                        </div>
+                    </div>
+                `;
             }
-            grid1 += `</div><span style="margin: 0 10px;">${pixels1} pixel${pixels1 > 1 ? 's' : ''}</span>`;
             
-            let grid2 = '<div class="pixel-grid">';
-            for (let i = 0; i < Math.min(pixels2, 200); i++) { // Limit display
-                grid2 += '<div class="pixel"></div>';
-                if ((i + 1) % 20 === 0) grid2 += '<br>'; // Line break every 20 pixels
-            }
-            if (pixels2 > 200) grid2 += '<div>... and ' + (pixels2 - 200) + ' more pixels</div>';
-            grid2 += `</div><span style="margin: 0 10px;">${pixels2} pixels</span>`;
-            
-            return `
-                <div class="pixel-comparison">
-                    <div style="margin-bottom: 10px;"><strong>Pixel representation:</strong></div>
-                    ${grid1}
-                    <br><br>
-                    ${grid2}
+            container.innerHTML = `
+                <div class="comparison-header">
+                    ${category} <span class="ratio-badge">${ratioText}</span>
                 </div>
+                ${visualization}
             `;
+            
+            return container;
         }
 
         function displayComparison() {
@@ -1196,30 +1579,23 @@
             const comp2 = document.getElementById('computer2').value;
 
             if (!comp1 || !comp2) {
-                document.getElementById('comparison').style.display = 'none';
-                document.getElementById('visual-comparisons').style.display = 'none';
-                document.getElementById('timeline').style.display = 'none';
+                document.getElementById('results').style.display = 'none';
                 return;
             }
 
             const computer1 = computers[comp1];
             const computer2 = computers[comp2];
 
-            // Display specs
-            document.getElementById('card1').innerHTML = createComputerCard(computer1);
-            document.getElementById('card2').innerHTML = createComputerCard(computer2);
-
-            // Generate visual comparisons
-            const comparisonContent = document.getElementById('comparison-content');
-            comparisonContent.innerHTML = '';
+            // Summary section
+            const summaryGrid = document.getElementById('summary-grid');
+            summaryGrid.innerHTML = '';
 
             const comparisons = [
-                { label: 'Computational Power', key: 'compute_power', unit: 'MIPS', category: 'frequency' },
-                { label: 'Raw CPU Speed', key: 'cpu', unit: 'MHz', category: 'frequency' },
-                { label: 'Memory', key: 'memory', unit: 'KB', category: 'storage' },
-                { label: 'Storage', key: 'storage', unit: 'KB', category: 'storage' },
-                { label: 'Weight', key: 'weight', unit: 'kg', category: 'weight' },
-                { label: 'Power', key: 'power', unit: 'W', category: 'power' }
+                { label: 'Computational Power', key: 'compute_power', unit: 'MIPS' },
+                { label: 'Memory', key: 'memory', unit: 'KB' },
+                { label: 'Storage', key: 'storage', unit: 'KB' },
+                { label: 'Power Consumption', key: 'power', unit: 'W' },
+                { label: 'Weight', key: 'weight', unit: 'kg' }
             ];
 
             comparisons.forEach(comp => {
@@ -1228,89 +1604,82 @@
                 
                 if (val1 > 0 && val2 > 0) {
                     const ratio = Math.max(val1, val2) / Math.min(val1, val2);
-                    const larger = val1 > val2 ? computer1 : computer2;
-                    const smaller = val1 > val2 ? computer2 : computer1;
-                    const largerVal = Math.max(val1, val2);
-                    const smallerVal = Math.min(val1, val2);
+                    const faster = val1 > val2 ? computer1.name.split('(')[0].trim() : computer2.name.split('(')[0].trim();
                     
+                    const summaryItem = document.createElement('div');
+                    summaryItem.className = 'summary-item';
+                    summaryItem.innerHTML = `
+                        <div class="summary-label">${comp.label}</div>
+                        <div class="summary-value">${ratio.toFixed(1)}×</div>
+                        <div style="font-size: 0.8em; color: #7f8c8d; margin-top: 5px;">${faster} is faster</div>
+                    `;
+                    summaryGrid.appendChild(summaryItem);
+                }
+            });
+
+            // Compute breakdown
+            const computeBreakdown = document.getElementById('compute-breakdown');
+            computeBreakdown.innerHTML = `
+                <div class="compute-breakdown-title">🧠 How Computational Power is Calculated</div>
+                <div class="compute-formula">${computer1.name.split('(')[0].trim()}: ${computer1.cores} cores × ${computer1.cpu} MHz × ${computer1.ipc} IPC = ${formatNumber(computer1.compute_power)} MIPS</div>
+                <div class="compute-formula">${computer2.name.split('(')[0].trim()}: ${computer2.cores} cores × ${computer2.cpu} MHz × ${computer2.ipc} IPC = ${formatNumber(computer2.compute_power)} MIPS</div>
+                <div style="margin-top: 10px; text-align: center; color: #8e44ad;">
+                    <strong>Power Efficiency:</strong> ${(computer1.compute_power / computer1.power).toFixed(1)} vs ${(computer2.compute_power / computer2.power).toFixed(1)} MIPS/Watt
+                </div>
+            `;
+
+            // Visual comparisons
+            const visualContent = document.getElementById('visual-content');
+            visualContent.innerHTML = '';
+
+            comparisons.forEach(comp => {
+                const val1 = computer1[comp.key];
+                const val2 = computer2[comp.key];
+                
+                if (val1 > 0 && val2 > 0) {
+                    const ratio = Math.max(val1, val2) / Math.min(val1, val2);
                     if (ratio > 1.5) {
-                        const scaleMatch = findBestScaleMatch(smallerVal, comp.category, ratio);
+                        const larger = val1 > val2 ? computer1.name.split('(')[0].trim() : computer2.name.split('(')[0].trim();
+                        const smaller = val1 > val2 ? computer2.name.split('(')[0].trim() : computer1.name.split('(')[0].trim();
                         
-                        const comparisonDiv = document.createElement('div');
-                        comparisonDiv.className = 'comparison-item';
-                        comparisonDiv.innerHTML = `
-                            <div class="comparison-title">${comp.label}</div>
-                            <div class="ratio-display">
-                                ${ratio.toFixed(1)}× difference (${smaller.name.split('(')[0].trim()}: ${smallerVal.toLocaleString()} ${comp.unit} → ${larger.name.split('(')[0].trim()}: ${largerVal.toLocaleString()} ${comp.unit})
-                            </div>
-                            
-                            ${createVisualBar(val1, val2, computer1.name.split('(')[0].trim(), computer2.name.split('(')[0].trim())}
-                            
-                            ${createVisualSquares(val1, val2, computer1.name.split('(')[0].trim(), computer2.name.split('(')[0].trim())}
-                            
-                            ${ratio > 10 ? createPixelVisualization(ratio) : ''}
-                            
-                            <div class="metaphor-text">
-                                📏 Accurate scale: If ${smaller.name.split('(')[0].trim()}'s ${comp.label.toLowerCase()} was ${scaleMatch.small.name}, 
-                                ${larger.name.split('(')[0].trim()}'s would be ${scaleMatch.large.name}
-                                ${scaleMatch.actualRatio !== ratio ? ` (${scaleMatch.actualRatio.toFixed(1)}× in this analogy)` : ''}
-                            </div>
-                        `;
-                        comparisonContent.appendChild(comparisonDiv);
+                        const visualization = createVisualization(ratio, smaller, larger, comp.label);
+                        if (visualization) {
+                            visualContent.appendChild(visualization);
+                        }
                     }
                 }
             });
 
-            // Timeline
-            const yearDiff = Math.abs(computer1.year - computer2.year);
-            document.getElementById('timeline').innerHTML = 
-                `⏰ These computers are ${yearDiff} years apart - spanning ${Math.floor(yearDiff/10)} decades of technological evolution!`;
-
-            document.getElementById('comparison').style.display = 'grid';
-            document.getElementById('visual-comparisons').style.display = 'block';
-            document.getElementById('timeline').style.display = 'block';
-        }
-
-        function createComputerCard(computer) {
-            return `
-                <h2>${computer.name}</h2>
-                <div class="spec-item">
-                    <span class="spec-label">Category:</span>
-                    <span class="spec-value">${computer.category}</span>
+            // Spec cards
+            const specCards = document.getElementById('spec-cards');
+            specCards.innerHTML = `
+                <div class="spec-card">
+                    <h3>${computer1.name}</h3>
+                    <div class="spec-row"><span class="spec-label">Category:</span><span class="spec-value">${computer1.category}</span></div>
+                    <div class="spec-row"><span class="spec-label">CPU:</span><span class="spec-value">${computer1.cores} × ${computer1.cpu} MHz (${computer1.bits}-bit)</span></div>
+                    <div class="spec-row"><span class="spec-label">IPC:</span><span class="spec-value">${computer1.ipc} instructions/cycle</span></div>
+                    <div class="spec-row"><span class="spec-label">Compute Power:</span><span class="spec-value">${formatNumber(computer1.compute_power)} MIPS</span></div>
+                    <div class="spec-row"><span class="spec-label">Memory:</span><span class="spec-value">${formatNumber(computer1.memory)} KB</span></div>
+                    <div class="spec-row"><span class="spec-label">Storage:</span><span class="spec-value">${formatNumber(computer1.storage)} KB</span></div>
+                    <div class="spec-row"><span class="spec-label">Weight:</span><span class="spec-value">${computer1.weight} kg</span></div>
+                    <div class="spec-row"><span class="spec-label">Power:</span><span class="spec-value">${computer1.power} W</span></div>
+                    <div class="spec-row"><span class="spec-label">Efficiency:</span><span class="spec-value">${(computer1.compute_power/computer1.power).toFixed(1)} MIPS/W</span></div>
                 </div>
-                <div class="spec-item">
-                    <span class="spec-label">Computational Power:</span>
-                    <span class="spec-value">${computer.compute_power?.toLocaleString() || 'N/A'} MIPS</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">CPU Architecture:</span>
-                    <span class="spec-value">${computer.cores || 1} core${(computer.cores || 1) > 1 ? 's' : ''} × ${computer.cpu.toLocaleString()} MHz (${computer.bits || '?'}-bit)</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Memory:</span>
-                    <span class="spec-value">${computer.memory.toLocaleString()} KB</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Storage:</span>
-                    <span class="spec-value">${computer.storage.toLocaleString()} KB</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Size:</span>
-                    <span class="spec-value">${computer.size} m²</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Weight:</span>
-                    <span class="spec-value">${computer.weight.toLocaleString()} kg</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Power:</span>
-                    <span class="spec-value">${computer.power.toLocaleString()} W</span>
-                </div>
-                <div class="spec-item">
-                    <span class="spec-label">Cost:</span>
-                    <span class="spec-value">${computer.cost.toLocaleString()}</span>
+                <div class="spec-card">
+                    <h3>${computer2.name}</h3>
+                    <div class="spec-row"><span class="spec-label">Category:</span><span class="spec-value">${computer2.category}</span></div>
+                    <div class="spec-row"><span class="spec-label">CPU:</span><span class="spec-value">${computer2.cores} × ${computer2.cpu} MHz (${computer2.bits}-bit)</span></div>
+                    <div class="spec-row"><span class="spec-label">IPC:</span><span class="spec-value">${computer2.ipc} instructions/cycle</span></div>
+                    <div class="spec-row"><span class="spec-label">Compute Power:</span><span class="spec-value">${formatNumber(computer2.compute_power)} MIPS</span></div>
+                    <div class="spec-row"><span class="spec-label">Memory:</span><span class="spec-value">${formatNumber(computer2.memory)} KB</span></div>
+                    <div class="spec-row"><span class="spec-label">Storage:</span><span class="spec-value">${formatNumber(computer2.storage)} KB</span></div>
+                    <div class="spec-row"><span class="spec-label">Weight:</span><span class="spec-value">${computer2.weight} kg</span></div>
+                    <div class="spec-row"><span class="spec-label">Power:</span><span class="spec-value">${computer2.power} W</span></div>
+                    <div class="spec-row"><span class="spec-label">Efficiency:</span><span class="spec-value">${(computer2.compute_power/computer2.power).toFixed(1)} MIPS/W</span></div>
                 </div>
             `;
+
+            document.getElementById('results').style.display = 'block';
         }
 
         // Initialize
