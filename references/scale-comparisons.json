@@ -1,0 +1,180 @@
+{
+  "scale_objects": {
+    "microscopic": [
+      {
+        "name": "Red Blood Cell",
+        "size": 0.000007,
+        "unit": "meters",
+        "description": "Human red blood cell diameter"
+      },
+      {
+        "name": "Grain of Sand",
+        "size": 0.0005,
+        "unit": "meters", 
+        "description": "Fine beach sand particle"
+      }
+    ],
+    "small": [
+      {
+        "name": "Pea",
+        "size": 0.005,
+        "unit": "meters",
+        "description": "Garden pea diameter"
+      },
+      {
+        "name": "Marble",
+        "size": 0.016,
+        "unit": "meters",
+        "description": "Standard glass marble"
+      },
+      {
+        "name": "Golf Ball",
+        "size": 0.043,
+        "unit": "meters",
+        "description": "Official golf ball diameter"
+      },
+      {
+        "name": "Tennis Ball",
+        "size": 0.067,
+        "unit": "meters",
+        "description": "Official tennis ball diameter"
+      }
+    ],
+    "medium": [
+      {
+        "name": "Basketball",
+        "size": 0.24,
+        "unit": "meters",
+        "description": "Official basketball diameter"
+      },
+      {
+        "name": "Beach Ball",
+        "size": 0.61,
+        "unit": "meters",
+        "description": "Large inflatable beach ball"
+      },
+      {
+        "name": "Person",
+        "size": 1.7,
+        "unit": "meters",
+        "description": "Average human height"
+      },
+      {
+        "name": "Car",
+        "size": 4.5,
+        "unit": "meters",
+        "description": "Average sedan length"
+      }
+    ],
+    "large": [
+      {
+        "name": "House",
+        "size": 12,
+        "unit": "meters",
+        "description": "Two-story house height"
+      },
+      {
+        "name": "Blue Whale",
+        "size": 30,
+        "unit": "meters",
+        "description": "Largest animal on Earth"
+      },
+      {
+        "name": "Football Field",
+        "size": 109,
+        "unit": "meters",
+        "description": "American football field length"
+      },
+      {
+        "name": "Eiffel Tower",
+        "size": 330,
+        "unit": "meters",
+        "description": "Height including antenna"
+      }
+    ],
+    "massive": [
+      {
+        "name": "Mount Everest",
+        "size": 8849,
+        "unit": "meters",
+        "description": "World's tallest mountain"
+      },
+      {
+        "name": "Manhattan Island",
+        "size": 21000,
+        "unit": "meters",
+        "description": "Length of Manhattan"
+      },
+      {
+        "name": "Earth Diameter",
+        "size": 12742000,
+        "unit": "meters",
+        "description": "Diameter of planet Earth"
+      },
+      {
+        "name": "Moon Diameter",
+        "size": 3474000,
+        "unit": "meters", 
+        "description": "Diameter of Earth's moon"
+      }
+    ],
+    "astronomical": [
+      {
+        "name": "Sun Diameter",
+        "size": 1392000000,
+        "unit": "meters",
+        "description": "Diameter of our Sun"
+      },
+      {
+        "name": "Jupiter Diameter", 
+        "size": 142984000,
+        "unit": "meters",
+        "description": "Largest planet in our solar system"
+      },
+      {
+        "name": "Solar System",
+        "size": 287460000000000,
+        "unit": "meters",
+        "description": "Diameter including Kuiper Belt"
+      }
+    ]
+  },
+  "visualization_rules": {
+    "ratio_1_to_10": {
+      "method": "proportional_circles",
+      "objects": ["small"],
+      "description": "Use proportional circles with small everyday objects"
+    },
+    "ratio_10_to_100": {
+      "method": "size_comparison", 
+      "objects": ["small", "medium"],
+      "description": "Compare small objects to medium objects"
+    },
+    "ratio_100_to_1000": {
+      "method": "size_comparison",
+      "objects": ["medium", "large"], 
+      "description": "Compare medium objects to large objects"
+    },
+    "ratio_1000_to_10000": {
+      "method": "metaphor_comparison",
+      "objects": ["large", "massive"],
+      "description": "Use metaphorical comparisons with large to massive objects"
+    },
+    "ratio_10000_to_1000000": {
+      "method": "metaphor_comparison", 
+      "objects": ["massive", "astronomical"],
+      "description": "Use planetary and astronomical scale metaphors"
+    },
+    "ratio_above_1000000": {
+      "method": "abstract_visualization",
+      "objects": ["astronomical"],
+      "description": "Use abstract representations and acknowledge scale limitations"
+    }
+  },
+  "metaphor_templates": {
+    "size_difference": "If {object1} were scaled to the size of a {scale_object1}, then {object2} would be the size of a {scale_object2}",
+    "count_metaphor": "If {object1} were a {unit_object}, you would need {count} of them to equal one {object2}",
+    "distance_metaphor": "The difference is like comparing {small_distance} to {large_distance}",
+    "time_metaphor": "Like comparing {short_time} to {long_time}"
+  }
+}

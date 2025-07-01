@@ -1,0 +1,101 @@
+{
+  "eniac": {
+    "name": "ENIAC (Electronic Numerical Integrator and Computer)",
+    "year": 1946,
+    "overview": "The first general-purpose electronic digital computer, ENIAC was a revolutionary machine that marked the beginning of the computer age.",
+    "historical_significance": "ENIAC demonstrated that electronic computation was faster and more reliable than mechanical systems, paving the way for modern computing.",
+    "technical_details": {
+      "architecture": "Decimal-based calculation using vacuum tubes",
+      "programming": "Programmed by manually setting switches and rewiring connections",
+      "vacuum_tubes": 17468,
+      "dimensions": "30 × 50 feet (roughly 1,800 square feet)",
+      "weight_details": "30 tons (27,000 kg)",
+      "power_consumption": "150 kW - enough to power 150 homes"
+    },
+    "development": {
+      "location": "University of Pennsylvania",
+      "developers": "J. Presper Eckert and John Mauchly",
+      "funding": "U.S. Army for ballistic calculations",
+      "development_time": "3 years (1943-1946)",
+      "cost": "$500,000 (approximately $7.2 million in 2024 dollars)"
+    },
+    "applications": [
+      "Ballistic trajectory calculations",
+      "Weather prediction",
+      "Nuclear weapons design calculations",
+      "General mathematical computations"
+    ],
+    "legacy": "ENIAC proved electronic computation was viable and influenced virtually every computer that followed.",
+    "interesting_facts": [
+      "Could perform 5,000 additions per second",
+      "Programming required physical rewiring that could take days",
+      "Generated so much heat that nearby rooms needed cooling",
+      "Was classified as top secret during initial operation"
+    ]
+  },
+  "univac1": {
+    "name": "UNIVAC I (UNIVersal Automatic Computer I)",
+    "year": 1951,
+    "overview": "The first commercial computer produced in the United States, UNIVAC I gained fame by correctly predicting Eisenhower's presidential victory.",
+    "historical_significance": "First computer to handle both numeric and alphabetic data, marking the transition from purely mathematical machines to business computers.",
+    "technical_details": {
+      "architecture": "Binary number system with magnetic tape storage",
+      "memory": "1,000 words of mercury delay line memory",
+      "storage": "Magnetic tape system - revolutionary for the time",
+      "vacuum_tubes": 5200,
+      "weight_details": "13 tons (11,800 kg) for the central processor"
+    },
+    "development": {
+      "location": "Eckert-Mauchly Computer Corporation",
+      "developers": "J. Presper Eckert and John Mauchly (ENIAC creators)",
+      "first_delivery": "March 1951 to the U.S. Census Bureau",
+      "total_produced": 46,
+      "cost": "$1.6 million (approximately $18.5 million in 2024 dollars)"
+    },
+    "applications": [
+      "Census data processing",
+      "Business data processing",
+      "Scientific calculations",
+      "Election prediction (famously predicted 1952 presidential election)"
+    ],
+    "legacy": "Established the commercial computer industry and demonstrated computers' potential beyond pure mathematics.",
+    "interesting_facts": [
+      "Correctly predicted Eisenhower's victory with only 7% of votes counted",
+      "CBS initially didn't trust the prediction and delayed broadcasting it",
+      "Could process 1,905 operations per second",
+      "Each system came with its own air conditioning unit"
+    ]
+  },
+  "ibm704": {
+    "name": "IBM 704",
+    "year": 1954,
+    "overview": "IBM's first mass-produced computer with floating-point arithmetic, establishing IBM's dominance in the computer industry.",
+    "historical_significance": "First computer to use magnetic core memory and floating-point arithmetic, setting standards that lasted decades.",
+    "technical_details": {
+      "architecture": "36-bit word length with floating-point arithmetic",
+      "memory": "4,096 or 32,768 words of magnetic core memory",
+      "storage": "Magnetic tape and magnetic drum",
+      "vacuum_tubes": 4000,
+      "speed": "40,000 operations per second"
+    },
+    "development": {
+      "location": "IBM",
+      "predecessor": "IBM 701",
+      "total_produced": 123,
+      "rental_cost": "$25,000 per month (approximately $280,000 in 2024 dollars)"
+    },
+    "applications": [
+      "Scientific and engineering calculations",
+      "Early artificial intelligence research",
+      "FORTRAN programming language development",
+      "Weather forecasting"
+    ],
+    "legacy": "Enabled the development of FORTRAN and established IBM as the leading computer manufacturer.",
+    "interesting_facts": [
+      "First computer to run the FORTRAN programming language",
+      "Used for early AI research including checkers-playing programs",
+      "Magnetic core memory was so reliable it remained standard until the 1970s",
+      "Required a specialized computer room with raised floors for cabling"
+    ]
+  }
+}

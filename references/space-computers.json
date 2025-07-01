@@ -1,0 +1,102 @@
+{
+  "apollo": {
+    "name": "Apollo Guidance Computer (AGC)",
+    "year": 1966,
+    "overview": "The first computer to use integrated circuits, the AGC guided astronauts to the Moon and back in one of humanity's greatest achievements.",
+    "historical_significance": "Proved that computers could be reliable enough for life-critical missions and drove the development of integrated circuit technology.",
+    "technical_details": {
+      "architecture": "15-bit word length with 16-bit addressing",
+      "memory": "4KB ROM (rope core) + 2KB RAM (magnetic core)",
+      "weight_details": "70 pounds (32 kg) - incredibly lightweight for its era",
+      "power_consumption": "55 watts",
+      "integrated_circuits": "First computer to use ICs exclusively (4,100 ICs)"
+    },
+    "development": {
+      "location": "MIT Instrumentation Laboratory",
+      "lead_engineer": "Charles Stark Draper",
+      "software_engineer": "Margaret Hamilton (coined 'software engineering')",
+      "development_time": "8 years (1961-1969)",
+      "cost": "$3.5 million per unit (approximately $27 million in 2024 dollars)"
+    },
+    "applications": [
+      "Spacecraft navigation and guidance",
+      "Engine control and throttling",
+      "Landing sequence automation",
+      "Real-time astronaut interface"
+    ],
+    "legacy": "Drove the integrated circuit industry and established principles for real-time, fault-tolerant computing.",
+    "interesting_facts": [
+      "Software was literally 'woven' into rope core memory by hand",
+      "Had priority scheduling - programs could interrupt each other",
+      "Survived multiple computer alarms during Apollo 11 landing",
+      "Margaret Hamilton's software engineering prevented mission failures",
+      "More reliable than many modern systems despite 1960s technology"
+    ]
+  },
+  "voyager": {
+    "name": "Voyager Spacecraft Computer",
+    "year": 1977,
+    "overview": "Twin spacecraft computers that have operated continuously for over 45 years, currently sending data from interstellar space.",
+    "historical_significance": "Longest-operating computers in history, demonstrating unprecedented reliability and longevity in the harshest environment possible.",
+    "technical_details": {
+      "architecture": "18-bit custom processor",
+      "memory": "4KB RAM total",
+      "storage": "Digital tape recorder system",
+      "radiation_hardening": "Built to survive Jupiter's radiation belts",
+      "power_consumption": "420 watts total for all systems"
+    },
+    "development": {
+      "location": "NASA Jet Propulsion Laboratory",
+      "mission_duration": "Originally 4 years, now 45+ years and counting",
+      "distance": "Over 15 billion miles from Earth (Voyager 1)",
+      "cost": "$865 million total mission (approximately $4.2 billion in 2024 dollars)"
+    },
+    "applications": [
+      "Deep space navigation",
+      "Scientific instrument control",
+      "Data collection and transmission",
+      "Autonomous decision making"
+    ],
+    "legacy": "Set the standard for space-based computing reliability and autonomous operation.",
+    "interesting_facts": [
+      "Still communicating with Earth after 45+ years",
+      "First human-made objects to enter interstellar space",
+      "Commands from Earth take over 22 hours to reach Voyager 1",
+      "Computers have been reprogrammed remotely multiple times",
+      "Surviving on power from decaying plutonium generators"
+    ]
+  },
+  "shuttle": {
+    "name": "Space Shuttle Primary Flight Computer",
+    "year": 1981,
+    "overview": "Five redundant computers that controlled every aspect of Space Shuttle operations, from launch to landing.",
+    "historical_significance": "First fly-by-wire spacecraft, proving that computers could safely control complex vehicles with human lives aboard.",
+    "technical_details": {
+      "architecture": "IBM AP-101 32-bit processor",
+      "memory": "106KB RAM per computer",
+      "redundancy": "5 computers (4 primary + 1 backup)",
+      "weight_details": "64 pounds (29 kg) per computer",
+      "processing_power": "400,000 instructions per second"
+    },
+    "development": {
+      "location": "IBM Federal Systems Division",
+      "software_lines": "Over 500,000 lines of HAL/S code",
+      "verification": "Exhaustive testing and formal verification methods",
+      "operational_period": "1981-2011 (30 years, 135 missions)"
+    },
+    "applications": [
+      "Launch sequence control",
+      "Orbital maneuvering",
+      "Landing approach and touchdown",
+      "Life support system management"
+    ],
+    "legacy": "Established principles for fault-tolerant computing that are still used in aerospace today.",
+    "interesting_facts": [
+      "Never experienced a computer-related mission failure",
+      "Could vote out malfunctioning computers automatically",
+      "Computers were upgraded multiple times during shuttle program",
+      "HAL/S programming language was created specifically for real-time aerospace",
+      "Each mission carried backup computers that were never needed"
+    ]
+  }
+}

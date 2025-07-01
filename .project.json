@@ -1,0 +1,15 @@
+{
+  "name": "computerComparisonToy",
+  "path": "C:\\Users\\Ian\\source\\repos\\vibing\\project-launcher\\projects\\computerComparisonToy",
+  "auto_detected": true,
+  "created_date": "2025-06-04T11:56:13.667823",
+  "type": "single-html",
+  "entry_point": "compare.html",
+  "port": 5000,
+  "description": "Single-page HTML app: compare.html",
+  "tags": [
+    "html",
+    "single-page",
+    "webapp"
+  ]
+}
