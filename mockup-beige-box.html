@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOCKUP: 1980s Beige Box Theme - Computer Comparison</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background: #8b7355;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Classic beige computer case */
+        .computer-case {
+            background: linear-gradient(135deg, #f5f0e8 0%, #e8ddc8 100%);
+            border: 8px solid #a89878;
+            border-radius: 5px;
+            box-shadow:
+                inset -4px -4px 8px rgba(0, 0, 0, 0.2),
+                inset 4px 4px 8px rgba(255, 255, 255, 0.3),
+                8px 8px 20px rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Monitor bezel */
+        .monitor {
+            background: #2a2a2a;
+            border: 12px solid #3a3a3a;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow:
+                inset 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Amber screen */
+        .screen {
+            background: #1a1a0a;
+            color: #ffb000;
+            padding: 25px;
+            border: 3px solid #4a4030;
+            min-height: 400px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: 3px;
+            text-shadow: 0 0 8px #ffb000;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Control panel */
+        .control-panel {
+            background: linear-gradient(135deg, #d4c4a8 0%, #c4b498 100%);
+            border: 4px solid #8a7a6a;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow:
+                inset 2px 2px 4px rgba(255, 255, 255, 0.5),
+                inset -2px -2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .control-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        label {
+            min-width: 150px;
+            color: #2a2a2a;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        select {
+            flex: 1;
+            background: #ffffff;
+            color: #000;
+            border: 3px solid #8a7a6a;
+            padding: 8px 12px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+            box-shadow:
+                inset 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        select:focus {
+            outline: 3px solid #ff6b00;
+        }
+
+        /* Big chunky button */
+        .button-housing {
+            background: linear-gradient(135deg, #c4b498 0%, #b4a488 100%);
+            border: 4px solid #8a7a6a;
+            padding: 5px;
+            box-shadow:
+                inset 2px 2px 4px rgba(255, 255, 255, 0.5),
+                inset -2px -2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        button {
+            background: linear-gradient(180deg, #e85a00 0%, #c84a00 100%);
+            color: #fff;
+            border: 4px solid #a83a00;
+            padding: 15px 30px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            box-shadow:
+                inset 0 2px 4px rgba(255, 255, 255, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        button:hover {
+            background: linear-gradient(180deg, #ff6a10 0%, #d85a00 100%);
+        }
+
+        button:active {
+            transform: translateY(2px);
+            box-shadow:
+                inset 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .results {
+            margin-top: 20px;
+        }
+
+        .result-box {
+            background: rgba(255, 176, 0, 0.05);
+            border: 2px solid #ffb000;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .result-box h2 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #ffb000;
+            padding-bottom: 8px;
+            text-shadow: 0 0 5px #ffb000;
+        }
+
+        .data-line {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 14px;
+            border-bottom: 1px dotted rgba(255, 176, 0, 0.3);
+        }
+
+        .data-label {
+            opacity: 0.8;
+        }
+
+        .data-value {
+            font-weight: 700;
+        }
+
+        /* LED indicators */
+        .led-panel {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .led {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #2a2a2a;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .led-light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid #2a2a2a;
+        }
+
+        .led-green .led-light {
+            background: #00ff00;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .led-red .led-light {
+            background: #ff0000;
+            box-shadow: 0 0 10px #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="computer-case">
+        <div class="monitor">
+            <div class="screen">
+                <h1>COMPUTER COMPARISON TOOL</h1>
+                <div class="subtitle">:: Analyzing 80 Years of Computing Evolution ::</div>
+
+                <div class="results">
+                    <div class="result-box">
+                        <h2>COMPUTATIONAL PERFORMANCE</h2>
+                        <div class="data-line">
+                            <span class="data-label">ENIAC (1946)............:</span>
+                            <span class="data-value">0.005 MIPS</span>
+                        </div>
+                        <div class="data-line">
+                            <span class="data-label">Apple M4 (2024).........:</span>
+                            <span class="data-value">352,000 MIPS</span>
+                        </div>
+                        <div class="data-line">
+                            <span class="data-label">SPEED DIFFERENCE........:</span>
+                            <span class="data-value">70,400,000x FASTER</span>
+                        </div>
+                    </div>
+
+                    <div class="result-box">
+                        <h2>MEMORY CAPACITY</h2>
+                        <div class="data-line">
+                            <span class="data-label">ENIAC..................:</span>
+                            <span class="data-value">0.02 KB</span>
+                        </div>
+                        <div class="data-line">
+                            <span class="data-label">M4.....................:</span>
+                            <span class="data-value">16 GB</span>
+                        </div>
+                        <div class="data-line">
+                            <span class="data-label">RATIO..................:</span>
+                            <span class="data-value">838,860,800x MORE</span>
+                        </div>
+                    </div>
+
+                    <div class="result-box">
+                        <h2>PHYSICAL SPECIFICATIONS</h2>
+                        <div class="data-line">
+                            <span class="data-label">ENIAC WEIGHT...........:</span>
+                            <span class="data-value">27,000 kg</span>
+                        </div>
+                        <div class="data-line">
+                            <span class="data-label">M4 WEIGHT..............:</span>
+                            <span class="data-value">0.5 kg</span>
+                        </div>
+                        <div class="data-line">
+                            <span class="data-label">WEIGHT REDUCTION.......:</span>
+                            <span class="data-value">54,000x LIGHTER</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <div class="control-row">
+                <label>COMPUTER 1:</label>
+                <select>
+                    <option>ENIAC (1946)</option>
+                    <option>IBM 704 (1954)</option>
+                    <option>Commodore 64 (1982)</option>
+                    <option>Apple Macintosh (1984)</option>
+                </select>
+            </div>
+
+            <div class="control-row">
+                <label>COMPUTER 2:</label>
+                <select>
+                    <option>Apple M4 (2024)</option>
+                    <option>iPhone 15 Pro (2023)</option>
+                    <option>PlayStation 5 (2020)</option>
+                </select>
+            </div>
+
+            <div class="button-housing">
+                <button>COMPARE SYSTEMS</button>
+            </div>
+
+            <div class="led-panel">
+                <div class="led led-green">
+                    <div class="led-light"></div>
+                    <span>POWER</span>
+                </div>
+                <div class="led led-red">
+                    <div class="led-light"></div>
+                    <span>HDD</span>
+                </div>
+                <div class="led led-green">
+                    <div class="led-light"></div>
+                    <span>READY</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
