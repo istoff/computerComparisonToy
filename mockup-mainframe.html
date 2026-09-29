@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOCKUP: IBM Mainframe Theme - Computer Comparison</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier Prime', monospace;
+            background: #001a33;
+            color: #66ccff;
+            padding: 30px;
+            line-height: 1.5;
+        }
+
+        /* Mainframe console */
+        .console {
+            background: #002244;
+            border: 5px solid #004488;
+            max-width: 1100px;
+            margin: 0 auto;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Header bar with punch card motif */
+        .header-bar {
+            background: linear-gradient(180deg, #003366 0%, #002244 100%);
+            border-bottom: 3px solid #0066cc;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .system-id {
+            font-size: 14px;
+            color: #99ddff;
+            letter-spacing: 2px;
+        }
+
+        .punch-holes {
+            display: flex;
+            gap: 8px;
+        }
+
+        .hole {
+            width: 8px;
+            height: 8px;
+            border: 2px solid #0066cc;
+            border-radius: 2px;
+            background: #001a33;
+        }
+
+        /* Main display */
+        .display {
+            padding: 30px;
+            background: #001a33;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 5px;
+            color: #66ccff;
+            letter-spacing: 8px;
+            border-top: 2px solid #0066cc;
+            border-bottom: 2px solid #0066cc;
+            padding: 15px 0;
+        }
+
+        .batch-info {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 13px;
+            color: #4499cc;
+            letter-spacing: 3px;
+        }
+
+        /* Job card style input area */
+        .job-card {
+            background: #002244;
+            border: 3px solid #0066cc;
+            border-left: 8px solid #0066cc;
+            padding: 25px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .job-card::before {
+            content: "//JOB";
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            font-size: 11px;
+            color: #0066cc;
+            font-weight: 700;
+        }
+
+        .card-line {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 18px;
+            align-items: center;
+        }
+
+        .card-line label {
+            min-width: 160px;
+            color: #99ddff;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        select {
+            flex: 1;
+            background: #001a33;
+            color: #66ccff;
+            border: 2px solid #0066cc;
+            padding: 10px 15px;
+            font-family: 'Courier Prime', monospace;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #66ccff;
+            box-shadow: 0 0 10px rgba(102, 204, 255, 0.5);
+        }
+
+        /* Submit button */
+        .submit-panel {
+            background: #002244;
+            border: 3px solid #0066cc;
+            padding: 5px;
+        }
+
+        button {
+            background: linear-gradient(180deg, #0066cc 0%, #004499 100%);
+            color: #ffffff;
+            border: none;
+            padding: 18px 40px;
+            font-family: 'Courier Prime', monospace;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            letter-spacing: 6px;
+            box-shadow:
+                inset 0 2px 4px rgba(255, 255, 255, 0.2),
+                0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background: linear-gradient(180deg, #0077dd 0%, #0055aa 100%);
+        }
+
+        button:active {
+            transform: translateY(2px);
+            box-shadow:
+                inset 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Output listing */
+        .output {
+            margin-top: 25px;
+        }
+
+        .listing-header {
+            background: #002244;
+            border: 2px solid #0066cc;
+            border-bottom: none;
+            padding: 12px 20px;
+            font-size: 12px;
+            color: #99ddff;
+            letter-spacing: 2px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .record {
+            background: #001a33;
+            border: 2px solid #0066cc;
+            border-bottom: none;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .record:last-child {
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .record h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #66ccff;
+            letter-spacing: 3px;
+            border-bottom: 1px solid #0066cc;
+            padding-bottom: 8px;
+        }
+
+        .field {
+            display: grid;
+            grid-template-columns: 250px auto;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .field-name {
+            color: #4499cc;
+            letter-spacing: 1px;
+        }
+
+        .field-value {
+            color: #66ccff;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        /* Separator line */
+        .separator {
+            margin: 15px 0;
+            border: none;
+            border-top: 1px dashed #0066cc;
+        }
+
+        /* Footer */
+        .footer {
+            background: #002244;
+            border-top: 3px solid #0066cc;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #4499cc;
+            letter-spacing: 1px;
+        }
+
+        .status-ready {
+            color: #00ff00;
+            font-weight: 700;
+        }
+
+        /* Blinking cursor for ready state */
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="console">
+        <div class="header-bar">
+            <div class="system-id">IBM SYSTEM/370 - COMPUTER EVOLUTION ANALYZER</div>
+            <div class="punch-holes">
+                <div class="hole"></div>
+                <div class="hole"></div>
+                <div class="hole"></div>
+                <div class="hole"></div>
+                <div class="hole"></div>
+                <div class="hole"></div>
+                <div class="hole"></div>
+                <div class="hole"></div>
+            </div>
+        </div>
+
+        <div class="display">
+            <h1>COMPUTER COMPARISON UTILITY</h1>
+            <div class="batch-info">BATCH PROCESSING SYSTEM :: 1946-2024 DATABASE</div>
+
+            <div class="job-card">
+                <div class="card-line">
+                    <label>COMPUTER_1_ID:</label>
+                    <select>
+                        <option>ENIAC (1946)</option>
+                        <option>UNIVAC I (1951)</option>
+                        <option>IBM 704 (1954)</option>
+                        <option>PDP-8 (1965)</option>
+                        <option>Commodore 64 (1982)</option>
+                    </select>
+                </div>
+
+                <div class="card-line">
+                    <label>COMPUTER_2_ID:</label>
+                    <select>
+                        <option>Apple M4 (2024)</option>
+                        <option>iPhone 15 Pro (2023)</option>
+                        <option>AMD Ryzen 9 (2023)</option>
+                        <option>PlayStation 5 (2020)</option>
+                    </select>
+                </div>
+
+                <div class="submit-panel">
+                    <button>SUBMIT JOB</button>
+                </div>
+            </div>
+
+            <div class="output">
+                <div class="listing-header">
+                    <span>EXECUTION OUTPUT</span>
+                    <span>DATASET: COMP.EVOLUTION.RESULTS</span>
+                </div>
+
+                <div class="record">
+                    <h2>COMPUTATIONAL PERFORMANCE</h2>
+                    <div class="field">
+                        <span class="field-name">ENIAC.COMPUTE.MIPS............:</span>
+                        <span class="field-value">0.005</span>
+                    </div>
+                    <div class="field">
+                        <span class="field-name">M4.COMPUTE.MIPS..............:</span>
+                        <span class="field-value">352,000</span>
+                    </div>
+                    <hr class="separator">
+                    <div class="field">
+                        <span class="field-name">RATIO.PERFORMANCE............:</span>
+                        <span class="field-value">70,400,000 X</span>
+                    </div>
+                </div>
+
+                <div class="record">
+                    <h2>MEMORY SPECIFICATIONS</h2>
+                    <div class="field">
+                        <span class="field-name">ENIAC.MEMORY.KB..............:</span>
+                        <span class="field-value">0.02</span>
+                    </div>
+                    <div class="field">
+                        <span class="field-name">M4.MEMORY.KB.................:</span>
+                        <span class="field-value">16,777,216</span>
+                    </div>
+                    <hr class="separator">
+                    <div class="field">
+                        <span class="field-name">RATIO.MEMORY.................:</span>
+                        <span class="field-value">838,860,800 X</span>
+                    </div>
+                </div>
+
+                <div class="record">
+                    <h2>PHYSICAL CHARACTERISTICS</h2>
+                    <div class="field">
+                        <span class="field-name">ENIAC.WEIGHT.KG..............:</span>
+                        <span class="field-value">27,000</span>
+                    </div>
+                    <div class="field">
+                        <span class="field-name">M4.WEIGHT.KG.................:</span>
+                        <span class="field-value">0.5</span>
+                    </div>
+                    <hr class="separator">
+                    <div class="field">
+                        <span class="field-name">REDUCTION.FACTOR.............:</span>
+                        <span class="field-value">54,000 X</span>
+                    </div>
+                </div>
+
+                <div class="record">
+                    <h2>ENERGY EFFICIENCY</h2>
+                    <div class="field">
+                        <span class="field-name">ENIAC.MIPS_PER_WATT..........:</span>
+                        <span class="field-value">0.0000003</span>
+                    </div>
+                    <div class="field">
+                        <span class="field-name">M4.MIPS_PER_WATT.............:</span>
+                        <span class="field-value">17,600</span>
+                    </div>
+                    <hr class="separator">
+                    <div class="field">
+                        <span class="field-name">EFFICIENCY.IMPROVEMENT.......:</span>
+                        <span class="field-value">58,666,666,667 X</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>SYSTEMS ANALYZED: 60+</span>
+            <span>TIMESPAN: 1946-2024</span>
+            <span class="status-ready">READY<span class="blink">_</span></span>
+        </div>
+    </div>
+</body>
+</html>

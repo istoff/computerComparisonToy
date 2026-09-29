@@ -20,7 +20,12 @@ Three estimates derived from the specs, each shown only when it has something to
 - `gpu_decode` (simultaneous 1080p30 H.264 streams) on 76 entries — including the Raspberry Pi 5, which dropped H.264 hardware decode
 
 #### Added — memory configurations
-Machines with wide memory ranges now appear as the configuration people actually buy and the configuration that matters for AI work: Mac mini M4 / M4 Pro / M6 / M5 Pro, Mac Studio M4 Max / M3 Ultra / M5 Max / M5 Ultra, Ryzen AI Max+ 395. Names and prices reflect the configuration. Database grew from 105 to 114 systems.
+Machines with wide memory ranges now appear as the configuration people actually buy and the configuration that matters for AI work: Mac mini M4 / M4 Pro / M6 / M5 Pro, Mac Studio M4 Max / M3 Ultra / M5 Max / M5 Ultra, Ryzen AI Max+ 395. Names and prices reflect the configuration.
+
+#### Merged with the phone and tablet work
+This release merges the branch that added 18 phones and tablets (iPhone 15 Pro, Galaxy S3 through S24 Ultra, the Pixel line, iPads, Surface Pro, Kindle Fire), embedded the reference JSON inline so the page works over `file://`, and renamed `compare.html` to `index.html`. Those machines now carry `bandwidth`, `mem_arch` and `gpu_decode` too, so they get the same workload estimates. The database is **132 systems**, and the `computers` object is now emitted grouped by category with a comment per group.
+
+The Apollo and Voyager corrections were applied to the embedded copy of the reference data as well as to `references/space-computers.json` — the inline copy still carried the old "4KB ROM + 2KB RAM" figure.
 
 #### Changed — power is now whole-machine
 Every `power` value is the draw of the complete machine under load, not CPU package TDP. Affects 26 entries: a 14900K PC went from 253 W to 620 W, an EPYC 9754 node from 360 W to 700 W, a MacBook Pro M4 Max from 48 W to 140 W. MIPS-per-watt is now comparable across eras.

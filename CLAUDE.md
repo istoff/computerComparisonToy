@@ -9,12 +9,12 @@ This is a **Computer Evolution Comparison Tool** - an interactive web applicatio
 ## Architecture
 
 ### Single-File Application
-- **`compare.html`**: Complete self-contained application (HTML, CSS, JavaScript)
+- **`index.html`**: Complete self-contained application (HTML, CSS, JavaScript). Reference data is embedded inline so the file works over `file://` as well as over HTTP.
 - **Pure web technologies**: No external dependencies or build process
 - **Client-side only**: Runs entirely in the browser
 
 ### Core Data Structure
-The application centers around a comprehensive `computers` object containing 114 systems:
+The application centers around a comprehensive `computers` object containing 132 systems:
 - **Historical Range**: ENIAC (1946) to Mac Studio M5 Ultra (2026)
 - **Categories**: Early computers, space computers, personal computers, Apple Silicon, ARM/mobile, laptops, mobile devices, single-board computers, calculators, gaming consoles, AI workstations, data center servers, supercomputers, fictional computers
 - **Specifications**: CPU specs (MHz, cores, IPC), memory, storage, power consumption, weight, cost
@@ -121,7 +121,10 @@ Each computer entry contains:
 ## File Structure
 ```
 computerComparisonToy/
-├── compare.html          # Main application with enhanced features
+├── index.html            # Main application (reference data embedded inline)
+├── vercel.json           # Serves index.html at /
+├── .vercelignore         # Keeps docs and mockups out of the deploy
+├── mockup-*.html         # Standalone theme explorations, not wired to the app
 ├── readme.md            # Project documentation
 ├── changelog.md         # Version history and features
 ├── CLAUDE.md           # This file
@@ -136,7 +139,7 @@ computerComparisonToy/
 ### Local Development
 ```bash
 # Open in browser - no build process required
-open compare.html
+open index.html
 # or
 python -m http.server 8000  # if serving locally needed
 ```

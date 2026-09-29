@@ -862,6 +862,7 @@
                         <option value="Laptop">Laptop</option>
                         <option value="Gaming Console">Gaming Console</option>
                         <option value="Single Board Computer">Single Board Computer</option>
+                        <option value="Tablet">Tablet</option>
                         <option value="Apple Silicon">Apple Silicon</option>
                         <option value="ARM/Mobile">ARM/Mobile</option>
                         <option value="AI Workstation">AI Workstation</option>
@@ -1006,6 +1007,7 @@
                         <option value="Laptop">Laptop</option>
                         <option value="Gaming Console">Gaming Console</option>
                         <option value="Single Board Computer">Single Board Computer</option>
+                        <option value="Tablet">Tablet</option>
                         <option value="Apple Silicon">Apple Silicon</option>
                         <option value="ARM/Mobile">ARM/Mobile</option>
                         <option value="AI Workstation">AI Workstation</option>
@@ -1024,7 +1026,7 @@
 
     <script>
         const computers = {
-            // Early Computers (1940s-1950s)
+            // Early Computer
             'eniac': {
                 name: 'ENIAC (1946)',
                 year: 1946,
@@ -1056,7 +1058,7 @@
                 category: 'Early Computer'
             },
 
-            // Space Computers
+            // Space Computer
             'apollo': {
                 name: 'Apollo Guidance Computer (1966)',
                 year: 1966,
@@ -1103,14 +1105,14 @@
                 category: 'Space Computer'
             },
 
-            // Fictional Computers
+            // Fictional Computer
             'hal9000': {
                 name: 'HAL 9000 (2001: Space Odyssey)',
                 year: 1968,
                 cpu: 1000,
                 cores: 1000,
                 bits: 64,
-                ipc: 10.0,
+                ipc: 10,
                 compute_power: 10000000,
                 memory: 1048576000,
                 storage: 1073741824000,
@@ -1140,7 +1142,7 @@
                 cpu: 50,
                 cores: 100,
                 bits: 32,
-                ipc: 2.0,
+                ipc: 2,
                 compute_power: 10000,
                 memory: 1048576,
                 storage: 10485760,
@@ -1155,7 +1157,7 @@
                 cpu: 1000,
                 cores: 10000,
                 bits: 64,
-                ipc: 8.0,
+                ipc: 8,
                 compute_power: 80000000,
                 memory: 1073741824,
                 storage: 1099511627776,
@@ -1170,7 +1172,7 @@
                 cpu: 100,
                 cores: 50,
                 bits: 32,
-                ipc: 3.0,
+                ipc: 3,
                 compute_power: 15000,
                 memory: 524288,
                 storage: 52428800,
@@ -1185,7 +1187,7 @@
                 cpu: 10000,
                 cores: 100000,
                 bits: 128,
-                ipc: 50.0,
+                ipc: 50,
                 compute_power: 50000000000,
                 memory: 1099511627776000,
                 storage: 1125899906842624000,
@@ -1195,7 +1197,7 @@
                 category: 'Fictional Computer'
             },
 
-            // Calculators
+            // Calculator
             'hp35': {
                 name: 'HP-35 Calculator (1972)',
                 year: 1972,
@@ -1218,7 +1220,7 @@
                 cores: 1,
                 bits: 8,
                 ipc: 0.5,
-                compute_power: 1.0,
+                compute_power: 1,
                 memory: 2.4,
                 storage: 0,
                 weight: 0.275,
@@ -1233,7 +1235,7 @@
                 cores: 1,
                 bits: 32,
                 ipc: 0.8,
-                compute_power: 8.0,
+                compute_power: 8,
                 memory: 188,
                 storage: 2048,
                 weight: 0.31,
@@ -1242,7 +1244,7 @@
                 category: 'Calculator'
             },
 
-            // Early Personal Computers
+            // Personal Computer
             'altair8800': {
                 name: 'Altair 8800 (1975)',
                 year: 1975,
@@ -1303,8 +1305,6 @@
                 cost: 3000,
                 category: 'Personal Computer'
             },
-
-            // IBM PC Era
             'ibmpc': {
                 name: 'IBM PC (1981)',
                 year: 1981,
@@ -1342,7 +1342,7 @@
                 cores: 1,
                 bits: 16,
                 ipc: 0.5,
-                compute_power: 3.0,
+                compute_power: 3,
                 memory: 512,
                 storage: 20480,
                 weight: 21,
@@ -1350,8 +1350,6 @@
                 cost: 8000,
                 category: 'Personal Computer'
             },
-
-            // 386/486 Era
             'i386': {
                 name: '386 PC (1985)',
                 year: 1985,
@@ -1382,8 +1380,6 @@
                 cost: 4000,
                 category: 'Personal Computer'
             },
-
-            // Pentium Era
             'pentium': {
                 name: 'Pentium PC (1993)',
                 year: 1993,
@@ -1407,7 +1403,7 @@
                 cpu: 233,
                 cores: 1,
                 bits: 32,
-                ipc: 2.0,
+                ipc: 2,
                 compute_power: 466,
                 memory: 65536,
                 storage: 4194304,
@@ -1441,7 +1437,7 @@
                 cpu: 1500,
                 cores: 1,
                 bits: 32,
-                ipc: 1.0,
+                ipc: 1,
                 compute_power: 1500,
                 memory: 524288,
                 storage: 41943040,
@@ -1453,8 +1449,6 @@
                 cost: 1800,
                 category: 'Personal Computer'
             },
-
-            // Core Era
             'coreduo': {
                 name: 'Core Duo PC (2006)',
                 year: 2006,
@@ -1533,7 +1527,7 @@
                 cpu: 4000,
                 cores: 4,
                 bits: 64,
-                ipc: 4.0,
+                ipc: 4,
                 compute_power: 64000,
                 memory: 33554432,
                 storage: 2097152000,
@@ -1563,8 +1557,6 @@
                 cost: 2500,
                 category: 'Personal Computer'
             },
-
-            // AMD Processors
             'athlon': {
                 name: 'AMD Athlon PC (1999)',
                 year: 1999,
@@ -1671,6 +1663,114 @@
                 cost: 3000,
                 category: 'Personal Computer'
             },
+            'i9_13900k': {
+                name: 'Core i9-13900K PC (2023)',
+                year: 2023,
+                cpu: 5800,
+                cores: 24,
+                bits: 64,
+                ipc: 5,
+                compute_power: 696000,
+                memory: 134217728,
+                storage: 8388608000,
+                weight: 3,
+                power: 620,
+                bandwidth: 89,
+                mem_arch: 'ddr',
+                gpu_decode: 20,
+                cost: 3500,
+                category: 'Personal Computer'
+            },
+            'i9_14900k': {
+                name: 'Core i9-14900K PC (2024)',
+                year: 2024,
+                cpu: 6000,
+                cores: 24,
+                bits: 64,
+                ipc: 5.2,
+                compute_power: 748800,
+                memory: 134217728,
+                storage: 8388608000,
+                weight: 2.8,
+                power: 620,
+                bandwidth: 89,
+                mem_arch: 'ddr',
+                gpu_decode: 20,
+                cost: 4000,
+                category: 'Personal Computer'
+            },
+            'ultra9_285k': {
+                name: 'Core Ultra 9 285K PC (2024)',
+                year: 2024,
+                cpu: 5700,
+                cores: 24,
+                bits: 64,
+                ipc: 5.5,
+                compute_power: 752400,
+                memory: 201326592,
+                storage: 8388608000,
+                weight: 2.7,
+                power: 580,
+                bandwidth: 102,
+                mem_arch: 'ddr',
+                gpu_decode: 24,
+                cost: 4200,
+                category: 'Personal Computer'
+            },
+            'ryzen9_7950x3d': {
+                name: 'Ryzen 9 7950X3D PC (2023)',
+                year: 2023,
+                cpu: 5700,
+                cores: 16,
+                bits: 64,
+                ipc: 5,
+                compute_power: 456000,
+                memory: 134217728,
+                storage: 8388608000,
+                weight: 2.9,
+                power: 450,
+                bandwidth: 83,
+                mem_arch: 'ddr',
+                gpu_decode: 12,
+                cost: 3500,
+                category: 'Personal Computer'
+            },
+            'ryzen9_9950x': {
+                name: 'Ryzen 9 9950X PC (2024)',
+                year: 2024,
+                cpu: 5700,
+                cores: 16,
+                bits: 64,
+                ipc: 5.3,
+                compute_power: 483360,
+                memory: 201326592,
+                storage: 8388608000,
+                weight: 2.8,
+                power: 500,
+                bandwidth: 89,
+                mem_arch: 'ddr',
+                gpu_decode: 12,
+                cost: 4000,
+                category: 'Personal Computer'
+            },
+            'ryzen9_9950x3d': {
+                name: 'Ryzen 9 9950X3D PC (2025)',
+                year: 2025,
+                cpu: 5700,
+                cores: 16,
+                bits: 64,
+                ipc: 5.4,
+                compute_power: 492480,
+                memory: 201326592,
+                storage: 8589934592,
+                weight: 2.8,
+                power: 500,
+                bandwidth: 89,
+                mem_arch: 'ddr',
+                gpu_decode: 12,
+                cost: 3200,
+                category: 'Personal Computer'
+            },
 
             // Apple Silicon
             'm1': {
@@ -1679,7 +1779,7 @@
                 cpu: 3200,
                 cores: 8,
                 bits: 64,
-                ipc: 7.0,
+                ipc: 7,
                 compute_power: 179200,
                 memory: 16777216,
                 storage: 1073741824,
@@ -1715,7 +1815,7 @@
                 cpu: 4100,
                 cores: 8,
                 bits: 64,
-                ipc: 8.0,
+                ipc: 8,
                 compute_power: 262400,
                 memory: 25165824,
                 storage: 1073741824,
@@ -1745,15 +1845,231 @@
                 cost: 1800,
                 category: 'Apple Silicon'
             },
+            'm3_pro': {
+                name: 'Apple M3 Pro Mac (2023)',
+                year: 2023,
+                cpu: 4100,
+                cores: 12,
+                bits: 64,
+                ipc: 8.2,
+                compute_power: 403440,
+                memory: 37748736,
+                storage: 1073741824,
+                weight: 1.6,
+                power: 70,
+                bandwidth: 150,
+                mem_arch: 'unified',
+                gpu_decode: 16,
+                cost: 2000,
+                category: 'Apple Silicon'
+            },
+            'm3_max': {
+                name: 'Apple M3 Max Mac (2023)',
+                year: 2023,
+                cpu: 4100,
+                cores: 16,
+                bits: 64,
+                ipc: 8.3,
+                compute_power: 544480,
+                memory: 134217728,
+                storage: 1073741824,
+                weight: 2.1,
+                power: 140,
+                bandwidth: 400,
+                mem_arch: 'unified',
+                gpu_decode: 32,
+                cost: 3500,
+                category: 'Apple Silicon'
+            },
+            'm4_pro': {
+                name: 'Apple M4 Pro Mac (2024)',
+                year: 2024,
+                cpu: 4400,
+                cores: 14,
+                bits: 64,
+                ipc: 8.7,
+                compute_power: 536008,
+                memory: 67108864,
+                storage: 1073741824,
+                weight: 1.55,
+                power: 96,
+                bandwidth: 273,
+                mem_arch: 'unified',
+                gpu_decode: 16,
+                cost: 2200,
+                category: 'Apple Silicon'
+            },
+            'm4_max': {
+                name: 'Apple M4 Max Mac (2024)',
+                year: 2024,
+                cpu: 4500,
+                cores: 16,
+                bits: 64,
+                ipc: 8.8,
+                compute_power: 633600,
+                memory: 134217728,
+                storage: 2147483648,
+                weight: 2,
+                power: 140,
+                bandwidth: 546,
+                mem_arch: 'unified',
+                gpu_decode: 32,
+                cost: 3800,
+                category: 'Apple Silicon'
+            },
+            'mac_mini_m4': {
+                name: 'Mac mini M4 32GB (2024)',
+                year: 2024,
+                cpu: 4400,
+                cores: 10,
+                bits: 64,
+                ipc: 8.5,
+                compute_power: 374000,
+                memory: 33554432,
+                storage: 2147483648,
+                weight: 0.67,
+                power: 155,
+                bandwidth: 120,
+                mem_arch: 'unified',
+                gpu_decode: 16,
+                cost: 999,
+                category: 'Apple Silicon'
+            },
+            'mac_mini_m4_16': {
+                name: 'Mac mini M4 16GB (2024)',
+                year: 2024,
+                cpu: 4400,
+                cores: 10,
+                bits: 64,
+                ipc: 8.5,
+                compute_power: 374000,
+                memory: 16777216,
+                storage: 2147483648,
+                weight: 0.67,
+                power: 155,
+                bandwidth: 120,
+                mem_arch: 'unified',
+                gpu_decode: 16,
+                cost: 599,
+                category: 'Apple Silicon'
+            },
+            'mac_mini_m4_pro': {
+                name: 'Mac mini M4 Pro 64GB (2024)',
+                year: 2024,
+                cpu: 4400,
+                cores: 14,
+                bits: 64,
+                ipc: 8.7,
+                compute_power: 535920,
+                memory: 67108864,
+                storage: 8589934592,
+                weight: 0.73,
+                power: 155,
+                bandwidth: 273,
+                mem_arch: 'unified',
+                gpu_decode: 16,
+                cost: 1999,
+                category: 'Apple Silicon'
+            },
+            'mac_mini_m4_pro_24': {
+                name: 'Mac mini M4 Pro 24GB (2024)',
+                year: 2024,
+                cpu: 4400,
+                cores: 14,
+                bits: 64,
+                ipc: 8.7,
+                compute_power: 535920,
+                memory: 25165824,
+                storage: 8589934592,
+                weight: 0.73,
+                power: 155,
+                bandwidth: 273,
+                mem_arch: 'unified',
+                gpu_decode: 16,
+                cost: 1399,
+                category: 'Apple Silicon'
+            },
+            'mac_mini_m6': {
+                name: 'Mac mini M6 32GB (2026)',
+                year: 2026,
+                cpu: 4800,
+                cores: 12,
+                bits: 64,
+                ipc: 9.6,
+                compute_power: 552960,
+                memory: 33554432,
+                storage: 2147483648,
+                weight: 0.67,
+                power: 155,
+                bandwidth: 170,
+                mem_arch: 'unified',
+                gpu_decode: 18,
+                cost: 1299,
+                category: 'Apple Silicon'
+            },
+            'mac_mini_m6_16': {
+                name: 'Mac mini M6 16GB (2026)',
+                year: 2026,
+                cpu: 4800,
+                cores: 12,
+                bits: 64,
+                ipc: 9.6,
+                compute_power: 552960,
+                memory: 16777216,
+                storage: 2147483648,
+                weight: 0.67,
+                power: 155,
+                bandwidth: 170,
+                mem_arch: 'unified',
+                gpu_decode: 18,
+                cost: 899,
+                category: 'Apple Silicon'
+            },
+            'mac_mini_m5_pro': {
+                name: 'Mac mini M5 Pro 64GB (2026)',
+                year: 2026,
+                cpu: 4600,
+                cores: 18,
+                bits: 64,
+                ipc: 9.3,
+                compute_power: 770040,
+                memory: 67108864,
+                storage: 8589934592,
+                weight: 0.73,
+                power: 155,
+                bandwidth: 307,
+                mem_arch: 'unified',
+                gpu_decode: 18,
+                cost: 2299,
+                category: 'Apple Silicon'
+            },
+            'mac_mini_m5_pro_24': {
+                name: 'Mac mini M5 Pro 24GB (2026)',
+                year: 2026,
+                cpu: 4600,
+                cores: 18,
+                bits: 64,
+                ipc: 9.3,
+                compute_power: 770040,
+                memory: 25165824,
+                storage: 8589934592,
+                weight: 0.73,
+                power: 155,
+                bandwidth: 307,
+                mem_arch: 'unified',
+                gpu_decode: 18,
+                cost: 1699,
+                category: 'Apple Silicon'
+            },
 
-            // ARM/Mobile Processors
+            // ARM/Mobile
             'snapdragon855': {
                 name: 'Snapdragon 855 Phone (2019)',
                 year: 2019,
                 cpu: 2840,
                 cores: 8,
                 bits: 64,
-                ipc: 4.0,
+                ipc: 4,
                 compute_power: 90880,
                 memory: 12582912,
                 storage: 268435456,
@@ -1776,15 +2092,51 @@
                 memory: 16777216,
                 storage: 1073741824,
                 weight: 0.19,
-                power: 6.0,
+                power: 6,
                 bandwidth: 51,
                 mem_arch: 'unified',
                 gpu_decode: 6,
                 cost: 900,
                 category: 'ARM/Mobile'
             },
+            'snapdragon8gen3': {
+                name: 'Snapdragon 8 Gen 3 Phone (2024)',
+                year: 2024,
+                cpu: 3300,
+                cores: 8,
+                bits: 64,
+                ipc: 7,
+                compute_power: 184800,
+                memory: 16777216,
+                storage: 1073741824,
+                weight: 0.2,
+                power: 6.5,
+                bandwidth: 77,
+                mem_arch: 'unified',
+                gpu_decode: 8,
+                cost: 1000,
+                category: 'ARM/Mobile'
+            },
+            'quest3': {
+                name: 'Meta Quest 3 (2023)',
+                year: 2023,
+                cpu: 2360,
+                cores: 8,
+                bits: 64,
+                ipc: 6,
+                compute_power: 113280,
+                memory: 8388608,
+                storage: 134217728,
+                weight: 0.515,
+                power: 18,
+                bandwidth: 51,
+                mem_arch: 'unified',
+                gpu_decode: 6,
+                cost: 500,
+                category: 'ARM/Mobile'
+            },
 
-            // Laptops Through Eras
+            // Laptop
             'osborne1': {
                 name: 'Osborne 1 (1981)',
                 year: 1981,
@@ -1851,7 +2203,7 @@
                 cpu: 1600,
                 cores: 1,
                 bits: 32,
-                ipc: 2.0,
+                ipc: 2,
                 compute_power: 3200,
                 memory: 1048576,
                 storage: 83886080,
@@ -1918,14 +2270,14 @@
                 category: 'Laptop'
             },
 
-            // Mobile Devices Evolution
+            // Mobile Device
             'iphone': {
                 name: 'iPhone (2007)',
                 year: 2007,
                 cpu: 412,
                 cores: 1,
                 bits: 32,
-                ipc: 1.0,
+                ipc: 1,
                 compute_power: 412,
                 memory: 131072,
                 storage: 8388608,
@@ -1940,7 +2292,7 @@
                 cpu: 1000,
                 cores: 1,
                 bits: 32,
-                ipc: 2.0,
+                ipc: 2,
                 compute_power: 2000,
                 memory: 524288,
                 storage: 33554432,
@@ -1973,7 +2325,7 @@
                 cpu: 2390,
                 cores: 6,
                 bits: 64,
-                ipc: 5.0,
+                ipc: 5,
                 compute_power: 71700,
                 memory: 3145728,
                 storage: 268435456,
@@ -1991,7 +2343,7 @@
                 cpu: 3230,
                 cores: 6,
                 bits: 64,
-                ipc: 6.0,
+                ipc: 6,
                 compute_power: 116280,
                 memory: 6291456,
                 storage: 1073741824,
@@ -2003,8 +2355,370 @@
                 cost: 800,
                 category: 'Mobile Device'
             },
+            'iphone15pro': {
+                name: 'iPhone 15 Pro (2023)',
+                year: 2023,
+                cpu: 3780,
+                cores: 6,
+                bits: 64,
+                ipc: 7,
+                compute_power: 158760,
+                memory: 8388608,
+                storage: 1073741824,
+                weight: 0.187,
+                power: 4,
+                bandwidth: 51,
+                mem_arch: 'unified',
+                gpu_decode: 8,
+                cost: 1000,
+                category: 'Mobile Device'
+            },
+            'galaxys3': {
+                name: 'Samsung Galaxy S3 (2012)',
+                year: 2012,
+                cpu: 1400,
+                cores: 4,
+                bits: 32,
+                ipc: 2.5,
+                compute_power: 14000,
+                memory: 2097152,
+                storage: 33554432,
+                weight: 0.133,
+                power: 3.5,
+                bandwidth: 6.4,
+                mem_arch: 'unified',
+                gpu_decode: 2,
+                cost: 600,
+                category: 'Mobile Device'
+            },
+            'galaxys8': {
+                name: 'Samsung Galaxy S8 (2017)',
+                year: 2017,
+                cpu: 2350,
+                cores: 8,
+                bits: 64,
+                ipc: 4,
+                compute_power: 75200,
+                memory: 4194304,
+                storage: 67108864,
+                weight: 0.155,
+                power: 3.8,
+                bandwidth: 29.9,
+                mem_arch: 'unified',
+                gpu_decode: 4,
+                cost: 750,
+                category: 'Mobile Device'
+            },
+            'galaxys21': {
+                name: 'Samsung Galaxy S21 (2021)',
+                year: 2021,
+                cpu: 2840,
+                cores: 8,
+                bits: 64,
+                ipc: 5.5,
+                compute_power: 125040,
+                memory: 8388608,
+                storage: 268435456,
+                weight: 0.169,
+                power: 4.2,
+                bandwidth: 51,
+                mem_arch: 'unified',
+                gpu_decode: 6,
+                cost: 800,
+                category: 'Mobile Device'
+            },
+            'galaxys24ultra': {
+                name: 'Samsung Galaxy S24 Ultra (2024)',
+                year: 2024,
+                cpu: 3390,
+                cores: 8,
+                bits: 64,
+                ipc: 7.5,
+                compute_power: 203400,
+                memory: 12582912,
+                storage: 1073741824,
+                weight: 0.232,
+                power: 5,
+                bandwidth: 77,
+                mem_arch: 'unified',
+                gpu_decode: 8,
+                cost: 1200,
+                category: 'Mobile Device'
+            },
+            'pixel': {
+                name: 'Google Pixel (2016)',
+                year: 2016,
+                cpu: 2150,
+                cores: 4,
+                bits: 64,
+                ipc: 3.5,
+                compute_power: 30100,
+                memory: 4194304,
+                storage: 134217728,
+                weight: 0.143,
+                power: 3.5,
+                bandwidth: 29.9,
+                mem_arch: 'unified',
+                gpu_decode: 4,
+                cost: 650,
+                category: 'Mobile Device'
+            },
+            'pixel7': {
+                name: 'Google Pixel 7 Pro (2022)',
+                year: 2022,
+                cpu: 2850,
+                cores: 8,
+                bits: 64,
+                ipc: 5.8,
+                compute_power: 132240,
+                memory: 12582912,
+                storage: 268435456,
+                weight: 0.212,
+                power: 4.5,
+                bandwidth: 51,
+                mem_arch: 'unified',
+                gpu_decode: 6,
+                cost: 900,
+                category: 'Mobile Device'
+            },
+            'pixel8pro': {
+                name: 'Google Pixel 8 Pro (2023)',
+                year: 2023,
+                cpu: 3000,
+                cores: 9,
+                bits: 64,
+                ipc: 6.5,
+                compute_power: 175500,
+                memory: 12582912,
+                storage: 268435456,
+                weight: 0.213,
+                power: 4.8,
+                bandwidth: 58,
+                mem_arch: 'unified',
+                gpu_decode: 6,
+                cost: 1000,
+                category: 'Mobile Device'
+            },
+            'oneplus5t': {
+                name: 'OnePlus 5T (2017)',
+                year: 2017,
+                cpu: 2450,
+                cores: 8,
+                bits: 64,
+                ipc: 4,
+                compute_power: 78400,
+                memory: 8388608,
+                storage: 134217728,
+                weight: 0.162,
+                power: 3.5,
+                bandwidth: 29.9,
+                mem_arch: 'unified',
+                gpu_decode: 4,
+                cost: 500,
+                category: 'Mobile Device'
+            },
+            'a17_pro': {
+                name: 'iPhone 15 Pro - A17 Pro (2023)',
+                year: 2023,
+                cpu: 3780,
+                cores: 6,
+                bits: 64,
+                ipc: 6.5,
+                compute_power: 147420,
+                memory: 8388608,
+                storage: 1073741824,
+                weight: 0.187,
+                power: 4,
+                bandwidth: 51,
+                mem_arch: 'unified',
+                gpu_decode: 8,
+                cost: 1000,
+                category: 'Mobile Device'
+            },
+            'a18_pro': {
+                name: 'iPhone 16 Pro - A18 Pro (2024)',
+                year: 2024,
+                cpu: 4050,
+                cores: 6,
+                bits: 64,
+                ipc: 7,
+                compute_power: 170100,
+                memory: 8388608,
+                storage: 1073741824,
+                weight: 0.199,
+                power: 4.2,
+                bandwidth: 60,
+                mem_arch: 'unified',
+                gpu_decode: 8,
+                cost: 1200,
+                category: 'Mobile Device'
+            },
 
-            // Raspberry Pi
+            // Tablet
+            'ipad': {
+                name: 'iPad (2010)',
+                year: 2010,
+                cpu: 1000,
+                cores: 1,
+                bits: 32,
+                ipc: 2,
+                compute_power: 2000,
+                memory: 262144,
+                storage: 67108864,
+                weight: 0.68,
+                power: 10,
+                bandwidth: 3.2,
+                mem_arch: 'unified',
+                gpu_decode: 1,
+                cost: 500,
+                category: 'Tablet'
+            },
+            'ipad3': {
+                name: 'iPad 3 Retina (2012)',
+                year: 2012,
+                cpu: 1000,
+                cores: 2,
+                bits: 32,
+                ipc: 2.5,
+                compute_power: 5000,
+                memory: 1048576,
+                storage: 67108864,
+                weight: 0.652,
+                power: 11,
+                bandwidth: 12.8,
+                mem_arch: 'unified',
+                gpu_decode: 2,
+                cost: 500,
+                category: 'Tablet'
+            },
+            'ipadair2': {
+                name: 'iPad Air 2 (2014)',
+                year: 2014,
+                cpu: 1500,
+                cores: 3,
+                bits: 64,
+                ipc: 4,
+                compute_power: 18000,
+                memory: 2097152,
+                storage: 134217728,
+                weight: 0.437,
+                power: 10,
+                bandwidth: 25.6,
+                mem_arch: 'unified',
+                gpu_decode: 3,
+                cost: 500,
+                category: 'Tablet'
+            },
+            'ipadpro11': {
+                name: 'iPad Pro 11" M2 (2022)',
+                year: 2022,
+                cpu: 3490,
+                cores: 8,
+                bits: 64,
+                ipc: 6.5,
+                compute_power: 181480,
+                memory: 8388608,
+                storage: 268435456,
+                weight: 0.466,
+                power: 12,
+                bandwidth: 100,
+                mem_arch: 'unified',
+                gpu_decode: 14,
+                cost: 800,
+                category: 'Tablet'
+            },
+            'galaxytab': {
+                name: 'Samsung Galaxy Tab S7 (2020)',
+                year: 2020,
+                cpu: 3090,
+                cores: 8,
+                bits: 64,
+                ipc: 5,
+                compute_power: 123600,
+                memory: 6291456,
+                storage: 134217728,
+                weight: 0.575,
+                power: 11,
+                bandwidth: 44,
+                mem_arch: 'unified',
+                gpu_decode: 6,
+                cost: 650,
+                category: 'Tablet'
+            },
+            'galaxytabs9': {
+                name: 'Samsung Galaxy Tab S9 Ultra (2023)',
+                year: 2023,
+                cpu: 3360,
+                cores: 8,
+                bits: 64,
+                ipc: 6.5,
+                compute_power: 174720,
+                memory: 16777216,
+                storage: 1073741824,
+                weight: 0.732,
+                power: 15,
+                bandwidth: 51,
+                mem_arch: 'unified',
+                gpu_decode: 6,
+                cost: 1200,
+                category: 'Tablet'
+            },
+            'surfacepro': {
+                name: 'Microsoft Surface Pro 7 (2019)',
+                year: 2019,
+                cpu: 1600,
+                cores: 4,
+                bits: 64,
+                ipc: 4.5,
+                compute_power: 28800,
+                memory: 8388608,
+                storage: 268435456,
+                weight: 0.776,
+                power: 18,
+                bandwidth: 34,
+                mem_arch: 'ddr',
+                gpu_decode: 10,
+                cost: 750,
+                category: 'Tablet'
+            },
+            'surfacepro9': {
+                name: 'Microsoft Surface Pro 9 (2022)',
+                year: 2022,
+                cpu: 2800,
+                cores: 10,
+                bits: 64,
+                ipc: 5,
+                compute_power: 140000,
+                memory: 16777216,
+                storage: 536870912,
+                weight: 0.879,
+                power: 20,
+                bandwidth: 51,
+                mem_arch: 'ddr',
+                gpu_decode: 12,
+                cost: 1000,
+                category: 'Tablet'
+            },
+            'kindlefire': {
+                name: 'Amazon Fire HD 10 (2021)',
+                year: 2021,
+                cpu: 2000,
+                cores: 8,
+                bits: 64,
+                ipc: 2.5,
+                compute_power: 40000,
+                memory: 3145728,
+                storage: 67108864,
+                weight: 0.465,
+                power: 8,
+                bandwidth: 13,
+                mem_arch: 'unified',
+                gpu_decode: 2,
+                cost: 150,
+                category: 'Tablet'
+            },
+
+            // Single Board Computer
             'rpi1': {
                 name: 'Raspberry Pi 1 (2012)',
                 year: 2012,
@@ -2041,7 +2755,7 @@
                 cpu: 1200,
                 cores: 4,
                 bits: 64,
-                ipc: 2.0,
+                ipc: 2,
                 compute_power: 9600,
                 memory: 1048576,
                 storage: 33554432,
@@ -2071,8 +2785,26 @@
                 cost: 75,
                 category: 'Single Board Computer'
             },
+            'rpi5': {
+                name: 'Raspberry Pi 5 (2023)',
+                year: 2023,
+                cpu: 2400,
+                cores: 4,
+                bits: 64,
+                ipc: 3,
+                compute_power: 28800,
+                memory: 8388608,
+                storage: 67108864,
+                weight: 0.045,
+                power: 12,
+                bandwidth: 17,
+                mem_arch: 'unified',
+                gpu_decode: 0,
+                cost: 80,
+                category: 'Single Board Computer'
+            },
 
-            // Gaming Consoles
+            // Gaming Console
             'nintendo_nes': {
                 name: 'Nintendo NES (1985)',
                 year: 1985,
@@ -2121,313 +2853,13 @@
                 cost: 500,
                 category: 'Gaming Console'
             },
-
-            // Supercomputers
-            'cray1': {
-                name: 'Cray-1 Supercomputer (1975)',
-                year: 1975,
-                cpu: 80,
-                cores: 1,
-                bits: 64,
-                ipc: 2.0,
-                compute_power: 160,
-                memory: 8192,
-                storage: 39321600,
-                weight: 5500,
-                power: 115000,
-                bandwidth: 0.64,
-                mem_arch: 'ddr',
-                gpu_decode: 0,
-                cost: 35000000,
-                category: 'Supercomputer'
-            },
-            'cray2': {
-                name: 'Cray-2 (1985)',
-                year: 1985,
-                cpu: 244,
-                cores: 4,
-                bits: 64,
-                ipc: 2.5,
-                compute_power: 2440,
-                memory: 2097152,
-                storage: 134217728000,
-                weight: 2500,
-                power: 200000,
-                bandwidth: 2,
-                mem_arch: 'ddr',
-                gpu_decode: 0,
-                cost: 30000000,
-                category: 'Supercomputer'
-            },
-            'deepblue': {
-                name: 'Deep Blue (1997)',
-                year: 1997,
-                cpu: 200,
-                cores: 480,
-                bits: 32,
-                ipc: 2.0,
-                compute_power: 192000,
-                memory: 31457280,
-                storage: 1073741824000,
-                weight: 1270,
-                power: 30000,
-                bandwidth: 1,
-                mem_arch: 'ddr',
-                gpu_decode: 0,
-                cost: 100000000,
-                category: 'Supercomputer'
-            },
-            'frontier': {
-                name: 'Frontier Supercomputer (2022)',
-                year: 2022,
-                cpu: 2250,
-                cores: 9400000,
-                bits: 64,
-                ipc: 4.0,
-                compute_power: 84600000000,
-                memory: 9663676416000,
-                storage: 734003200000000,
-                weight: 8000000,
-                power: 21000000,
-                bandwidth: 3277,
-                mem_arch: 'unified',
-                gpu_decode: 0,
-                cost: 600000000,
-                category: 'Supercomputer'
-            },
-
-            // Latest Intel (2023-2024)
-            'i9_13900k': {
-                name: 'Core i9-13900K PC (2023)',
-                year: 2023,
-                cpu: 5800,
-                cores: 24,
-                bits: 64,
-                ipc: 5.0,
-                compute_power: 696000,
-                memory: 134217728,
-                storage: 8388608000,
-                weight: 3,
-                power: 620,
-                bandwidth: 89,
-                mem_arch: 'ddr',
-                gpu_decode: 20,
-                cost: 3500,
-                category: 'Personal Computer'
-            },
-            'i9_14900k': {
-                name: 'Core i9-14900K PC (2024)',
-                year: 2024,
-                cpu: 6000,
-                cores: 24,
-                bits: 64,
-                ipc: 5.2,
-                compute_power: 748800,
-                memory: 134217728,
-                storage: 8388608000,
-                weight: 2.8,
-                power: 620,
-                bandwidth: 89,
-                mem_arch: 'ddr',
-                gpu_decode: 20,
-                cost: 4000,
-                category: 'Personal Computer'
-            },
-            'ultra9_285k': {
-                name: 'Core Ultra 9 285K PC (2024)',
-                year: 2024,
-                cpu: 5700,
-                cores: 24,
-                bits: 64,
-                ipc: 5.5,
-                compute_power: 752400,
-                memory: 201326592,
-                storage: 8388608000,
-                weight: 2.7,
-                power: 580,
-                bandwidth: 102,
-                mem_arch: 'ddr',
-                gpu_decode: 24,
-                cost: 4200,
-                category: 'Personal Computer'
-            },
-
-            // Latest AMD (2023-2024)
-            'ryzen9_7950x3d': {
-                name: 'Ryzen 9 7950X3D PC (2023)',
-                year: 2023,
-                cpu: 5700,
-                cores: 16,
-                bits: 64,
-                ipc: 5.0,
-                compute_power: 456000,
-                memory: 134217728,
-                storage: 8388608000,
-                weight: 2.9,
-                power: 450,
-                bandwidth: 83,
-                mem_arch: 'ddr',
-                gpu_decode: 12,
-                cost: 3500,
-                category: 'Personal Computer'
-            },
-            'ryzen9_9950x': {
-                name: 'Ryzen 9 9950X PC (2024)',
-                year: 2024,
-                cpu: 5700,
-                cores: 16,
-                bits: 64,
-                ipc: 5.3,
-                compute_power: 483360,
-                memory: 201326592,
-                storage: 8388608000,
-                weight: 2.8,
-                power: 500,
-                bandwidth: 89,
-                mem_arch: 'ddr',
-                gpu_decode: 12,
-                cost: 4000,
-                category: 'Personal Computer'
-            },
-
-            // More Apple Silicon (2023-2024)
-            'm3_pro': {
-                name: 'Apple M3 Pro Mac (2023)',
-                year: 2023,
-                cpu: 4100,
-                cores: 12,
-                bits: 64,
-                ipc: 8.2,
-                compute_power: 403440,
-                memory: 37748736,
-                storage: 1073741824,
-                weight: 1.6,
-                power: 70,
-                bandwidth: 150,
-                mem_arch: 'unified',
-                gpu_decode: 16,
-                cost: 2000,
-                category: 'Apple Silicon'
-            },
-            'm3_max': {
-                name: 'Apple M3 Max Mac (2023)',
-                year: 2023,
-                cpu: 4100,
-                cores: 16,
-                bits: 64,
-                ipc: 8.3,
-                compute_power: 544480,
-                memory: 134217728,
-                storage: 1073741824,
-                weight: 2.1,
-                power: 140,
-                bandwidth: 400,
-                mem_arch: 'unified',
-                gpu_decode: 32,
-                cost: 3500,
-                category: 'Apple Silicon'
-            },
-            'm4_pro': {
-                name: 'Apple M4 Pro Mac (2024)',
-                year: 2024,
-                cpu: 4400,
-                cores: 14,
-                bits: 64,
-                ipc: 8.7,
-                compute_power: 536008,
-                memory: 67108864,
-                storage: 1073741824,
-                weight: 1.55,
-                power: 96,
-                bandwidth: 273,
-                mem_arch: 'unified',
-                gpu_decode: 16,
-                cost: 2200,
-                category: 'Apple Silicon'
-            },
-            'm4_max': {
-                name: 'Apple M4 Max Mac (2024)',
-                year: 2024,
-                cpu: 4500,
-                cores: 16,
-                bits: 64,
-                ipc: 8.8,
-                compute_power: 633600,
-                memory: 134217728,
-                storage: 2147483648,
-                weight: 2.0,
-                power: 140,
-                bandwidth: 546,
-                mem_arch: 'unified',
-                gpu_decode: 32,
-                cost: 3800,
-                category: 'Apple Silicon'
-            },
-
-            // Latest Mobile (2023-2024)
-            'a17_pro': {
-                name: 'iPhone 15 Pro - A17 Pro (2023)',
-                year: 2023,
-                cpu: 3780,
-                cores: 6,
-                bits: 64,
-                ipc: 6.5,
-                compute_power: 147420,
-                memory: 8388608,
-                storage: 1073741824,
-                weight: 0.187,
-                power: 4.0,
-                bandwidth: 51,
-                mem_arch: 'unified',
-                gpu_decode: 8,
-                cost: 1000,
-                category: 'Mobile Device'
-            },
-            'a18_pro': {
-                name: 'iPhone 16 Pro - A18 Pro (2024)',
-                year: 2024,
-                cpu: 4050,
-                cores: 6,
-                bits: 64,
-                ipc: 7.0,
-                compute_power: 170100,
-                memory: 8388608,
-                storage: 1073741824,
-                weight: 0.199,
-                power: 4.2,
-                bandwidth: 60,
-                mem_arch: 'unified',
-                gpu_decode: 8,
-                cost: 1200,
-                category: 'Mobile Device'
-            },
-            'snapdragon8gen3': {
-                name: 'Snapdragon 8 Gen 3 Phone (2024)',
-                year: 2024,
-                cpu: 3300,
-                cores: 8,
-                bits: 64,
-                ipc: 7.0,
-                compute_power: 184800,
-                memory: 16777216,
-                storage: 1073741824,
-                weight: 0.20,
-                power: 6.5,
-                bandwidth: 77,
-                mem_arch: 'unified',
-                gpu_decode: 8,
-                cost: 1000,
-                category: 'ARM/Mobile'
-            },
-
-            // More Gaming Consoles
             'xbox_series_x': {
                 name: 'Xbox Series X (2020)',
                 year: 2020,
                 cpu: 3800,
                 cores: 8,
                 bits: 64,
-                ipc: 4.0,
+                ipc: 4,
                 compute_power: 121600,
                 memory: 16777216,
                 storage: 1024000000,
@@ -2476,34 +2908,86 @@
                 category: 'Gaming Console'
             },
 
-            // Latest Single Board Computers
-            'rpi5': {
-                name: 'Raspberry Pi 5 (2023)',
-                year: 2023,
-                cpu: 2400,
+            // Supercomputer
+            'cray1': {
+                name: 'Cray-1 Supercomputer (1975)',
+                year: 1975,
+                cpu: 80,
+                cores: 1,
+                bits: 64,
+                ipc: 2,
+                compute_power: 160,
+                memory: 8192,
+                storage: 39321600,
+                weight: 5500,
+                power: 115000,
+                bandwidth: 0.64,
+                mem_arch: 'ddr',
+                gpu_decode: 0,
+                cost: 35000000,
+                category: 'Supercomputer'
+            },
+            'cray2': {
+                name: 'Cray-2 (1985)',
+                year: 1985,
+                cpu: 244,
                 cores: 4,
                 bits: 64,
-                ipc: 3.0,
-                compute_power: 28800,
-                memory: 8388608,
-                storage: 67108864,
-                weight: 0.045,
-                power: 12,
-                bandwidth: 17,
+                ipc: 2.5,
+                compute_power: 2440,
+                memory: 2097152,
+                storage: 134217728000,
+                weight: 2500,
+                power: 200000,
+                bandwidth: 2,
+                mem_arch: 'ddr',
+                gpu_decode: 0,
+                cost: 30000000,
+                category: 'Supercomputer'
+            },
+            'deepblue': {
+                name: 'Deep Blue (1997)',
+                year: 1997,
+                cpu: 200,
+                cores: 480,
+                bits: 32,
+                ipc: 2,
+                compute_power: 192000,
+                memory: 31457280,
+                storage: 1073741824000,
+                weight: 1270,
+                power: 30000,
+                bandwidth: 1,
+                mem_arch: 'ddr',
+                gpu_decode: 0,
+                cost: 100000000,
+                category: 'Supercomputer'
+            },
+            'frontier': {
+                name: 'Frontier Supercomputer (2022)',
+                year: 2022,
+                cpu: 2250,
+                cores: 9400000,
+                bits: 64,
+                ipc: 4,
+                compute_power: 84600000000,
+                memory: 9663676416000,
+                storage: 734003200000000,
+                weight: 8000000,
+                power: 21000000,
+                bandwidth: 3277,
                 mem_arch: 'unified',
                 gpu_decode: 0,
-                cost: 80,
-                category: 'Single Board Computer'
+                cost: 600000000,
+                category: 'Supercomputer'
             },
-
-            // AI/Server Chips
             'nvidia_grace_hopper': {
                 name: 'NVIDIA Grace Hopper (2023)',
                 year: 2023,
                 cpu: 3100,
                 cores: 72,
                 bits: 64,
-                ipc: 5.0,
+                ipc: 5,
                 compute_power: 1116000,
                 memory: 503316480,
                 storage: 8388608000,
@@ -2515,91 +2999,13 @@
                 cost: 30000,
                 category: 'Supercomputer'
             },
-
-            // VR/AR Devices
-            'quest3': {
-                name: 'Meta Quest 3 (2023)',
-                year: 2023,
-                cpu: 2360,
-                cores: 8,
-                bits: 64,
-                ipc: 6.0,
-                compute_power: 113280,
-                memory: 8388608,
-                storage: 134217728,
-                weight: 0.515,
-                power: 18,
-                bandwidth: 51,
-                mem_arch: 'unified',
-                gpu_decode: 6,
-                cost: 500,
-                category: 'ARM/Mobile'
-            },
-
-            // Data Center Servers
-            'epyc_9754': {
-                name: 'AMD EPYC 9754 Server (2023)',
-                year: 2023,
-                cpu: 3100,
-                cores: 128,
-                bits: 64,
-                ipc: 4.5,
-                compute_power: 1785600,
-                memory: 536870912,
-                storage: 4194304000,
-                weight: 5,
-                power: 700,
-                bandwidth: 461,
-                mem_arch: 'ddr',
-                gpu_decode: 0,
-                cost: 11900,
-                category: 'Data Center Server'
-            },
-            'epyc_9654': {
-                name: 'AMD EPYC 9654 Server (2023)',
-                year: 2023,
-                cpu: 3700,
-                cores: 96,
-                bits: 64,
-                ipc: 5.0,
-                compute_power: 1776000,
-                memory: 536870912,
-                storage: 4194304000,
-                weight: 5,
-                power: 700,
-                bandwidth: 461,
-                mem_arch: 'ddr',
-                gpu_decode: 0,
-                cost: 10000,
-                category: 'Data Center Server'
-            },
-            'xeon_8592': {
-                name: 'Intel Xeon Platinum 8592+ Server (2024)',
-                year: 2024,
-                cpu: 3900,
-                cores: 64,
-                bits: 64,
-                ipc: 4.5,
-                compute_power: 1123200,
-                memory: 536870912,
-                storage: 4194304000,
-                weight: 5,
-                power: 700,
-                bandwidth: 307,
-                mem_arch: 'ddr',
-                gpu_decode: 0,
-                cost: 11600,
-                category: 'Data Center Server'
-            },
-
-            // Modern Supercomputers (2024)
             'el_capitan': {
                 name: 'El Capitan Supercomputer (2024)',
                 year: 2024,
                 cpu: 1800,
                 cores: 11039616,
                 bits: 64,
-                ipc: 4.0,
+                ipc: 4,
                 compute_power: 79485235200,
                 memory: 10066329600000,
                 storage: 734003200000000,
@@ -2630,373 +3036,61 @@
                 category: 'Supercomputer'
             },
 
-            // Mac mini (Apple Silicon desktops)
-            'mac_mini_m4': {
-                name: 'Mac mini M4 32GB (2024)',
-                year: 2024,
-                cpu: 4400,
-                cores: 10,
+            // Data Center Server
+            'epyc_9754': {
+                name: 'AMD EPYC 9754 Server (2023)',
+                year: 2023,
+                cpu: 3100,
+                cores: 128,
                 bits: 64,
-                ipc: 8.5,
-                compute_power: 374000,
-                memory: 33554432,
-                storage: 2147483648,
-                weight: 0.67,
-                power: 155,
-                bandwidth: 120,
-                mem_arch: 'unified',
-                gpu_decode: 16,
-                cost: 999,
-                category: 'Apple Silicon'
-            },
-'mac_mini_m4_16': {
-                name: 'Mac mini M4 16GB (2024)',
-                year: 2024,
-                cpu: 4400,
-                cores: 10,
-                bits: 64,
-                ipc: 8.5,
-                compute_power: 374000,
-                memory: 16777216,
-                storage: 2147483648,
-                weight: 0.67,
-                power: 155,
-                bandwidth: 120,
-                mem_arch: 'unified',
-                gpu_decode: 16,
-                cost: 599,
-                category: 'Apple Silicon'
-            },
-            'mac_mini_m4_pro': {
-                name: 'Mac mini M4 Pro 64GB (2024)',
-                year: 2024,
-                cpu: 4400,
-                cores: 14,
-                bits: 64,
-                ipc: 8.7,
-                compute_power: 535920,
-                memory: 67108864,
-                storage: 8589934592,
-                weight: 0.73,
-                power: 155,
-                bandwidth: 273,
-                mem_arch: 'unified',
-                gpu_decode: 16,
-                cost: 1999,
-                category: 'Apple Silicon'
-            },
-'mac_mini_m4_pro_24': {
-                name: 'Mac mini M4 Pro 24GB (2024)',
-                year: 2024,
-                cpu: 4400,
-                cores: 14,
-                bits: 64,
-                ipc: 8.7,
-                compute_power: 535920,
-                memory: 25165824,
-                storage: 8589934592,
-                weight: 0.73,
-                power: 155,
-                bandwidth: 273,
-                mem_arch: 'unified',
-                gpu_decode: 16,
-                cost: 1399,
-                category: 'Apple Silicon'
-            },
-            'mac_mini_m6': {
-                name: 'Mac mini M6 32GB (2026)',
-                year: 2026,
-                cpu: 4800,
-                cores: 12,
-                bits: 64,
-                ipc: 9.6,
-                compute_power: 552960,
-                memory: 33554432,
-                storage: 2147483648,
-                weight: 0.67,
-                power: 155,
-                bandwidth: 170,
-                mem_arch: 'unified',
-                gpu_decode: 18,
-                cost: 1299,
-                category: 'Apple Silicon'
-            },
-'mac_mini_m6_16': {
-                name: 'Mac mini M6 16GB (2026)',
-                year: 2026,
-                cpu: 4800,
-                cores: 12,
-                bits: 64,
-                ipc: 9.6,
-                compute_power: 552960,
-                memory: 16777216,
-                storage: 2147483648,
-                weight: 0.67,
-                power: 155,
-                bandwidth: 170,
-                mem_arch: 'unified',
-                gpu_decode: 18,
-                cost: 899,
-                category: 'Apple Silicon'
-            },
-            'mac_mini_m5_pro': {
-                name: 'Mac mini M5 Pro 64GB (2026)',
-                year: 2026,
-                cpu: 4600,
-                cores: 18,
-                bits: 64,
-                ipc: 9.3,
-                compute_power: 770040,
-                memory: 67108864,
-                storage: 8589934592,
-                weight: 0.73,
-                power: 155,
-                bandwidth: 307,
-                mem_arch: 'unified',
-                gpu_decode: 18,
-                cost: 2299,
-                category: 'Apple Silicon'
-            },
-'mac_mini_m5_pro_24': {
-                name: 'Mac mini M5 Pro 24GB (2026)',
-                year: 2026,
-                cpu: 4600,
-                cores: 18,
-                bits: 64,
-                ipc: 9.3,
-                compute_power: 770040,
-                memory: 25165824,
-                storage: 8589934592,
-                weight: 0.73,
-                power: 155,
-                bandwidth: 307,
-                mem_arch: 'unified',
-                gpu_decode: 18,
-                cost: 1699,
-                category: 'Apple Silicon'
-            },
-
-            // AI Workstations - large unified-memory machines for local LLM work
-            'mac_studio_m4_max': {
-                name: 'Mac Studio M4 Max 128GB (2025)',
-                year: 2025,
-                cpu: 4500,
-                cores: 16,
-                bits: 64,
-                ipc: 8.8,
-                compute_power: 633600,
-                memory: 134217728,
-                storage: 8589934592,
-                weight: 2.74,
-                power: 480,
-                bandwidth: 546,
-                mem_arch: 'unified',
-                gpu_decode: 32,
-                cost: 3199,
-                category: 'AI Workstation'
-            },
-'mac_studio_m4_max_36': {
-                name: 'Mac Studio M4 Max 36GB (2025)',
-                year: 2025,
-                cpu: 4500,
-                cores: 16,
-                bits: 64,
-                ipc: 8.8,
-                compute_power: 633600,
-                memory: 37748736,
-                storage: 8589934592,
-                weight: 2.74,
-                power: 480,
-                bandwidth: 546,
-                mem_arch: 'unified',
-                gpu_decode: 32,
-                cost: 1999,
-                category: 'AI Workstation'
-            },
-            'mac_studio_m3_ultra': {
-                name: 'Mac Studio M3 Ultra 512GB (2025)',
-                year: 2025,
-                cpu: 4050,
-                cores: 32,
-                bits: 64,
-                ipc: 8.4,
-                compute_power: 1088640,
+                ipc: 4.5,
+                compute_power: 1785600,
                 memory: 536870912,
-                storage: 17179869184,
-                weight: 3.64,
-                power: 480,
-                bandwidth: 819,
-                mem_arch: 'unified',
-                gpu_decode: 64,
-                cost: 7999,
-                category: 'AI Workstation'
-            },
-'mac_studio_m3_ultra_96': {
-                name: 'Mac Studio M3 Ultra 96GB (2025)',
-                year: 2025,
-                cpu: 4050,
-                cores: 32,
-                bits: 64,
-                ipc: 8.4,
-                compute_power: 1088640,
-                memory: 100663296,
-                storage: 17179869184,
-                weight: 3.64,
-                power: 480,
-                bandwidth: 819,
-                mem_arch: 'unified',
-                gpu_decode: 64,
-                cost: 3999,
-                category: 'AI Workstation'
-            },
-            'mac_studio_m5_max': {
-                name: 'Mac Studio M5 Max 128GB (2026)',
-                year: 2026,
-                cpu: 4600,
-                cores: 18,
-                bits: 64,
-                ipc: 9.4,
-                compute_power: 778320,
-                memory: 134217728,
-                storage: 8589934592,
-                weight: 2.7,
-                power: 480,
-                bandwidth: 614,
-                mem_arch: 'unified',
-                gpu_decode: 36,
-                cost: 4099,
-                category: 'AI Workstation'
-            },
-'mac_studio_m5_max_36': {
-                name: 'Mac Studio M5 Max 36GB (2026)',
-                year: 2026,
-                cpu: 4600,
-                cores: 18,
-                bits: 64,
-                ipc: 9.4,
-                compute_power: 778320,
-                memory: 37748736,
-                storage: 8589934592,
-                weight: 2.7,
-                power: 480,
-                bandwidth: 614,
-                mem_arch: 'unified',
-                gpu_decode: 36,
-                cost: 2499,
-                category: 'AI Workstation'
-            },
-            'mac_studio_m5_ultra': {
-                name: 'Mac Studio M5 Ultra 512GB (2026)',
-                year: 2026,
-                cpu: 4610,
-                cores: 36,
-                bits: 64,
-                ipc: 9.4,
-                compute_power: 1560024,
-                memory: 536870912,
-                storage: 17179869184,
-                weight: 3.6,
-                power: 480,
-                bandwidth: 1200,
-                mem_arch: 'unified',
-                gpu_decode: 72,
-                cost: 11499,
-                category: 'AI Workstation'
-            },
-'mac_studio_m5_ultra_96': {
-                name: 'Mac Studio M5 Ultra 96GB (2026)',
-                year: 2026,
-                cpu: 4610,
-                cores: 36,
-                bits: 64,
-                ipc: 9.4,
-                compute_power: 1560024,
-                memory: 100663296,
-                storage: 17179869184,
-                weight: 3.6,
-                power: 480,
-                bandwidth: 1200,
-                mem_arch: 'unified',
-                gpu_decode: 72,
-                cost: 5499,
-                category: 'AI Workstation'
-            },
-            'dgx_spark': {
-                name: 'NVIDIA DGX Spark GB10 (2025)',
-                year: 2025,
-                cpu: 4000,
-                cores: 20,
-                bits: 64,
-                ipc: 6.0,
-                compute_power: 480000,
-                memory: 134217728,
-                storage: 4294967296,
-                weight: 1.2,
-                power: 240,
-                bandwidth: 273,
-                mem_arch: 'unified',
-                gpu_decode: 24,
-                cost: 4699,
-                category: 'AI Workstation'
-            },
-            'ryzen_ai_max_395': {
-                name: 'Ryzen AI Max+ 395 Mini PC 128GB (2025)',
-                year: 2025,
-                cpu: 5100,
-                cores: 16,
-                bits: 64,
-                ipc: 5.3,
-                compute_power: 432480,
-                memory: 134217728,
-                storage: 2147483648,
-                weight: 1.5,
-                power: 120,
-                bandwidth: 256,
-                mem_arch: 'unified',
-                gpu_decode: 24,
-                cost: 2000,
-                category: 'AI Workstation'
-            },
-'ryzen_ai_max_395_64': {
-                name: 'Ryzen AI Max+ 395 Mini PC 64GB (2025)',
-                year: 2025,
-                cpu: 5100,
-                cores: 16,
-                bits: 64,
-                ipc: 5.3,
-                compute_power: 432480,
-                memory: 67108864,
-                storage: 2147483648,
-                weight: 1.5,
-                power: 120,
-                bandwidth: 256,
-                mem_arch: 'unified',
-                gpu_decode: 24,
-                cost: 1400,
-                category: 'AI Workstation'
-            },
-
-            // Latest AMD / Intel desktop (2025)
-            'ryzen9_9950x3d': {
-                name: 'Ryzen 9 9950X3D PC (2025)',
-                year: 2025,
-                cpu: 5700,
-                cores: 16,
-                bits: 64,
-                ipc: 5.4,
-                compute_power: 492480,
-                memory: 201326592,
-                storage: 8589934592,
-                weight: 2.8,
-                power: 500,
-                bandwidth: 89,
+                storage: 4194304000,
+                weight: 5,
+                power: 700,
+                bandwidth: 461,
                 mem_arch: 'ddr',
-                gpu_decode: 12,
-                cost: 3200,
-                category: 'Personal Computer'
+                gpu_decode: 0,
+                cost: 11900,
+                category: 'Data Center Server'
             },
-
-            // Latest Data Center Servers (2024)
+            'epyc_9654': {
+                name: 'AMD EPYC 9654 Server (2023)',
+                year: 2023,
+                cpu: 3700,
+                cores: 96,
+                bits: 64,
+                ipc: 5,
+                compute_power: 1776000,
+                memory: 536870912,
+                storage: 4194304000,
+                weight: 5,
+                power: 700,
+                bandwidth: 461,
+                mem_arch: 'ddr',
+                gpu_decode: 0,
+                cost: 10000,
+                category: 'Data Center Server'
+            },
+            'xeon_8592': {
+                name: 'Intel Xeon Platinum 8592+ Server (2024)',
+                year: 2024,
+                cpu: 3900,
+                cores: 64,
+                bits: 64,
+                ipc: 4.5,
+                compute_power: 1123200,
+                memory: 536870912,
+                storage: 4194304000,
+                weight: 5,
+                power: 700,
+                bandwidth: 307,
+                mem_arch: 'ddr',
+                gpu_decode: 0,
+                cost: 11600,
+                category: 'Data Center Server'
+            },
             'epyc_9965': {
                 name: 'AMD EPYC 9965 Server (2024)',
                 year: 2024,
@@ -3032,8 +3126,207 @@
                 gpu_decode: 0,
                 cost: 17800,
                 category: 'Data Center Server'
-            }
+            },
 
+            // AI Workstation
+            'mac_studio_m4_max': {
+                name: 'Mac Studio M4 Max 128GB (2025)',
+                year: 2025,
+                cpu: 4500,
+                cores: 16,
+                bits: 64,
+                ipc: 8.8,
+                compute_power: 633600,
+                memory: 134217728,
+                storage: 8589934592,
+                weight: 2.74,
+                power: 480,
+                bandwidth: 546,
+                mem_arch: 'unified',
+                gpu_decode: 32,
+                cost: 3199,
+                category: 'AI Workstation'
+            },
+            'mac_studio_m4_max_36': {
+                name: 'Mac Studio M4 Max 36GB (2025)',
+                year: 2025,
+                cpu: 4500,
+                cores: 16,
+                bits: 64,
+                ipc: 8.8,
+                compute_power: 633600,
+                memory: 37748736,
+                storage: 8589934592,
+                weight: 2.74,
+                power: 480,
+                bandwidth: 546,
+                mem_arch: 'unified',
+                gpu_decode: 32,
+                cost: 1999,
+                category: 'AI Workstation'
+            },
+            'mac_studio_m3_ultra': {
+                name: 'Mac Studio M3 Ultra 512GB (2025)',
+                year: 2025,
+                cpu: 4050,
+                cores: 32,
+                bits: 64,
+                ipc: 8.4,
+                compute_power: 1088640,
+                memory: 536870912,
+                storage: 17179869184,
+                weight: 3.64,
+                power: 480,
+                bandwidth: 819,
+                mem_arch: 'unified',
+                gpu_decode: 64,
+                cost: 7999,
+                category: 'AI Workstation'
+            },
+            'mac_studio_m3_ultra_96': {
+                name: 'Mac Studio M3 Ultra 96GB (2025)',
+                year: 2025,
+                cpu: 4050,
+                cores: 32,
+                bits: 64,
+                ipc: 8.4,
+                compute_power: 1088640,
+                memory: 100663296,
+                storage: 17179869184,
+                weight: 3.64,
+                power: 480,
+                bandwidth: 819,
+                mem_arch: 'unified',
+                gpu_decode: 64,
+                cost: 3999,
+                category: 'AI Workstation'
+            },
+            'mac_studio_m5_max': {
+                name: 'Mac Studio M5 Max 128GB (2026)',
+                year: 2026,
+                cpu: 4600,
+                cores: 18,
+                bits: 64,
+                ipc: 9.4,
+                compute_power: 778320,
+                memory: 134217728,
+                storage: 8589934592,
+                weight: 2.7,
+                power: 480,
+                bandwidth: 614,
+                mem_arch: 'unified',
+                gpu_decode: 36,
+                cost: 4099,
+                category: 'AI Workstation'
+            },
+            'mac_studio_m5_max_36': {
+                name: 'Mac Studio M5 Max 36GB (2026)',
+                year: 2026,
+                cpu: 4600,
+                cores: 18,
+                bits: 64,
+                ipc: 9.4,
+                compute_power: 778320,
+                memory: 37748736,
+                storage: 8589934592,
+                weight: 2.7,
+                power: 480,
+                bandwidth: 614,
+                mem_arch: 'unified',
+                gpu_decode: 36,
+                cost: 2499,
+                category: 'AI Workstation'
+            },
+            'mac_studio_m5_ultra': {
+                name: 'Mac Studio M5 Ultra 512GB (2026)',
+                year: 2026,
+                cpu: 4610,
+                cores: 36,
+                bits: 64,
+                ipc: 9.4,
+                compute_power: 1560024,
+                memory: 536870912,
+                storage: 17179869184,
+                weight: 3.6,
+                power: 480,
+                bandwidth: 1200,
+                mem_arch: 'unified',
+                gpu_decode: 72,
+                cost: 11499,
+                category: 'AI Workstation'
+            },
+            'mac_studio_m5_ultra_96': {
+                name: 'Mac Studio M5 Ultra 96GB (2026)',
+                year: 2026,
+                cpu: 4610,
+                cores: 36,
+                bits: 64,
+                ipc: 9.4,
+                compute_power: 1560024,
+                memory: 100663296,
+                storage: 17179869184,
+                weight: 3.6,
+                power: 480,
+                bandwidth: 1200,
+                mem_arch: 'unified',
+                gpu_decode: 72,
+                cost: 5499,
+                category: 'AI Workstation'
+            },
+            'dgx_spark': {
+                name: 'NVIDIA DGX Spark GB10 (2025)',
+                year: 2025,
+                cpu: 4000,
+                cores: 20,
+                bits: 64,
+                ipc: 6,
+                compute_power: 480000,
+                memory: 134217728,
+                storage: 4294967296,
+                weight: 1.2,
+                power: 240,
+                bandwidth: 273,
+                mem_arch: 'unified',
+                gpu_decode: 24,
+                cost: 4699,
+                category: 'AI Workstation'
+            },
+            'ryzen_ai_max_395': {
+                name: 'Ryzen AI Max+ 395 Mini PC 128GB (2025)',
+                year: 2025,
+                cpu: 5100,
+                cores: 16,
+                bits: 64,
+                ipc: 5.3,
+                compute_power: 432480,
+                memory: 134217728,
+                storage: 2147483648,
+                weight: 1.5,
+                power: 120,
+                bandwidth: 256,
+                mem_arch: 'unified',
+                gpu_decode: 24,
+                cost: 2000,
+                category: 'AI Workstation'
+            },
+            'ryzen_ai_max_395_64': {
+                name: 'Ryzen AI Max+ 395 Mini PC 64GB (2025)',
+                year: 2025,
+                cpu: 5100,
+                cores: 16,
+                bits: 64,
+                ipc: 5.3,
+                compute_power: 432480,
+                memory: 67108864,
+                storage: 2147483648,
+                weight: 1.5,
+                power: 120,
+                bandwidth: 256,
+                mem_arch: 'unified',
+                gpu_decode: 24,
+                cost: 1400,
+                category: 'AI Workstation'
+            }
         };
 
         function populateDropdowns() {
@@ -3648,28 +3941,394 @@
             createTimeline(comp1, comp2, timelineMode);
         }
 
-        // Reference system variables
-        let referenceData = {};
-        let scaleComparisons = {};
-
-        // Load reference data
-        async function loadReferenceData() {
-            try {
-                const [earlyResponse, spaceResponse, scaleResponse] = await Promise.all([
-                    fetch('./references/early-computers.json'),
-                    fetch('./references/space-computers.json'),
-                    fetch('./references/scale-comparisons.json')
-                ]);
-
-                const earlyData = await earlyResponse.json();
-                const spaceData = await spaceResponse.json();
-                scaleComparisons = await scaleResponse.json();
-
-                // Merge reference data
-                referenceData = { ...earlyData, ...spaceData };
-            } catch (error) {
-                console.log('Reference data not available - running without enhanced info');
+        // Reference system variables - embedded data for file:// protocol compatibility
+        let referenceData = {
+            "eniac": {
+                "name": "ENIAC (Electronic Numerical Integrator and Computer)",
+                "year": 1946,
+                "overview": "The first general-purpose electronic digital computer, ENIAC was a revolutionary machine that marked the beginning of the computer age.",
+                "historical_significance": "ENIAC demonstrated that electronic computation was faster and more reliable than mechanical systems, paving the way for modern computing.",
+                "technical_details": {
+                    "architecture": "Decimal-based calculation using vacuum tubes",
+                    "programming": "Programmed by manually setting switches and rewiring connections",
+                    "vacuum_tubes": 17468,
+                    "dimensions": "30 × 50 feet (roughly 1,800 square feet)",
+                    "weight_details": "30 tons (27,000 kg)",
+                    "power_consumption": "150 kW - enough to power 150 homes"
+                },
+                "development": {
+                    "location": "University of Pennsylvania",
+                    "developers": "J. Presper Eckert and John Mauchly",
+                    "funding": "U.S. Army for ballistic calculations",
+                    "development_time": "3 years (1943-1946)",
+                    "cost": "$500,000 (approximately $7.2 million in 2024 dollars)"
+                },
+                "applications": [
+                    "Ballistic trajectory calculations",
+                    "Weather prediction",
+                    "Nuclear weapons design calculations",
+                    "General mathematical computations"
+                ],
+                "legacy": "ENIAC proved electronic computation was viable and influenced virtually every computer that followed.",
+                "interesting_facts": [
+                    "Could perform 5,000 additions per second",
+                    "Programming required physical rewiring that could take days",
+                    "Generated so much heat that nearby rooms needed cooling",
+                    "Was classified as top secret during initial operation"
+                ]
+            },
+            "univac1": {
+                "name": "UNIVAC I (UNIVersal Automatic Computer I)",
+                "year": 1951,
+                "overview": "The first commercial computer produced in the United States, UNIVAC I gained fame by correctly predicting Eisenhower's presidential victory.",
+                "historical_significance": "First computer to handle both numeric and alphabetic data, marking the transition from purely mathematical machines to business computers.",
+                "technical_details": {
+                    "architecture": "Binary number system with magnetic tape storage",
+                    "memory": "1,000 words of mercury delay line memory",
+                    "storage": "Magnetic tape system - revolutionary for the time",
+                    "vacuum_tubes": 5200,
+                    "weight_details": "13 tons (11,800 kg) for the central processor"
+                },
+                "development": {
+                    "location": "Eckert-Mauchly Computer Corporation",
+                    "developers": "J. Presper Eckert and John Mauchly (ENIAC creators)",
+                    "first_delivery": "March 1951 to the U.S. Census Bureau",
+                    "total_produced": 46,
+                    "cost": "$1.6 million (approximately $18.5 million in 2024 dollars)"
+                },
+                "applications": [
+                    "Census data processing",
+                    "Business data processing",
+                    "Scientific calculations",
+                    "Election prediction (famously predicted 1952 presidential election)"
+                ],
+                "legacy": "Established the commercial computer industry and demonstrated computers' potential beyond pure mathematics.",
+                "interesting_facts": [
+                    "Correctly predicted Eisenhower's victory with only 7% of votes counted",
+                    "CBS initially didn't trust the prediction and delayed broadcasting it",
+                    "Could process 1,905 operations per second",
+                    "Each system came with its own air conditioning unit"
+                ]
+            },
+            "ibm704": {
+                "name": "IBM 704",
+                "year": 1954,
+                "overview": "IBM's first mass-produced computer with floating-point arithmetic, establishing IBM's dominance in the computer industry.",
+                "historical_significance": "First computer to use magnetic core memory and floating-point arithmetic, setting standards that lasted decades.",
+                "technical_details": {
+                    "architecture": "36-bit word length with floating-point arithmetic",
+                    "memory": "4,096 or 32,768 words of magnetic core memory",
+                    "storage": "Magnetic tape and magnetic drum",
+                    "vacuum_tubes": 4000,
+                    "speed": "40,000 operations per second"
+                },
+                "development": {
+                    "location": "IBM",
+                    "predecessor": "IBM 701",
+                    "total_produced": 123,
+                    "rental_cost": "$25,000 per month (approximately $280,000 in 2024 dollars)"
+                },
+                "applications": [
+                    "Scientific and engineering calculations",
+                    "Early artificial intelligence research",
+                    "FORTRAN programming language development",
+                    "Weather forecasting"
+                ],
+                "legacy": "Enabled the development of FORTRAN and established IBM as the leading computer manufacturer.",
+                "interesting_facts": [
+                    "First computer to run the FORTRAN programming language",
+                    "Used for early AI research including checkers-playing programs",
+                    "Magnetic core memory was so reliable it remained standard until the 1970s",
+                    "Required a specialized computer room with raised floors for cabling"
+                ]
+            },
+            "apollo": {
+                "name": "Apollo Guidance Computer (AGC)",
+                "year": 1966,
+                "overview": "The first computer to use integrated circuits, the AGC guided astronauts to the Moon and back in one of humanity's greatest achievements.",
+                "historical_significance": "Proved that computers could be reliable enough for life-critical missions and drove the development of integrated circuit technology.",
+                "technical_details": {
+                    "architecture": "15-bit word length plus parity bit, 12-bit addressing",
+                    "memory": "72KB ROM (36,864 x 16-bit words of rope core) + 4KB RAM (2,048 words of magnetic core)",
+                    "weight_details": "70 pounds (32 kg) - incredibly lightweight for its era",
+                    "power_consumption": "55 watts",
+                    "integrated_circuits": "First computer to use ICs exclusively (4,100 ICs)"
+                },
+                "development": {
+                    "location": "MIT Instrumentation Laboratory",
+                    "lead_engineer": "Charles Stark Draper",
+                    "software_engineer": "Margaret Hamilton (coined 'software engineering')",
+                    "development_time": "8 years (1961-1969)",
+                    "cost": "$3.5 million per unit (approximately $27 million in 2024 dollars)"
+                },
+                "applications": [
+                    "Spacecraft navigation and guidance",
+                    "Engine control and throttling",
+                    "Landing sequence automation",
+                    "Real-time astronaut interface"
+                ],
+                "legacy": "Drove the integrated circuit industry and established principles for real-time, fault-tolerant computing.",
+                "interesting_facts": [
+                    "Software was literally 'woven' into rope core memory by hand",
+                    "Had priority scheduling - programs could interrupt each other",
+                    "Survived multiple computer alarms during Apollo 11 landing",
+                    "Margaret Hamilton's software engineering prevented mission failures",
+                    "More reliable than many modern systems despite 1960s technology"
+                ]
+            },
+            "voyager": {
+                "name": "Voyager Spacecraft Computer",
+                "year": 1977,
+                "overview": "Twin spacecraft computers that have operated continuously for over 45 years, currently sending data from interstellar space.",
+                "historical_significance": "Longest-operating computers in history, demonstrating unprecedented reliability and longevity in the harshest environment possible.",
+                "technical_details": {
+                    "architecture": "18-bit custom processors, 0.25 MHz clock",
+                    "memory": "~68KB total across three subsystems (CCS, FDS, AACS); 4K x 18-bit words per CCS",
+                    "storage": "Digital tape recorder system",
+                    "radiation_hardening": "Built to survive Jupiter's radiation belts",
+                    "power_consumption": "420 watts total for all systems"
+                },
+                "development": {
+                    "location": "NASA Jet Propulsion Laboratory",
+                    "mission_duration": "Originally 4 years, now 45+ years and counting",
+                    "distance": "Over 15 billion miles from Earth (Voyager 1)",
+                    "cost": "$865 million total mission (approximately $4.2 billion in 2024 dollars)"
+                },
+                "applications": [
+                    "Deep space navigation",
+                    "Scientific instrument control",
+                    "Data collection and transmission",
+                    "Autonomous decision making"
+                ],
+                "legacy": "Set the standard for space-based computing reliability and autonomous operation.",
+                "interesting_facts": [
+                    "Still communicating with Earth after 45+ years",
+                    "First human-made objects to enter interstellar space",
+                    "Commands from Earth take over 22 hours to reach Voyager 1",
+                    "Computers have been reprogrammed remotely multiple times",
+                    "Surviving on power from decaying plutonium generators"
+                ]
+            },
+            "shuttle": {
+                "name": "Space Shuttle Primary Flight Computer",
+                "year": 1981,
+                "overview": "Five redundant computers that controlled every aspect of Space Shuttle operations, from launch to landing.",
+                "historical_significance": "First fly-by-wire spacecraft, proving that computers could safely control complex vehicles with human lives aboard.",
+                "technical_details": {
+                    "architecture": "IBM AP-101 32-bit processor",
+                    "memory": "106KB RAM per computer",
+                    "redundancy": "5 computers (4 primary + 1 backup)",
+                    "weight_details": "64 pounds (29 kg) per computer",
+                    "processing_power": "400,000 instructions per second"
+                },
+                "development": {
+                    "location": "IBM Federal Systems Division",
+                    "software_lines": "Over 500,000 lines of HAL/S code",
+                    "verification": "Exhaustive testing and formal verification methods",
+                    "operational_period": "1981-2011 (30 years, 135 missions)"
+                },
+                "applications": [
+                    "Launch sequence control",
+                    "Orbital maneuvering",
+                    "Landing approach and touchdown",
+                    "Life support system management"
+                ],
+                "legacy": "Established principles for fault-tolerant computing that are still used in aerospace today.",
+                "interesting_facts": [
+                    "Never experienced a computer-related mission failure",
+                    "Could vote out malfunctioning computers automatically",
+                    "Computers were upgraded multiple times during shuttle program",
+                    "HAL/S programming language was created specifically for real-time aerospace",
+                    "Each mission carried backup computers that were never needed"
+                ]
             }
+        };
+
+        let scaleComparisons = {
+            "scale_objects": {
+                "microscopic": [
+                    {
+                        "name": "Red Blood Cell",
+                        "size": 0.000007,
+                        "unit": "meters",
+                        "description": "Human red blood cell diameter"
+                    },
+                    {
+                        "name": "Grain of Sand",
+                        "size": 0.0005,
+                        "unit": "meters",
+                        "description": "Fine beach sand particle"
+                    }
+                ],
+                "small": [
+                    {
+                        "name": "Pea",
+                        "size": 0.005,
+                        "unit": "meters",
+                        "description": "Garden pea diameter"
+                    },
+                    {
+                        "name": "Marble",
+                        "size": 0.016,
+                        "unit": "meters",
+                        "description": "Standard glass marble"
+                    },
+                    {
+                        "name": "Golf Ball",
+                        "size": 0.043,
+                        "unit": "meters",
+                        "description": "Official golf ball diameter"
+                    },
+                    {
+                        "name": "Tennis Ball",
+                        "size": 0.067,
+                        "unit": "meters",
+                        "description": "Official tennis ball diameter"
+                    }
+                ],
+                "medium": [
+                    {
+                        "name": "Basketball",
+                        "size": 0.24,
+                        "unit": "meters",
+                        "description": "Official basketball diameter"
+                    },
+                    {
+                        "name": "Beach Ball",
+                        "size": 0.61,
+                        "unit": "meters",
+                        "description": "Large inflatable beach ball"
+                    },
+                    {
+                        "name": "Person",
+                        "size": 1.7,
+                        "unit": "meters",
+                        "description": "Average human height"
+                    },
+                    {
+                        "name": "Car",
+                        "size": 4.5,
+                        "unit": "meters",
+                        "description": "Average sedan length"
+                    }
+                ],
+                "large": [
+                    {
+                        "name": "House",
+                        "size": 12,
+                        "unit": "meters",
+                        "description": "Two-story house height"
+                    },
+                    {
+                        "name": "Blue Whale",
+                        "size": 30,
+                        "unit": "meters",
+                        "description": "Largest animal on Earth"
+                    },
+                    {
+                        "name": "Football Field",
+                        "size": 109,
+                        "unit": "meters",
+                        "description": "American football field length"
+                    },
+                    {
+                        "name": "Eiffel Tower",
+                        "size": 330,
+                        "unit": "meters",
+                        "description": "Height including antenna"
+                    }
+                ],
+                "massive": [
+                    {
+                        "name": "Mount Everest",
+                        "size": 8849,
+                        "unit": "meters",
+                        "description": "World's tallest mountain"
+                    },
+                    {
+                        "name": "Manhattan Island",
+                        "size": 21000,
+                        "unit": "meters",
+                        "description": "Length of Manhattan"
+                    },
+                    {
+                        "name": "Earth Diameter",
+                        "size": 12742000,
+                        "unit": "meters",
+                        "description": "Diameter of planet Earth"
+                    },
+                    {
+                        "name": "Moon Diameter",
+                        "size": 3474000,
+                        "unit": "meters",
+                        "description": "Diameter of Earth's moon"
+                    }
+                ],
+                "astronomical": [
+                    {
+                        "name": "Sun Diameter",
+                        "size": 1392000000,
+                        "unit": "meters",
+                        "description": "Diameter of our Sun"
+                    },
+                    {
+                        "name": "Jupiter Diameter",
+                        "size": 142984000,
+                        "unit": "meters",
+                        "description": "Largest planet in our solar system"
+                    },
+                    {
+                        "name": "Solar System",
+                        "size": 287460000000000,
+                        "unit": "meters",
+                        "description": "Diameter including Kuiper Belt"
+                    }
+                ]
+            },
+            "visualization_rules": {
+                "ratio_1_to_10": {
+                    "method": "proportional_circles",
+                    "objects": ["small"],
+                    "description": "Use proportional circles with small everyday objects"
+                },
+                "ratio_10_to_100": {
+                    "method": "size_comparison",
+                    "objects": ["small", "medium"],
+                    "description": "Compare small objects to medium objects"
+                },
+                "ratio_100_to_1000": {
+                    "method": "size_comparison",
+                    "objects": ["medium", "large"],
+                    "description": "Compare medium objects to large objects"
+                },
+                "ratio_1000_to_10000": {
+                    "method": "metaphor_comparison",
+                    "objects": ["large", "massive"],
+                    "description": "Use metaphorical comparisons with large to massive objects"
+                },
+                "ratio_10000_to_1000000": {
+                    "method": "metaphor_comparison",
+                    "objects": ["massive", "astronomical"],
+                    "description": "Use planetary and astronomical scale metaphors"
+                },
+                "ratio_above_1000000": {
+                    "method": "abstract_visualization",
+                    "objects": ["astronomical"],
+                    "description": "Use abstract representations and acknowledge scale limitations"
+                }
+            },
+            "metaphor_templates": {
+                "size_difference": "If {object1} were scaled to the size of a {scale_object1}, then {object2} would be the size of a {scale_object2}",
+                "count_metaphor": "If {object1} were a {unit_object}, you would need {count} of them to equal one {object2}",
+                "distance_metaphor": "The difference is like comparing {small_distance} to {large_distance}",
+                "time_metaphor": "Like comparing {short_time} to {long_time}"
+            }
+        };
+
+        // No longer need to load reference data asynchronously
+        function loadReferenceData() {
+            // Data is now embedded above
+            return Promise.resolve();
         }
 
         // Create reference panel for a computer

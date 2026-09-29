@@ -4,7 +4,7 @@ An interactive web application that showcases the incredible evolution of comput
 
 ## 🌟 Features
 
-### Comprehensive Computer Database (114 Systems)
+### Comprehensive Computer Database (132 Systems)
 - **Early Computers**: ENIAC (1946) → UNIVAC I → Altair 8800
 - **Personal Computer Evolution**: IBM PC → Apple II → Commodore 64 → Amiga
 - **Processor Generations**: 386 → 486 → Pentium → Core → Ryzen → Apple Silicon
