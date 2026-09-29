@@ -5,11 +5,12 @@
     "overview": "The first computer to use integrated circuits, the AGC guided astronauts to the Moon and back in one of humanity's greatest achievements.",
     "historical_significance": "Proved that computers could be reliable enough for life-critical missions and drove the development of integrated circuit technology.",
     "technical_details": {
-      "architecture": "15-bit word length with 16-bit addressing",
-      "memory": "4KB ROM (rope core) + 2KB RAM (magnetic core)",
+      "architecture": "15-bit word length plus parity bit, 12-bit addressing",
+      "memory": "72KB ROM (36,864 x 16-bit words of rope core) + 4KB RAM (2,048 words of magnetic core)",
       "weight_details": "70 pounds (32 kg) - incredibly lightweight for its era",
       "power_consumption": "55 watts",
-      "integrated_circuits": "First computer to use ICs exclusively (4,100 ICs)"
+      "integrated_circuits": "First computer to use ICs exclusively (4,100 ICs)",
+      "processing_power": "~43,000-85,000 instructions per second (0.04-0.09 MIPS) at 2.048 MHz"
     },
     "development": {
       "location": "MIT Instrumentation Laboratory",
@@ -39,11 +40,12 @@
     "overview": "Twin spacecraft computers that have operated continuously for over 45 years, currently sending data from interstellar space.",
     "historical_significance": "Longest-operating computers in history, demonstrating unprecedented reliability and longevity in the harshest environment possible.",
     "technical_details": {
-      "architecture": "18-bit custom processor",
-      "memory": "4KB RAM total",
+      "architecture": "18-bit custom processors, 0.25 MHz clock",
+      "memory": "~68KB total across three subsystems (CCS, FDS, AACS); 4K x 18-bit words per CCS",
       "storage": "Digital tape recorder system",
       "radiation_hardening": "Built to survive Jupiter's radiation belts",
-      "power_consumption": "420 watts total for all systems"
+      "power_consumption": "420 watts total for all systems",
+      "processing_power": "~8,000 instructions per second (0.008 MIPS)"
     },
     "development": {
       "location": "NASA Jet Propulsion Laboratory",

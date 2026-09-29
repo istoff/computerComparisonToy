@@ -14,9 +14,9 @@ This is a **Computer Evolution Comparison Tool** - an interactive web applicatio
 - **Client-side only**: Runs entirely in the browser
 
 ### Core Data Structure
-The application centers around a comprehensive `computers` object containing 60+ systems:
-- **Historical Range**: ENIAC (1946) to Apple M4 (2024)
-- **Categories**: Early computers, space computers, personal computers, mobile devices, gaming consoles, supercomputers, fictional computers
+The application centers around a comprehensive `computers` object containing 114 systems:
+- **Historical Range**: ENIAC (1946) to Mac Studio M5 Ultra (2026)
+- **Categories**: Early computers, space computers, personal computers, Apple Silicon, ARM/mobile, laptops, mobile devices, single-board computers, calculators, gaming consoles, AI workstations, data center servers, supercomputers, fictional computers
 - **Specifications**: CPU specs (MHz, cores, IPC), memory, storage, power consumption, weight, cost
 - **Calculated Metrics**: True computational power using `cores × MHz × IPC = MIPS`
 
@@ -36,8 +36,15 @@ The application centers around a comprehensive `computers` object containing 60+
 - **`toggleReference(computerId)`**: Handles expand/collapse of reference panels
 - **`createScaleMetaphor(ratio, name1, name2)`**: Generates real-world scale comparison visualizations
 
+#### Workload Estimate Functions
+- **`usableMemoryGB(comp)` / `largestModelThatFits(gb)`**: LLM capacity from memory at 75% usable, 4-bit weights
+- **`tokensPerSecond(comp, modelGB)`**: bandwidth ÷ model size × efficiency (0.72 unified, 0.45 DDR)
+- **`softwareDecodeStreams(comp)`**: MIPS ÷ 2,500 per 1080p30 H.264 stream
+- **`createWorkload(c1, c2)`**: builds the estimate rows, each shown only when the inputs exist
+- **`createRuler(c1, c2)` / `rulerDomain(c1, c2)`**: the base-10 hero axis; domain adapts when the pair is within four decades
+
 #### Timeline System Functions
-- **`createTimeline(comp1Id, comp2Id)`**: Generates interactive computing history timeline
+- **`createTimeline(comp1Id, comp2Id, mode)`**: Renders the history timeline. `mode` is `'fit'` (window around the two machines, the default) or `'all'`; either way the container scrolls to the selection
 - **`timelineMilestones`**: Data structure containing key computing milestones from 1946-2024
 
 #### Smart Visualization System
@@ -81,8 +88,11 @@ Each computer entry contains:
     memory: 1024,   // KB
     storage: 10240, // KB
     weight: 5.5,    // kg
-    power: 85,      // Watts
-    cost: 2500,     // USD
+    power: 85,      // Watts, WHOLE MACHINE under load (not CPU TDP)
+    bandwidth: 89,  // GB/s memory bandwidth (optional; drives token-rate estimate)
+    mem_arch: "ddr",// "unified" | "ddr" (optional; efficiency factor for token rate)
+    gpu_decode: 12, // simultaneous 1080p30 H.264 streams on the fixed-function decoder (optional)
+    cost: 2500,     // USD, price as configured in its launch year (not inflation-adjusted)
     category: "Personal Computer"
 }
 ```

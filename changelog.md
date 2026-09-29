@@ -5,6 +5,89 @@ All notable changes to the Computer Evolution Comparison Tool will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2026-09-29
+
+### ⚙️ Workload Estimates, Whole-Machine Power, New Interface
+
+#### Added — "What each one could run"
+Three estimates derived from the specs, each shown only when it has something to say:
+- **Largest language model that fits** — usable memory at 75% of total, 4-bit weights at 0.55 bytes/parameter, matched against a ladder of real models from Qwen2.5 0.5B to DeepSeek-R1 671B
+- **Token generation** — bandwidth ÷ model size, at 72% efficiency on unified memory and 45% on system RAM, with the slower machine indexed at 100%. Appears only when both machines have a bandwidth figure and a model that fits in both
+- **1080p30 H.264 decode** — software streams scaled from instruction throughput at 2,500 MIPS per stream, plus the fixed-function decoder count
+
+#### Added — two new spec fields
+- `bandwidth` (GB/s) and `mem_arch` (`unified` / `ddr`) on 81 entries
+- `gpu_decode` (simultaneous 1080p30 H.264 streams) on 76 entries — including the Raspberry Pi 5, which dropped H.264 hardware decode
+
+#### Added — memory configurations
+Machines with wide memory ranges now appear as the configuration people actually buy and the configuration that matters for AI work: Mac mini M4 / M4 Pro / M6 / M5 Pro, Mac Studio M4 Max / M3 Ultra / M5 Max / M5 Ultra, Ryzen AI Max+ 395. Names and prices reflect the configuration. Database grew from 105 to 114 systems.
+
+#### Changed — power is now whole-machine
+Every `power` value is the draw of the complete machine under load, not CPU package TDP. Affects 26 entries: a 14900K PC went from 253 W to 620 W, an EPYC 9754 node from 360 W to 700 W, a MacBook Pro M4 Max from 48 W to 140 W. MIPS-per-watt is now comparable across eras.
+
+#### Changed — interface rebuilt
+- **Decade ruler as the lead** — both machines plotted on a base-10 axis of instructions per second. The axis spans the whole database by default and zooms in when the two machines sit within four decades of each other
+- Teal for Machine A, amber for Machine B, carried through every section including the timeline
+- Space Grotesk for display, IBM Plex Sans for data, IBM Plex Mono for the formula; tabular figures throughout
+- Light and dark themes, responsive to mobile, keyboard focus visible, reduced motion respected
+- Emoji headings, gradient background and card shadows removed
+
+#### Changed — timeline
+- Extended to 2026 and rewritten: 28 milestones including the transformer paper, exascale, and 2 nm silicon
+- Defaults to the window around the two compared machines and scrolls to them; "Show all years" opens the full span
+- Removed the `Math.random()` milestone selection that reshuffled the timeline on every redraw
+- Compared machines are marked in their own colour rather than a generic red
+
+#### Changed — custom builds
+Memory bandwidth, memory architecture and hardware decoder count are now editable, so a custom build gets the same workload estimates as a stock machine. Loading a preset fills them in.
+
+#### Fixed
+- Scale metaphors were re-randomised on every redraw; they are now deterministic for a given ratio
+- Memory and storage no longer print a redundant KB figure next to TB and PB values; sub-kilobyte memory now reads in bytes rather than rounding to zero
+- Price is shown in the datasheet, which previously omitted it
+
+## [2.1.0] - 2026-09-29
+
+### 🔍 Spec Accuracy Audit + AI-Era Hardware
+
+#### Fixed — unit and magnitude errors in the `computers` database
+- **ENIAC**: `cpu` was 0.0001 MHz (100 Hz); ENIAC's clock was 100 kHz → `cpu: 0.1`. `cores × MHz × IPC` now actually equals the stated 0.005 MIPS (it was off by 1000×, the only formula mismatch in the database)
+- **UNIVAC I**: memory 1 KB → 12 KB (1,000 words × 12 characters); throughput corrected to ~0.0019 MIPS (~1,905 instr/sec) at its real 2.25 MHz clock
+- **Apollo Guidance Computer**: 1.024 MIPS → 0.086 MIPS (AGC ran ~43k–85k instructions/sec); ROM 36 KB → 72 KB (36,864 × 16-bit words)
+- **Voyager**: 4 MHz → 0.25 MHz (real CCS clock), 2.4 MIPS → 0.008 MIPS; weight 4.2 kg → 30 kg (CCS + FDS + AACS)
+- **Space Shuttle GPC**: 0.98 MIPS → 0.42 MIPS (AP-101B was ~480 KIPS)
+- **Cray-1**: memory 8,388,608 KB (8 GB) → 8,192 KB (8 MB — 1M × 64-bit words)
+- **Cray-2**: memory 256 GB → 2 GB (256M × 64-bit words)
+- **Deep Blue**: memory 1 TB → ~30 GB (no 1997 machine had 1 TB of RAM)
+- **Frontier**: storage 700 EB → 700 PB (three extra zeros; El Capitan's entry already had it right)
+- **El Capitan / Aurora**: power 21 MW / 20 MW → 29.6 MW / 38.7 MW (measured Top500/Green500 draw)
+- **PlayStation 5**: 3800 MHz → 3500 MHz (Zen 2 @ 3.5 GHz variable)
+- **Snapdragon 8 Gen 3**: 3400 MHz → 3300 MHz
+- **NVIDIA Grace Hopper**: 3500 MHz → 3100 MHz (Grace Neoverse V2 max clock)
+- **M4 Pro**: memory 48 GB → 64 GB (actual maximum configuration)
+
+#### Added — AI Workstation category
+New `AI Workstation` category for large-unified-memory machines bought to run models locally:
+- Mac Studio M4 Max (2025) — 128 GB unified
+- Mac Studio M3 Ultra (2025) — 512 GB unified, the largest unified memory on any personal computer at launch
+- Mac Studio M5 Max (2026) — 128 GB unified, 614 GB/s
+- Mac Studio M5 Ultra (2026) — 512 GB unified, 1.2 TB/s
+- NVIDIA DGX Spark GB10 (2025) — 128 GB unified, 1 PFLOP FP4
+- AMD Ryzen AI Max+ 395 "Strix Halo" mini PC (2025) — 128 GB unified, up to 96 GB addressable as VRAM
+
+#### Added — Mac mini line
+- Mac mini M4 (2024), Mac mini M4 Pro (2024)
+- Mac mini M6 (2026), Mac mini M5 Pro (2026)
+
+#### Added — Intel / AMD updates
+- Ryzen 9 9950X3D PC (2025) — 16 cores, 5.7 GHz, 144 MB 3D V-Cache
+- AMD EPYC 9965 Server (2024) — 192 Zen 5c cores, 500 W
+- Intel Xeon 6980P Server (2024) — 128 P-cores, 500 W
+
+#### Changed
+- Custom Build category dropdown now offers every category in the database (Apple Silicon, ARM/Mobile, AI Workstation, Data Center Server were missing)
+- Database grew from 92 to 105 systems
+
 ## [2.0.1] - 2024-06-04
 
 ### 🐛 Critical Bug Fixes - Performance Summary Accuracy
