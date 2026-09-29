@@ -14,7 +14,7 @@ This is a **Computer Evolution Comparison Tool** - an interactive web applicatio
 - **Client-side only**: Runs entirely in the browser
 
 ### Core Data Structure
-The application centers around a comprehensive `computers` object containing 132 systems:
+The application centers around a comprehensive `computers` object containing 130 systems:
 - **Historical Range**: ENIAC (1946) to Mac Studio M5 Ultra (2026)
 - **Categories**: Early computers, space computers, personal computers, Apple Silicon, ARM/mobile, laptops, mobile devices, single-board computers, calculators, gaming consoles, AI workstations, data center servers, supercomputers, fictional computers
 - **Specifications**: CPU specs (MHz, cores, IPC), memory, storage, power consumption, weight, cost
@@ -36,11 +36,17 @@ The application centers around a comprehensive `computers` object containing 132
 - **`toggleReference(computerId)`**: Handles expand/collapse of reference panels
 - **`createScaleMetaphor(ratio, name1, name2)`**: Generates real-world scale comparison visualizations
 
+#### Machine Picker Functions
+- **`FAMILIES`**: five groupings the fifteen categories collapse into for the picker
+- **`machineIndex()`**: flattens `computers` into searchable rows, newest first
+- **`renderCombo(num)` / `chooseMachine(num, key)`**: builds the listbox and writes through to the hidden `<select>`, which remains the source of truth
+
 #### Workload Estimate Functions
 - **`usableMemoryGB(comp)` / `largestModelThatFits(gb)`**: LLM capacity from memory at 75% usable, 4-bit weights
 - **`tokensPerSecond(comp, modelGB)`**: bandwidth ÷ model size × efficiency (0.72 unified, 0.45 DDR)
 - **`softwareDecodeStreams(comp)`**: MIPS ÷ 2,500 per 1080p30 H.264 stream
-- **`createWorkload(c1, c2)`**: builds the estimate rows, each shown only when the inputs exist
+- **`createWorkload(c1, c2)`**: builds the memory sliders and the estimate rows, each row shown only when its inputs exist
+- **`atMemory(comp, side)`**: returns the machine at the memory the slider is set to, so every estimate recomputes from one place
 - **`createRuler(c1, c2)` / `rulerDomain(c1, c2)`**: the base-10 hero axis; domain adapts when the pair is within four decades
 
 #### Timeline System Functions
@@ -85,7 +91,8 @@ Each computer entry contains:
     bits: 32,       // Architecture width
     ipc: 1.2,       // Instructions per cycle
     compute_power: 30,  // MIPS (calculated)
-    memory: 1024,   // KB
+    memory: 1024,   // KB (the default/base configuration)
+    memory_options: [1024, 2048, 4096], // KB, the sizes this machine shipped in (optional; drives the slider)
     storage: 10240, // KB
     weight: 5.5,    // kg
     power: 85,      // Watts, WHOLE MACHINE under load (not CPU TDP)

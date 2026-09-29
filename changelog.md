@@ -5,6 +5,34 @@ All notable changes to the Computer Evolution Comparison Tool will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0] - 2026-09-29
+
+### 📱 Modern Phones, Memory Sliders, Searchable Picker
+
+#### Added — 7 current phones
+- iPhone 17 Pro and iPhone Air (A19 Pro, 2025), iPhone 18 Pro (A20 Pro, 2 nm, 2026)
+- Samsung Galaxy S25 Ultra (2025) and S26 Ultra (Snapdragon 8 Elite Gen 5, 2026)
+- Google Pixel 10 Pro (Tensor G5, 2025) and Pixel 11 Pro (Tensor G6, 2026)
+
+Each carries bandwidth, memory architecture and hardware decoder counts, so they get the same workload estimates as everything else.
+
+#### Added — memory sliders in "What each one could run"
+Each machine gets a slider stepping through the memory configurations it actually shipped in — 96 / 256 / 512 GB for a Mac Studio M3 Ultra, 24 / 48 / 64 GB for a Mac mini M4 Pro, 32 / 64 / 128 GB for a Ryzen AI Max+ 395. Moving it recomputes the largest model that fits, the token rate and the datasheet memory row live. Machines with one soldered size say so instead of showing a dead control. 48 machines have options; `memory_options` is the new field.
+
+#### Changed — 9 duplicate entries collapsed
+The separate base and maxed-out entries added in 2.2.0 (Mac mini M4 16GB *and* 32GB, Mac Studio M3 Ultra 96GB *and* 512GB, and so on) are now one entry each with a slider covering the range. The list is shorter and the search is cleaner; nothing is lost, since every configuration is still reachable. 139 entries down to 130.
+
+#### Added — searchable machine picker
+The two dropdowns are now comboboxes. Type to filter across name, maker, category and year — "ultra", "1977" and "phone" all work, with matches underlined. Results are grouped into five families rather than fifteen flat categories, newest first, with each row showing category and memory:
+
+- Phones and tablets · Desktops and laptops · AI machines and big iron · Historic · Small and imagined
+
+Filter chips narrow to one family; "Build your own" opens the custom-build panel. Full keyboard support (arrows, Enter, Escape) with `aria-activedescendant`, and the original `<select>` elements stay in the DOM as the source of truth so nothing downstream changed.
+
+#### Fixed
+- Selecting a saved custom build reopened the custom-build panel instead of comparing it, because two options shared the `custom_build_N` value. The picker now calls the panel directly and the value is only ever a real machine.
+- The datasheet price row now names the memory configuration it refers to when a machine has several.
+
 ## [2.2.0] - 2026-09-29
 
 ### ⚙️ Workload Estimates, Whole-Machine Power, New Interface

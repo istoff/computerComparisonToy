@@ -624,6 +624,135 @@
         .colophon { border-top: 1px solid var(--rule); margin-top: var(--gap); padding: 22px 0 26px; font-size: 12.5px; color: var(--ink-3); max-width: 80ch; }
         .colophon p + p { margin-top: 7px; }
 
+        /* ---------- searchable machine picker ---------- */
+
+        .visually-hidden {
+            position: absolute; width: 1px; height: 1px;
+            padding: 0; margin: -1px; overflow: hidden;
+            clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+        }
+
+        .combo { position: relative; }
+
+        .combo-input {
+            width: 100%;
+            padding: 11px 34px 11px 12px;
+            font-family: var(--body);
+            font-size: 15px;
+            color: var(--ink);
+            background: var(--sunk);
+            border: 1px solid var(--rule);
+            border-radius: 3px;
+        }
+        .combo-input::placeholder { color: var(--ink-3); }
+        .combo-input:focus-visible { outline: 2px solid var(--a); outline-offset: 1px; }
+        .combo[data-side="b"] .combo-input:focus-visible { outline-color: var(--b); }
+
+        .combo-clear {
+            position: absolute;
+            top: 50%; right: 6px;
+            transform: translateY(-50%);
+            width: 24px; height: 24px;
+            font: inherit; font-size: 17px; line-height: 1;
+            border: 0; border-radius: 3px;
+            background: transparent;
+            color: var(--ink-3);
+            cursor: pointer;
+        }
+        .combo-clear:hover { color: var(--ink); background: var(--rule-2); }
+
+        .combo-panel {
+            position: absolute;
+            z-index: 30;
+            top: calc(100% + 4px);
+            left: 0; right: 0;
+            max-height: 340px;
+            overflow-y: auto;
+            background: var(--panel);
+            border: 1px solid var(--rule);
+            box-shadow: 0 10px 28px rgba(10, 16, 22, .13);
+        }
+        @media (prefers-color-scheme: dark) {
+            .combo-panel { box-shadow: 0 10px 28px rgba(0, 0, 0, .5); }
+        }
+        .combo-panel[hidden] { display: none; }
+
+        .combo-chips {
+            position: sticky; top: 0;
+            display: flex; flex-wrap: wrap; gap: 5px;
+            padding: 9px 10px;
+            background: var(--panel);
+            border-bottom: 1px solid var(--rule-2);
+        }
+        .chip {
+            font: inherit; font-size: 12px;
+            padding: 3px 9px;
+            border: 1px solid var(--rule);
+            border-radius: 11px;
+            background: transparent;
+            color: var(--ink-2);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .chip:hover { border-color: var(--ink-3); color: var(--ink); }
+        .chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--panel); }
+
+        .combo-group {
+            padding: 9px 12px 3px;
+            font-family: var(--display);
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--ink-3);
+            border-top: 1px solid var(--rule-2);
+        }
+        .combo-group:first-of-type { border-top: 0; }
+
+        .combo-option {
+            display: flex; align-items: baseline; gap: 10px;
+            padding: 7px 12px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .combo-option .opt-name { flex: 1 1 auto; }
+        .combo-option .opt-meta { flex: 0 0 auto; font-size: 11.5px; color: var(--ink-3); }
+        .combo-option mark { background: transparent; color: inherit; font-weight: 600; text-decoration: underline; }
+        .combo-option[aria-selected="true"] { background: var(--a-soft); }
+        .combo[data-side="b"] .combo-option[aria-selected="true"] { background: var(--b-soft); }
+        .combo-option.is-current::after { content: 'selected'; font-size: 11px; color: var(--ink-3); }
+        .combo-empty { padding: 16px 12px; font-size: 13.5px; color: var(--ink-3); }
+
+        /* ---------- memory sliders ---------- */
+
+        .mem-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding-bottom: 22px;
+        }
+
+        .mem-ctl { border-left: 2px solid var(--rule); padding-left: 14px; }
+        .mem-ctl.a { border-left-color: var(--a); }
+        .mem-ctl.b { border-left-color: var(--b); }
+
+        .mem-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+        .mem-who { font-size: 12.5px; color: var(--ink-2); }
+        .mem-now { font-family: var(--display); font-size: 17px; font-weight: 600; }
+        .mem-ctl.a .mem-now { color: var(--a); }
+        .mem-ctl.b .mem-now { color: var(--b); }
+
+        .mem-range { width: 100%; margin: 9px 0 2px; }
+        .mem-ctl.a .mem-range { accent-color: var(--a); }
+        .mem-ctl.b .mem-range { accent-color: var(--b); }
+        .mem-range:focus-visible { outline: 2px solid var(--a); outline-offset: 3px; }
+
+        .mem-ticks { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-3); }
+        .mem-fixed { font-size: 12px; color: var(--ink-3); margin-top: 7px; }
+        .mem-caption { font-size: 12.5px; color: var(--ink-3); padding-bottom: 20px; max-width: 76ch; }
+
+        @media (max-width: 760px) {
+            .mem-controls { grid-template-columns: 1fr; }
+        }
+
         /* ---------- responsive ---------- */
 
         @media (max-width: 760px) {
@@ -656,17 +785,31 @@
 
         <section>
             <h2>Choose two machines</h2>
-            <p class="section-note">Anything in the list can be compared with anything else. To mix parts from different eras, choose Create custom build at the top of either list.</p>
+            <p class="section-note">Search by name, maker, year or category &mdash; &ldquo;ultra&rdquo;, &ldquo;1977&rdquo;, &ldquo;phone&rdquo; all work. The filters narrow the list to one family at a time. To mix parts from different eras, choose Build your own.</p>
             <div class="selectors">
                 <div class="selector-group" data-side="a">
                     <h3>Machine A</h3>
-                    <select id="computer1" aria-label="First machine">
+                    <div class="combo" data-side="a" data-num="1">
+                        <input type="text" class="combo-input" id="combo1" role="combobox"
+                               aria-expanded="false" aria-controls="combo-panel-1" aria-autocomplete="list"
+                               autocomplete="off" placeholder="Search machines">
+                        <button type="button" class="combo-clear" data-num="1" aria-label="Clear machine A">&times;</button>
+                        <div class="combo-panel" id="combo-panel-1" role="listbox" aria-label="Machines" hidden></div>
+                    </div>
+                    <select id="computer1" class="visually-hidden" tabindex="-1" aria-hidden="true">
                         <option value="">Select a machine</option>
                     </select>
                 </div>
                 <div class="selector-group" data-side="b">
                     <h3>Machine B</h3>
-                    <select id="computer2" aria-label="Second machine">
+                    <div class="combo" data-side="b" data-num="2">
+                        <input type="text" class="combo-input" id="combo2" role="combobox"
+                               aria-expanded="false" aria-controls="combo-panel-2" aria-autocomplete="list"
+                               autocomplete="off" placeholder="Search machines">
+                        <button type="button" class="combo-clear" data-num="2" aria-label="Clear machine B">&times;</button>
+                        <div class="combo-panel" id="combo-panel-2" role="listbox" aria-label="Machines" hidden></div>
+                    </div>
+                    <select id="computer2" class="visually-hidden" tabindex="-1" aria-hidden="true">
                         <option value="">Select a machine</option>
                     </select>
                 </div>
@@ -690,7 +833,8 @@
             <section id="workload-section">
                 <h2>What each one could run</h2>
                 <p class="section-note">Ceilings derived from the published specifications, not benchmark results. Real throughput lands lower.</p>
-                <div class="workload" id="workload"></div>
+                <div id="workload-controls"></div>
+                <div class="workload" id="workload-rows"></div>
                 <p class="workload-foot" id="workload-foot"></p>
             </section>
 
@@ -1530,6 +1674,7 @@
                 ipc: 4,
                 compute_power: 64000,
                 memory: 33554432,
+                memory_options: [8388608, 16777216, 33554432],
                 storage: 2097152000,
                 weight: 3.5,
                 power: 350,
@@ -1548,6 +1693,7 @@
                 ipc: 4.5,
                 compute_power: 180000,
                 memory: 67108864,
+                memory_options: [16777216, 33554432, 67108864],
                 storage: 4194304000,
                 weight: 3,
                 power: 450,
@@ -1618,6 +1764,7 @@
                 ipc: 4.5,
                 compute_power: 97200,
                 memory: 33554432,
+                memory_options: [16777216, 33554432, 67108864],
                 storage: 2097152000,
                 weight: 3.2,
                 power: 300,
@@ -1636,6 +1783,7 @@
                 ipc: 4.7,
                 compute_power: 161480,
                 memory: 67108864,
+                memory_options: [16777216, 33554432, 67108864],
                 storage: 4194304000,
                 weight: 3,
                 power: 350,
@@ -1654,6 +1802,7 @@
                 ipc: 4.8,
                 compute_power: 299520,
                 memory: 134217728,
+                memory_options: [33554432, 67108864, 134217728],
                 storage: 8388608000,
                 weight: 3,
                 power: 450,
@@ -1672,6 +1821,7 @@
                 ipc: 5,
                 compute_power: 696000,
                 memory: 134217728,
+                memory_options: [33554432, 67108864, 134217728, 201326592],
                 storage: 8388608000,
                 weight: 3,
                 power: 620,
@@ -1690,6 +1840,7 @@
                 ipc: 5.2,
                 compute_power: 748800,
                 memory: 134217728,
+                memory_options: [33554432, 67108864, 134217728, 201326592],
                 storage: 8388608000,
                 weight: 2.8,
                 power: 620,
@@ -1708,6 +1859,7 @@
                 ipc: 5.5,
                 compute_power: 752400,
                 memory: 201326592,
+                memory_options: [50331648, 100663296, 201326592],
                 storage: 8388608000,
                 weight: 2.7,
                 power: 580,
@@ -1726,6 +1878,7 @@
                 ipc: 5,
                 compute_power: 456000,
                 memory: 134217728,
+                memory_options: [33554432, 67108864, 134217728, 201326592],
                 storage: 8388608000,
                 weight: 2.9,
                 power: 450,
@@ -1744,6 +1897,7 @@
                 ipc: 5.3,
                 compute_power: 483360,
                 memory: 201326592,
+                memory_options: [33554432, 67108864, 134217728, 201326592],
                 storage: 8388608000,
                 weight: 2.8,
                 power: 500,
@@ -1762,6 +1916,7 @@
                 ipc: 5.4,
                 compute_power: 492480,
                 memory: 201326592,
+                memory_options: [33554432, 67108864, 134217728, 201326592],
                 storage: 8589934592,
                 weight: 2.8,
                 power: 500,
@@ -1782,6 +1937,7 @@
                 ipc: 7,
                 compute_power: 179200,
                 memory: 16777216,
+                memory_options: [8388608, 16777216],
                 storage: 1073741824,
                 weight: 1.3,
                 power: 30,
@@ -1800,6 +1956,7 @@
                 ipc: 7.5,
                 compute_power: 210000,
                 memory: 25165824,
+                memory_options: [8388608, 16777216, 25165824],
                 storage: 1073741824,
                 weight: 1.24,
                 power: 35,
@@ -1818,6 +1975,7 @@
                 ipc: 8,
                 compute_power: 262400,
                 memory: 25165824,
+                memory_options: [8388608, 16777216, 25165824],
                 storage: 1073741824,
                 weight: 1.22,
                 power: 70,
@@ -1836,6 +1994,7 @@
                 ipc: 8.5,
                 compute_power: 374000,
                 memory: 33554432,
+                memory_options: [16777216, 25165824, 33554432],
                 storage: 1073741824,
                 weight: 1.18,
                 power: 70,
@@ -1854,6 +2013,7 @@
                 ipc: 8.2,
                 compute_power: 403440,
                 memory: 37748736,
+                memory_options: [18874368, 37748736],
                 storage: 1073741824,
                 weight: 1.6,
                 power: 70,
@@ -1872,6 +2032,7 @@
                 ipc: 8.3,
                 compute_power: 544480,
                 memory: 134217728,
+                memory_options: [37748736, 50331648, 67108864, 100663296, 134217728],
                 storage: 1073741824,
                 weight: 2.1,
                 power: 140,
@@ -1890,6 +2051,7 @@
                 ipc: 8.7,
                 compute_power: 536008,
                 memory: 67108864,
+                memory_options: [25165824, 50331648, 67108864],
                 storage: 1073741824,
                 weight: 1.55,
                 power: 96,
@@ -1908,6 +2070,7 @@
                 ipc: 8.8,
                 compute_power: 633600,
                 memory: 134217728,
+                memory_options: [37748736, 50331648, 67108864, 134217728],
                 storage: 2147483648,
                 weight: 2,
                 power: 140,
@@ -1918,25 +2081,7 @@
                 category: 'Apple Silicon'
             },
             'mac_mini_m4': {
-                name: 'Mac mini M4 32GB (2024)',
-                year: 2024,
-                cpu: 4400,
-                cores: 10,
-                bits: 64,
-                ipc: 8.5,
-                compute_power: 374000,
-                memory: 33554432,
-                storage: 2147483648,
-                weight: 0.67,
-                power: 155,
-                bandwidth: 120,
-                mem_arch: 'unified',
-                gpu_decode: 16,
-                cost: 999,
-                category: 'Apple Silicon'
-            },
-            'mac_mini_m4_16': {
-                name: 'Mac mini M4 16GB (2024)',
+                name: 'Mac mini M4 (2024)',
                 year: 2024,
                 cpu: 4400,
                 cores: 10,
@@ -1944,6 +2089,7 @@
                 ipc: 8.5,
                 compute_power: 374000,
                 memory: 16777216,
+                memory_options: [16777216, 25165824, 33554432],
                 storage: 2147483648,
                 weight: 0.67,
                 power: 155,
@@ -1954,25 +2100,7 @@
                 category: 'Apple Silicon'
             },
             'mac_mini_m4_pro': {
-                name: 'Mac mini M4 Pro 64GB (2024)',
-                year: 2024,
-                cpu: 4400,
-                cores: 14,
-                bits: 64,
-                ipc: 8.7,
-                compute_power: 535920,
-                memory: 67108864,
-                storage: 8589934592,
-                weight: 0.73,
-                power: 155,
-                bandwidth: 273,
-                mem_arch: 'unified',
-                gpu_decode: 16,
-                cost: 1999,
-                category: 'Apple Silicon'
-            },
-            'mac_mini_m4_pro_24': {
-                name: 'Mac mini M4 Pro 24GB (2024)',
+                name: 'Mac mini M4 Pro (2024)',
                 year: 2024,
                 cpu: 4400,
                 cores: 14,
@@ -1980,6 +2108,7 @@
                 ipc: 8.7,
                 compute_power: 535920,
                 memory: 25165824,
+                memory_options: [25165824, 50331648, 67108864],
                 storage: 8589934592,
                 weight: 0.73,
                 power: 155,
@@ -1990,25 +2119,7 @@
                 category: 'Apple Silicon'
             },
             'mac_mini_m6': {
-                name: 'Mac mini M6 32GB (2026)',
-                year: 2026,
-                cpu: 4800,
-                cores: 12,
-                bits: 64,
-                ipc: 9.6,
-                compute_power: 552960,
-                memory: 33554432,
-                storage: 2147483648,
-                weight: 0.67,
-                power: 155,
-                bandwidth: 170,
-                mem_arch: 'unified',
-                gpu_decode: 18,
-                cost: 1299,
-                category: 'Apple Silicon'
-            },
-            'mac_mini_m6_16': {
-                name: 'Mac mini M6 16GB (2026)',
+                name: 'Mac mini M6 (2026)',
                 year: 2026,
                 cpu: 4800,
                 cores: 12,
@@ -2016,6 +2127,7 @@
                 ipc: 9.6,
                 compute_power: 552960,
                 memory: 16777216,
+                memory_options: [16777216, 25165824, 33554432],
                 storage: 2147483648,
                 weight: 0.67,
                 power: 155,
@@ -2026,25 +2138,7 @@
                 category: 'Apple Silicon'
             },
             'mac_mini_m5_pro': {
-                name: 'Mac mini M5 Pro 64GB (2026)',
-                year: 2026,
-                cpu: 4600,
-                cores: 18,
-                bits: 64,
-                ipc: 9.3,
-                compute_power: 770040,
-                memory: 67108864,
-                storage: 8589934592,
-                weight: 0.73,
-                power: 155,
-                bandwidth: 307,
-                mem_arch: 'unified',
-                gpu_decode: 18,
-                cost: 2299,
-                category: 'Apple Silicon'
-            },
-            'mac_mini_m5_pro_24': {
-                name: 'Mac mini M5 Pro 24GB (2026)',
+                name: 'Mac mini M5 Pro (2026)',
                 year: 2026,
                 cpu: 4600,
                 cores: 18,
@@ -2052,6 +2146,7 @@
                 ipc: 9.3,
                 compute_power: 770040,
                 memory: 25165824,
+                memory_options: [25165824, 50331648, 67108864],
                 storage: 8589934592,
                 weight: 0.73,
                 power: 155,
@@ -2242,6 +2337,7 @@
                 ipc: 3.8,
                 compute_power: 19760,
                 memory: 8388608,
+                memory_options: [4194304, 8388608, 16777216],
                 storage: 268435456,
                 weight: 1.3,
                 power: 60,
@@ -2260,6 +2356,7 @@
                 ipc: 5.5,
                 compute_power: 211200,
                 memory: 33554432,
+                memory_options: [16777216, 33554432, 67108864],
                 storage: 1073741824,
                 weight: 1.5,
                 power: 90,
@@ -2436,6 +2533,7 @@
                 ipc: 7.5,
                 compute_power: 203400,
                 memory: 12582912,
+                memory_options: [12582912, 16777216],
                 storage: 1073741824,
                 weight: 0.232,
                 power: 5,
@@ -2553,6 +2651,134 @@
                 cost: 1200,
                 category: 'Mobile Device'
             },
+            'iphone_air': {
+                name: 'iPhone Air - A19 Pro (2025)',
+                year: 2025,
+                cpu: 4260,
+                cores: 6,
+                bits: 64,
+                ipc: 7.4,
+                compute_power: 189144,
+                memory: 12582912,
+                storage: 1073741824,
+                weight: 0.165,
+                power: 4.5,
+                bandwidth: 76,
+                mem_arch: 'unified',
+                gpu_decode: 8,
+                cost: 999,
+                category: 'Mobile Device'
+            },
+            'iphone17pro': {
+                name: 'iPhone 17 Pro - A19 Pro (2025)',
+                year: 2025,
+                cpu: 4260,
+                cores: 6,
+                bits: 64,
+                ipc: 7.4,
+                compute_power: 189144,
+                memory: 12582912,
+                storage: 2147483648,
+                weight: 0.206,
+                power: 5,
+                bandwidth: 76,
+                mem_arch: 'unified',
+                gpu_decode: 8,
+                cost: 1099,
+                category: 'Mobile Device'
+            },
+            'iphone18pro': {
+                name: 'iPhone 18 Pro - A20 Pro (2026)',
+                year: 2026,
+                cpu: 4500,
+                cores: 6,
+                bits: 64,
+                ipc: 8.4,
+                compute_power: 226800,
+                memory: 12582912,
+                storage: 2147483648,
+                weight: 0.206,
+                power: 5.2,
+                bandwidth: 114,
+                mem_arch: 'unified',
+                gpu_decode: 9,
+                cost: 1099,
+                category: 'Mobile Device'
+            },
+            'galaxys25ultra': {
+                name: 'Samsung Galaxy S25 Ultra (2025)',
+                year: 2025,
+                cpu: 4470,
+                cores: 8,
+                bits: 64,
+                ipc: 7.3,
+                compute_power: 261048,
+                memory: 12582912,
+                memory_options: [12582912, 16777216],
+                storage: 1073741824,
+                weight: 0.218,
+                power: 5.5,
+                bandwidth: 76,
+                mem_arch: 'unified',
+                gpu_decode: 8,
+                cost: 1299,
+                category: 'Mobile Device'
+            },
+            'galaxys26ultra': {
+                name: 'Samsung Galaxy S26 Ultra (2026)',
+                year: 2026,
+                cpu: 4740,
+                cores: 8,
+                bits: 64,
+                ipc: 8,
+                compute_power: 303360,
+                memory: 16777216,
+                memory_options: [12582912, 16777216],
+                storage: 1073741824,
+                weight: 0.218,
+                power: 5.8,
+                bandwidth: 85,
+                mem_arch: 'unified',
+                gpu_decode: 9,
+                cost: 1349,
+                category: 'Mobile Device'
+            },
+            'pixel10pro': {
+                name: 'Google Pixel 10 Pro (2025)',
+                year: 2025,
+                cpu: 3780,
+                cores: 8,
+                bits: 64,
+                ipc: 6,
+                compute_power: 181440,
+                memory: 16777216,
+                storage: 1073741824,
+                weight: 0.207,
+                power: 5,
+                bandwidth: 68,
+                mem_arch: 'unified',
+                gpu_decode: 6,
+                cost: 999,
+                category: 'Mobile Device'
+            },
+            'pixel11pro': {
+                name: 'Google Pixel 11 Pro (2026)',
+                year: 2026,
+                cpu: 4110,
+                cores: 7,
+                bits: 64,
+                ipc: 6.6,
+                compute_power: 189882,
+                memory: 16777216,
+                storage: 1073741824,
+                weight: 0.207,
+                power: 5.2,
+                bandwidth: 77,
+                mem_arch: 'unified',
+                gpu_decode: 7,
+                cost: 1049,
+                category: 'Mobile Device'
+            },
 
             // Tablet
             'ipad': {
@@ -2618,6 +2844,7 @@
                 ipc: 6.5,
                 compute_power: 181480,
                 memory: 8388608,
+                memory_options: [8388608, 16777216],
                 storage: 268435456,
                 weight: 0.466,
                 power: 12,
@@ -2654,6 +2881,7 @@
                 ipc: 6.5,
                 compute_power: 174720,
                 memory: 16777216,
+                memory_options: [12582912, 16777216],
                 storage: 1073741824,
                 weight: 0.732,
                 power: 15,
@@ -2690,6 +2918,7 @@
                 ipc: 5,
                 compute_power: 140000,
                 memory: 16777216,
+                memory_options: [8388608, 16777216, 33554432],
                 storage: 536870912,
                 weight: 0.879,
                 power: 20,
@@ -3046,6 +3275,7 @@
                 ipc: 4.5,
                 compute_power: 1785600,
                 memory: 536870912,
+                memory_options: [268435456, 536870912, 1073741824, 1610612736],
                 storage: 4194304000,
                 weight: 5,
                 power: 700,
@@ -3064,6 +3294,7 @@
                 ipc: 5,
                 compute_power: 1776000,
                 memory: 536870912,
+                memory_options: [268435456, 536870912, 1073741824, 1610612736],
                 storage: 4194304000,
                 weight: 5,
                 power: 700,
@@ -3082,6 +3313,7 @@
                 ipc: 4.5,
                 compute_power: 1123200,
                 memory: 536870912,
+                memory_options: [268435456, 536870912, 1073741824, 2147483648],
                 storage: 4194304000,
                 weight: 5,
                 power: 700,
@@ -3100,6 +3332,7 @@
                 ipc: 4.2,
                 compute_power: 2983680,
                 memory: 1610612736,
+                memory_options: [402653184, 805306368, 1610612736, 3221225472],
                 storage: 4294967296,
                 weight: 5,
                 power: 900,
@@ -3118,6 +3351,7 @@
                 ipc: 4.6,
                 compute_power: 2296320,
                 memory: 3221225472,
+                memory_options: [536870912, 1073741824, 2147483648, 3221225472],
                 storage: 4294967296,
                 weight: 5,
                 power: 900,
@@ -3130,25 +3364,7 @@
 
             // AI Workstation
             'mac_studio_m4_max': {
-                name: 'Mac Studio M4 Max 128GB (2025)',
-                year: 2025,
-                cpu: 4500,
-                cores: 16,
-                bits: 64,
-                ipc: 8.8,
-                compute_power: 633600,
-                memory: 134217728,
-                storage: 8589934592,
-                weight: 2.74,
-                power: 480,
-                bandwidth: 546,
-                mem_arch: 'unified',
-                gpu_decode: 32,
-                cost: 3199,
-                category: 'AI Workstation'
-            },
-            'mac_studio_m4_max_36': {
-                name: 'Mac Studio M4 Max 36GB (2025)',
+                name: 'Mac Studio M4 Max (2025)',
                 year: 2025,
                 cpu: 4500,
                 cores: 16,
@@ -3156,6 +3372,7 @@
                 ipc: 8.8,
                 compute_power: 633600,
                 memory: 37748736,
+                memory_options: [37748736, 50331648, 67108864, 134217728],
                 storage: 8589934592,
                 weight: 2.74,
                 power: 480,
@@ -3166,25 +3383,7 @@
                 category: 'AI Workstation'
             },
             'mac_studio_m3_ultra': {
-                name: 'Mac Studio M3 Ultra 512GB (2025)',
-                year: 2025,
-                cpu: 4050,
-                cores: 32,
-                bits: 64,
-                ipc: 8.4,
-                compute_power: 1088640,
-                memory: 536870912,
-                storage: 17179869184,
-                weight: 3.64,
-                power: 480,
-                bandwidth: 819,
-                mem_arch: 'unified',
-                gpu_decode: 64,
-                cost: 7999,
-                category: 'AI Workstation'
-            },
-            'mac_studio_m3_ultra_96': {
-                name: 'Mac Studio M3 Ultra 96GB (2025)',
+                name: 'Mac Studio M3 Ultra (2025)',
                 year: 2025,
                 cpu: 4050,
                 cores: 32,
@@ -3192,6 +3391,7 @@
                 ipc: 8.4,
                 compute_power: 1088640,
                 memory: 100663296,
+                memory_options: [100663296, 268435456, 536870912],
                 storage: 17179869184,
                 weight: 3.64,
                 power: 480,
@@ -3202,25 +3402,7 @@
                 category: 'AI Workstation'
             },
             'mac_studio_m5_max': {
-                name: 'Mac Studio M5 Max 128GB (2026)',
-                year: 2026,
-                cpu: 4600,
-                cores: 18,
-                bits: 64,
-                ipc: 9.4,
-                compute_power: 778320,
-                memory: 134217728,
-                storage: 8589934592,
-                weight: 2.7,
-                power: 480,
-                bandwidth: 614,
-                mem_arch: 'unified',
-                gpu_decode: 36,
-                cost: 4099,
-                category: 'AI Workstation'
-            },
-            'mac_studio_m5_max_36': {
-                name: 'Mac Studio M5 Max 36GB (2026)',
+                name: 'Mac Studio M5 Max (2026)',
                 year: 2026,
                 cpu: 4600,
                 cores: 18,
@@ -3228,6 +3410,7 @@
                 ipc: 9.4,
                 compute_power: 778320,
                 memory: 37748736,
+                memory_options: [37748736, 50331648, 67108864, 134217728],
                 storage: 8589934592,
                 weight: 2.7,
                 power: 480,
@@ -3238,25 +3421,7 @@
                 category: 'AI Workstation'
             },
             'mac_studio_m5_ultra': {
-                name: 'Mac Studio M5 Ultra 512GB (2026)',
-                year: 2026,
-                cpu: 4610,
-                cores: 36,
-                bits: 64,
-                ipc: 9.4,
-                compute_power: 1560024,
-                memory: 536870912,
-                storage: 17179869184,
-                weight: 3.6,
-                power: 480,
-                bandwidth: 1200,
-                mem_arch: 'unified',
-                gpu_decode: 72,
-                cost: 11499,
-                category: 'AI Workstation'
-            },
-            'mac_studio_m5_ultra_96': {
-                name: 'Mac Studio M5 Ultra 96GB (2026)',
+                name: 'Mac Studio M5 Ultra (2026)',
                 year: 2026,
                 cpu: 4610,
                 cores: 36,
@@ -3264,6 +3429,7 @@
                 ipc: 9.4,
                 compute_power: 1560024,
                 memory: 100663296,
+                memory_options: [100663296, 268435456, 536870912],
                 storage: 17179869184,
                 weight: 3.6,
                 power: 480,
@@ -3292,25 +3458,7 @@
                 category: 'AI Workstation'
             },
             'ryzen_ai_max_395': {
-                name: 'Ryzen AI Max+ 395 Mini PC 128GB (2025)',
-                year: 2025,
-                cpu: 5100,
-                cores: 16,
-                bits: 64,
-                ipc: 5.3,
-                compute_power: 432480,
-                memory: 134217728,
-                storage: 2147483648,
-                weight: 1.5,
-                power: 120,
-                bandwidth: 256,
-                mem_arch: 'unified',
-                gpu_decode: 24,
-                cost: 2000,
-                category: 'AI Workstation'
-            },
-            'ryzen_ai_max_395_64': {
-                name: 'Ryzen AI Max+ 395 Mini PC 64GB (2025)',
+                name: 'Ryzen AI Max+ 395 Mini PC (2025)',
                 year: 2025,
                 cpu: 5100,
                 cores: 16,
@@ -3318,6 +3466,7 @@
                 ipc: 5.3,
                 compute_power: 432480,
                 memory: 67108864,
+                memory_options: [33554432, 67108864, 134217728],
                 storage: 2147483648,
                 weight: 1.5,
                 power: 120,
@@ -3473,6 +3622,7 @@
             select.value = customId;
 
             // Close modal and trigger comparison
+            syncComboFromSelect(computerNum);
             closeCustomBuild(computerNum);
             displayComparison();
         }
@@ -3760,8 +3910,53 @@
                     </div>`;
         }
 
+        // Memory the user has dialled in for this comparison, per side.
+        let workloadMemory = { a: null, b: null };
+        let currentPair = { c1: null, c2: null };
+
+        function atMemory(c, side) {
+            const m = workloadMemory[side];
+            return (m && m !== c.memory) ? { ...c, memory: m } : c;
+        }
+
+        function renderMemoryControls(c1, c2) {
+            const host = document.getElementById('workload-controls');
+            const one = (c, side) => {
+                const opts = c.memory_options;
+                const name = shortName(c);
+                if (!opts || opts.length < 2) {
+                    return `<div class="mem-ctl ${side}">
+                                <div class="mem-head"><span class="mem-who">${name}</span>
+                                <span class="mem-now">${formatMemoryStorage(c.memory)}</span></div>
+                                <p class="mem-fixed">One memory size only</p>
+                            </div>`;
+                }
+                const cur = workloadMemory[side] || c.memory;
+                const idx = Math.max(0, opts.indexOf(cur));
+                return `<div class="mem-ctl ${side}">
+                            <div class="mem-head"><span class="mem-who">${name}</span>
+                            <span class="mem-now" data-now="${side}">${formatMemoryStorage(cur)}</span></div>
+                            <input type="range" class="mem-range" data-side="${side}" min="0"
+                                   max="${opts.length - 1}" step="1" value="${idx}"
+                                   aria-label="${name} memory">
+                            <div class="mem-ticks">${opts.map(o => `<span>${formatMemoryStorage(o)}</span>`).join('')}</div>
+                        </div>`;
+            };
+            const adjustable = (c1.memory_options || []).length > 1 || (c2.memory_options || []).length > 1;
+            host.innerHTML = `<div class="mem-controls">${one(c1, 'a')}${one(c2, 'b')}</div>` +
+                (adjustable ? '<p class="mem-caption">Memory sets the ceiling on model size, so the estimates and the datasheet memory move with these sliders. Each stop is a configuration the machine actually shipped in. Price stays at the base configuration.</p>' : '');
+        }
+
         function createWorkload(c1, c2) {
-            const host = document.getElementById('workload');
+            currentPair = { c1, c2 };
+            renderMemoryControls(c1, c2);
+            renderWorkloadRows(c1, c2);
+        }
+
+        function renderWorkloadRows(baseA, baseB) {
+            const c1 = atMemory(baseA, 'a');
+            const c2 = atMemory(baseB, 'b');
+            const host = document.getElementById('workload-rows');
             const foot = document.getElementById('workload-foot');
             const rows = [];
             const notes = [];
@@ -3844,7 +4039,7 @@
                 ['Weight', `${comp.weight} kg`],
                 ['Power, whole machine', `${comp.power.toLocaleString()} W`],
                 ['Efficiency', `${(comp.compute_power / comp.power).toFixed(1)} MIPS/W`],
-                ['Price as configured', `$${comp.cost.toLocaleString()} (${comp.year})`]
+                ['Price', `$${comp.cost.toLocaleString()} (${comp.year}${(comp.memory_options || []).length > 1 ? ', ' + formatMemoryStorage(comp.memory) : ''})`]
             ];
             if (comp.bandwidth) {
                 rows.splice(5, 0, ['Memory bandwidth',
@@ -3852,7 +4047,7 @@
             }
             return `<div class="spec-card">
                 <h3>${comp.name}</h3>
-                ${rows.map(([k, v]) => `<div class="spec-row"><span class="spec-label">${k}</span><span class="spec-value">${v}</span></div>`).join('')}
+                ${rows.map(([k, v]) => `<div class="spec-row"><span class="spec-label">${k}</span><span class="spec-value"${k === 'Memory' ? ` data-spec="memory-${side}"` : ''}>${v}</span></div>`).join('')}
                 ${createReferencePanel(id, comp.name)}
             </div>`;
         }
@@ -3870,6 +4065,10 @@
             const computer2 = computers[comp2];
 
             document.getElementById('results').style.display = 'block';
+
+            if (currentPair.c1 !== computer1 || currentPair.c2 !== computer2) {
+                workloadMemory = { a: null, b: null };
+            }
 
             // Hero scale
             createRuler(computer1, computer2);
@@ -4579,6 +4778,205 @@
             container.scrollLeft = Math.max(0, target);
         }
 
+        // ---------------------------------------------------------------
+        // Searchable machine picker
+        //
+        // The <select> elements stay in the DOM as the source of truth so the
+        // rest of the app keeps reading `computer1.value`; this is the visible
+        // layer over them.
+        // ---------------------------------------------------------------
+
+        const FAMILIES = [
+            { id: 'mobile',   label: 'Phones and tablets',  cats: ['Mobile Device', 'Tablet', 'ARM/Mobile'] },
+            { id: 'desktop',  label: 'Desktops and laptops', cats: ['Personal Computer', 'Laptop', 'Apple Silicon'] },
+            { id: 'ai',       label: 'AI machines and big iron', cats: ['AI Workstation', 'Data Center Server', 'Supercomputer'] },
+            { id: 'historic', label: 'Historic',            cats: ['Early Computer', 'Space Computer', 'Calculator'] },
+            { id: 'small',    label: 'Small and imagined',  cats: ['Single Board Computer', 'Gaming Console', 'Fictional Computer'] }
+        ];
+
+        const comboState = { 1: { q: '', family: 'all', active: -1, items: [] },
+                             2: { q: '', family: 'all', active: -1, items: [] } };
+
+        const escHtml = t => String(t).replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+        const escRe   = t => String(t).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+        function familyOf(category) {
+            return FAMILIES.find(f => f.cats.includes(category)) || { id: 'other', label: category };
+        }
+
+        function machineIndex() {
+            return Object.keys(computers).map(key => {
+                const c = computers[key];
+                const custom = key.startsWith('custom_build_');
+                const fam = custom ? { id: 'custom', label: 'Your builds' } : familyOf(c.category);
+                return {
+                    key, name: c.name, year: c.year, category: c.category,
+                    memory: c.memory, family: fam.id, familyLabel: fam.label,
+                    haystack: `${c.name} ${c.category} ${fam.label} ${c.year}`.toLowerCase()
+                };
+            }).sort((a, b) => (b.year - a.year) || a.name.localeCompare(b.name));
+        }
+
+        function highlight(text, q) {
+            if (!q) return escHtml(text);
+            return escHtml(text).replace(new RegExp(escRe(escHtml(q)), 'ig'), m => `<mark>${m}</mark>`);
+        }
+
+        function renderCombo(num) {
+            const st = comboState[num];
+            const panel = document.getElementById('combo-panel-' + num);
+            const chosen = document.getElementById('computer' + num).value;
+            const terms = st.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+
+            let items = machineIndex();
+            if (st.family !== 'all') items = items.filter(m => m.family === st.family);
+            if (terms.length) items = items.filter(m => terms.every(t => m.haystack.includes(t)));
+            st.items = items;
+            if (st.active >= items.length) st.active = items.length - 1;
+
+            const chips = ['all', ...FAMILIES.map(f => f.id)].map(id => {
+                const label = id === 'all' ? 'Everything' : FAMILIES.find(f => f.id === id).label;
+                return `<button type="button" class="chip" data-family="${id}" aria-pressed="${st.family === id}">${label}</button>`;
+            }).join('');
+
+            let body = '';
+            if (!items.length) {
+                body = `<p class="combo-empty">Nothing matches &ldquo;${escHtml(st.q)}&rdquo; in this filter.</p>`;
+            } else {
+                let lastFamily = null;
+                items.forEach((m, i) => {
+                    if (m.familyLabel !== lastFamily) {
+                        body += `<div class="combo-group">${escHtml(m.familyLabel)}</div>`;
+                        lastFamily = m.familyLabel;
+                    }
+                    body += `<div class="combo-option${m.key === chosen ? ' is-current' : ''}" role="option"
+                                  id="opt-${num}-${i}" data-key="${escHtml(m.key)}"
+                                  aria-selected="${i === st.active}">
+                                <span class="opt-name">${highlight(m.name, st.q)}</span>
+                                <span class="opt-meta">${escHtml(m.category)} &middot; ${formatMemoryStorage(m.memory)}</span>
+                             </div>`;
+                });
+            }
+
+            panel.innerHTML = `<div class="combo-chips">${chips}
+                    <button type="button" class="chip" data-action="custom">Build your own</button>
+                </div>${body}`;
+
+            const input = document.getElementById('combo' + num);
+            input.setAttribute('aria-activedescendant', st.active >= 0 ? `opt-${num}-${st.active}` : '');
+            const act = panel.querySelector('[aria-selected="true"]');
+            if (act) act.scrollIntoView({ block: 'nearest' });
+        }
+
+        function openCombo(num) {
+            document.getElementById('combo-panel-' + num).hidden = false;
+            document.getElementById('combo' + num).setAttribute('aria-expanded', 'true');
+            renderCombo(num);
+        }
+
+        function closeCombo(num) {
+            document.getElementById('combo-panel-' + num).hidden = true;
+            document.getElementById('combo' + num).setAttribute('aria-expanded', 'false');
+            comboState[num].active = -1;
+        }
+
+        function syncComboFromSelect(num) {
+            const sel = document.getElementById('computer' + num);
+            const c = computers[sel.value];
+            document.getElementById('combo' + num).value = c ? c.name : '';
+            comboState[num].q = '';
+        }
+
+        function chooseMachine(num, key) {
+            const sel = document.getElementById('computer' + num);
+            if (!sel.querySelector(`option[value="${CSS.escape(key)}"]`)) {
+                sel.appendChild(new Option(computers[key].name, key));
+            }
+            sel.value = key;
+            syncComboFromSelect(num);
+            closeCombo(num);
+            displayComparison();
+        }
+
+        function moveActive(num, delta) {
+            const st = comboState[num];
+            if (!st.items.length) return;
+            st.active = (st.active + delta + st.items.length) % st.items.length;
+            renderCombo(num);
+        }
+
+        [1, 2].forEach(num => {
+            const input = document.getElementById('combo' + num);
+            const panel = document.getElementById('combo-panel-' + num);
+
+            input.addEventListener('focus', () => openCombo(num));
+            input.addEventListener('input', () => {
+                comboState[num].q = input.value;
+                comboState[num].active = input.value.trim() ? 0 : -1;
+                openCombo(num);
+            });
+
+            input.addEventListener('keydown', e => {
+                const st = comboState[num];
+                if (e.key === 'ArrowDown')      { e.preventDefault(); if (panel.hidden) openCombo(num); else moveActive(num, 1); }
+                else if (e.key === 'ArrowUp')   { e.preventDefault(); moveActive(num, -1); }
+                else if (e.key === 'Enter')     {
+                    if (!panel.hidden && st.active >= 0 && st.items[st.active]) {
+                        e.preventDefault();
+                        chooseMachine(num, st.items[st.active].key);
+                    }
+                }
+                else if (e.key === 'Escape')    { closeCombo(num); syncComboFromSelect(num); input.blur(); }
+            });
+
+            panel.addEventListener('mousedown', e => {
+                const chip = e.target.closest('.chip');
+                const option = e.target.closest('.combo-option');
+                if (chip) {
+                    e.preventDefault();
+                    if (chip.dataset.action === 'custom') { closeCombo(num); openCustomBuild(num); return; }
+                    comboState[num].family = chip.dataset.family;
+                    comboState[num].active = -1;
+                    renderCombo(num);
+                } else if (option) {
+                    e.preventDefault();
+                    chooseMachine(num, option.dataset.key);
+                }
+            });
+
+            document.querySelector(`.combo-clear[data-num="${num}"]`).addEventListener('click', () => {
+                comboState[num].q = '';
+                comboState[num].family = 'all';
+                document.getElementById('computer' + num).value = '';
+                input.value = '';
+                document.getElementById('results').style.display = 'none';
+                input.focus();
+            });
+        });
+
+        document.addEventListener('mousedown', e => {
+            [1, 2].forEach(num => {
+                if (!e.target.closest(`.combo[data-num="${num}"]`)) {
+                    const panel = document.getElementById('combo-panel-' + num);
+                    if (!panel.hidden) { closeCombo(num); syncComboFromSelect(num); }
+                }
+            });
+        });
+
+        document.getElementById('workload-controls').addEventListener('input', e => {
+            const range = e.target.closest('.mem-range');
+            if (!range || !currentPair.c1) return;
+            const side = range.dataset.side;
+            const base = side === 'a' ? currentPair.c1 : currentPair.c2;
+            workloadMemory[side] = base.memory_options[Number(range.value)];
+            const text = formatMemoryStorage(workloadMemory[side]);
+            const readout = document.querySelector(`.mem-now[data-now="${side}"]`);
+            if (readout) readout.textContent = text;
+            const sheetCell = document.querySelector(`[data-spec="memory-${side}"]`);
+            if (sheetCell) sheetCell.textContent = text;
+            renderWorkloadRows(currentPair.c1, currentPair.c2);
+        });
+
         // Initialize
         loadReferenceData().then(() => {
             populateDropdowns();
@@ -4597,24 +4995,9 @@
         document.getElementById('tl-fit').addEventListener('click', () => setTimelineMode('fit'));
         document.getElementById('tl-all').addEventListener('click', () => setTimelineMode('all'));
 
-        // Event listeners with custom build detection
-        document.getElementById('computer1').addEventListener('change', function(e) {
-            if (e.target.value === 'custom_build_1') {
-                e.target.value = ''; // Reset selection
-                openCustomBuild(1);
-            } else {
-                displayComparison();
-            }
-        });
-
-        document.getElementById('computer2').addEventListener('change', function(e) {
-            if (e.target.value === 'custom_build_2') {
-                e.target.value = ''; // Reset selection
-                openCustomBuild(2);
-            } else {
-                displayComparison();
-            }
-        });
+        // The picker drives the selects directly; custom builds open from its own control.
+        document.getElementById('computer1').addEventListener('change', displayComparison);
+        document.getElementById('computer2').addEventListener('change', displayComparison);
     </script>
 </body>
 </html>
